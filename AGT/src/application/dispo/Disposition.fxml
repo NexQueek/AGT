@@ -13,8 +13,8 @@
         <Label text="" />
     </placeholder>
         <columns>
-          <TableColumn fx:id="uid" prefWidth="75.0" text="U_ID" />
-          <TableColumn fx:id="plz" prefWidth="75.0" text="PLZ" />
+          <TableColumn fx:id="uid" prefWidth="90.0" text="U_ID" />
+          <TableColumn fx:id="plz" prefWidth="60.0" text="PLZ" />
             <TableColumn fx:id="ort" prefWidth="112.0" text="Ort" />
             <TableColumn fx:id="name" prefWidth="138.0" text="Name" />
             <TableColumn fx:id="mail" prefWidth="144.0" text="Mail" />
