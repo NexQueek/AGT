@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="859.0" prefWidth="1284.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.bewertung.BewertungController">
+   <children>
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="45.0" prefWidth="1284.0" text="Bewertung eintragen" underline="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="78.0" text="Unternehmen:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="unternehmen" layoutX="173.0" layoutY="78.0" prefHeight="32.0" prefWidth="211.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Button layoutX="1090.0" layoutY="176.0" mnemonicParsing="false" onAction="#hochladen" prefHeight="16.0" prefWidth="178.0" text="Bild hochladen" />
+      <Label layoutX="25.0" layoutY="169.0" text="Rechnungsnummer:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rechnungsnummer" layoutX="222.0" layoutY="169.0" prefHeight="39.0" prefWidth="138.0" />
+      <TextArea fx:id="beschrei" layoutX="25.0" layoutY="257.0" prefHeight="144.0" prefWidth="1240.0" />
+      <Separator layoutY="140.0" prefHeight="6.0" prefWidth="1281.0" style="-fx-background-color: lightgrey;" />
+      <Label layoutX="25.0" layoutY="225.0" text="Beschreibung:" underline="true">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="720.0" layoutY="169.0" text="Thematik:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="thematik" layoutX="820.0" layoutY="169.0" prefHeight="39.0" prefWidth="231.0" />
+      <Button layoutX="482.0" layoutY="797.0" mnemonicParsing="false" onAction="#bewertenLassen" text="bewerten lassen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="25.0" layoutY="698.0" text="Erreichbarkeit">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="300.0" layoutY="698.0" text="Sauberkeit">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="575.0" layoutY="699.0" text="Service">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="802.0" layoutY="701.0" text="Zuverlässigkeit">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="664.0" text="Bitte benoten:" underline="true">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="erreichbarkeitEintrag" layoutX="165.0" layoutY="695.0" prefHeight="39.0" prefWidth="80.0" />
+      <ComboBox fx:id="punktlichkeitEintrag" layoutX="440.0" layoutY="695.0" prefHeight="39.0" prefWidth="80.0" />
+      <ComboBox fx:id="serviceEintrag" layoutX="661.0" layoutY="695.0" prefHeight="39.0" prefWidth="80.0" />
+      <ComboBox fx:id="zuverlässigkeitEintrag" layoutX="971.0" layoutY="698.0" prefHeight="39.0" prefWidth="80.0" />
+      <Label layoutX="575.0" layoutY="100.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextArea editable="false" layoutX="1071.0" layoutY="653.0" prefHeight="192.0" prefWidth="194.0" text="*Benotung&#10;1 = sehr gut&#10;2 = gut&#10;3 = befriedigend&#10;4 = ausreichend&#10;5 = schlecht&#10;6 = sehr schlecht" />
+      <Label layoutX="25.0" layoutY="405.0" text="Lösung:" underline="true">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="loesung" layoutX="25.0" layoutY="437.0" prefHeight="211.0" prefWidth="1240.0" />
+      <Button fx:id="farb" layoutX="542.0" layoutY="761.0" mnemonicParsing="false" onAction="#reset" text="Farbreset" />
+   </children>
+</Pane>

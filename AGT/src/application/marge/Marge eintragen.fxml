@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane fx:id="unternehmer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1020.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.marge.MargeController">
+   <children>
+      <Label layoutX="743.0" layoutY="30.0" text="Marge eintragen" underline="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="160.0" text="Einkaufspreis:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="425.0" layoutY="149.0" prefHeight="848.0" prefWidth="1186.0">
+        <columns>
+          <TableColumn fx:id="nr" prefWidth="171.0" text="Nr." />
+          <TableColumn fx:id="ekpreis" prefWidth="166.66668701171875" text="EK-Preis" />
+            <TableColumn fx:id="vkpreis" prefWidth="153.33331298828125" text="Vk-Preis" />
+            <TableColumn fx:id="margeEur" prefWidth="225.6666259765625" text="Marge in EUR" />
+            <TableColumn fx:id="margePro" prefWidth="123.666748046875" text="Marge in %" />
+            <TableColumn fx:id="unternehmen" prefWidth="300.333251953125" text="Unternehmen" />
+            <TableColumn fx:id="teamTable" prefWidth="171.0" text="Team" />
+            <TableColumn fx:id="rNummer" prefWidth="171.0" text="R_Nummer" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TextField fx:id="Einkaufspreis" layoutX="220.0" layoutY="160.0" prefHeight="32.0" prefWidth="149.0" />
+      <TextField fx:id="Verkaufspreis" layoutX="220.0" layoutY="220.0" prefHeight="32.0" prefWidth="149.0" />
+      <TextField fx:id="Unternehmen" layoutX="220.0" layoutY="280.0" prefHeight="32.0" prefWidth="149.0" />
+      <TextField fx:id="team" layoutX="220.0" layoutY="340.0" prefHeight="32.0" prefWidth="149.0" />
+      <TextField fx:id="rnummer" layoutX="220.0" layoutY="400.0" prefHeight="32.0" prefWidth="149.0" />
+      <Label layoutX="45.0" layoutY="220.0" text="Verkaufspreis:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="280.0" text="U_ID:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Button layoutX="250.0" layoutY="573.0" mnemonicParsing="false" onAction="#eintragen" text="eintragen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="117.0" layoutY="949.0" mnemonicParsing="false" onAction="#abschicken" text="Marge abschicken">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="45.0" layoutY="340.0" text="Team:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="400.0" text="R-Nummer:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="458.0" prefHeight="32.0" prefWidth="156.0" text="Kalenderwoche:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="kalenderWoche" layoutX="247.0" layoutY="458.0" prefHeight="32.0" prefWidth="122.0" />
+      <TextField fx:id="jahr" layoutX="247.0" layoutY="504.0" prefHeight="32.0" prefWidth="122.0" />
+      <Label layoutX="45.0" layoutY="504.0" prefHeight="32.0" prefWidth="156.0" text="Jahr">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

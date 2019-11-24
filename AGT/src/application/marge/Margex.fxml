@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root prefHeight="1020.0" prefWidth="1700.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="table" layoutX="20.0" layoutY="61.0" prefHeight="950.0" prefWidth="1292.0">
+       <placeholder>
+        <Label text="" />
+    </placeholder>
+        <columns>
+          <TableColumn fx:id="kalenderwochen" prefWidth="150.0" text="Kalenderwochen" />
+          <TableColumn fx:id="vorgang" minWidth="0.0" prefWidth="143.0" text="Vorgänge" />
+            <TableColumn fx:id="umsatz" prefWidth="314.3333740234375" text="Umsätze" />
+            <TableColumn fx:id="ekpreise" prefWidth="192.0" text="EK-Preise" />
+            <TableColumn fx:id="marge" prefWidth="229.6666259765625" text="Marge" />
+            <TableColumn fx:id="margep" prefWidth="262.0" text="Marge in %" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button layoutX="1410.0" layoutY="245.0" mnemonicParsing="false" onAction="#eintragen" text="Marge eintragen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="1342.0" layoutY="61.0" text="Jahresumsatz:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="jahresUms" layoutX="1557.0" layoutY="61.0" prefHeight="32.0" prefWidth="117.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="1342.0" layoutY="111.0" text="Jahresmarge in EUR:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="jahresMar" layoutX="1557.0" layoutY="111.0" prefHeight="32.0" prefWidth="117.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="1344.0" layoutY="161.0" text="Jahresmarge in %:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="JahresMarProz" layoutX="1557.0" layoutY="161.0" prefHeight="32.0" prefWidth="117.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="645.0" layoutY="15.0" text="Übersicht" underline="true">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Separator layoutX="1333.0" layoutY="352.0" prefHeight="9.0" prefWidth="361.0" style="-fx-background-color: lightgrey;" />
+      <Separator layoutX="1327.0" layoutY="6.0" orientation="VERTICAL" prefHeight="1008.0" prefWidth="6.0" style="-fx-background-color: lightgrey;" />
+      <Label layoutX="1417.0" layoutY="15.0" text="Zusammenfassung" underline="true">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>

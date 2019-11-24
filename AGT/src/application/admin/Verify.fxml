@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="927.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.admin.VerifyController">
+   <children>
+      <Button fx:id="send" layoutX="28.0" layoutY="863.0" mnemonicParsing="false" onAction="#bearbeitungSenden" prefHeight="39.0" prefWidth="280.0" text="Absenden">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="close" layoutX="411.0" layoutY="863.0" mnemonicParsing="false" onAction="#closewindow" prefHeight="30.0" prefWidth="280.0" text="Abbrechen">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="208.0" layoutY="15.0" prefHeight="45.0" prefWidth="301.0" text="Bewertung verifizieren" textAlignment="CENTER">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="55.0" prefHeight="50.0" prefWidth="170.0" text="Unternehmen">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="125.0" prefHeight="50.0" prefWidth="273.0" text="Rechnungsnummer">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="190.0" prefHeight="50.0" prefWidth="155.0" text="Thematik">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="255.0" prefHeight="50.0" prefWidth="155.0" text="Bild">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="385.0" prefHeight="50.0" prefWidth="199.0" text="Beschreibung">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="560.0" prefHeight="50.0" prefWidth="199.0" text="Lösung">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="716.0" prefHeight="50.0" prefWidth="160.0" text="Erreichbarkeit">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rechnungsnummer" layoutX="302.0" layoutY="131.0" prefHeight="39.0" prefWidth="401.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="thematik" layoutX="302.0" layoutY="196.0" prefHeight="39.0" prefWidth="401.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <Label fx:id="unternehmen" layoutX="302.0" layoutY="65.0" prefHeight="30.0" prefWidth="401.0" style="-fx-background-color: lightgray;">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="suchen1" layoutX="302.0" layoutY="265.0" mnemonicParsing="false" onAction="#bildAnzeigen" prefHeight="30.0" prefWidth="401.0" text="Bild anzeigen lassen">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="beschreibung" layoutX="302.0" layoutY="325.0" prefHeight="191.0" prefWidth="401.0" />
+      <TextArea fx:id="lösung" layoutX="302.0" layoutY="517.0" prefHeight="206.0" prefWidth="401.0" />
+      <Label layoutX="205.0" layoutY="716.0" prefHeight="50.0" prefWidth="160.0" text="Sauberkeit">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="395.0" layoutY="716.0" prefHeight="50.0" prefWidth="160.0" text="Service">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="531.0" layoutY="716.0" prefHeight="50.0" prefWidth="160.0" text="Zuverlässigkeit">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="service" layoutX="395.0" layoutY="766.0" prefHeight="39.0" prefWidth="88.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="zuverlassig" layoutX="568.0" layoutY="766.0" prefHeight="39.0" prefWidth="88.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="sauber" layoutX="224.0" layoutY="766.0" prefHeight="39.0" prefWidth="88.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="erreichbar" layoutX="36.0" layoutY="766.0" prefHeight="39.0" prefWidth="88.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root prefHeight="1020.0" prefWidth="1700.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="auskunftPLZ" layoutX="20.0" layoutY="100.0" prefHeight="39.0" prefWidth="122.0" />
+      <Label layoutX="20.0" layoutY="61.0" text="Postleitzahl:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Button layoutX="1123.0" layoutY="84.0" mnemonicParsing="false" onAction="#auskunft_suchen" text="Auskunft geben">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="607.0" layoutY="61.0" text="Datum von:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="854.0" layoutY="61.0" text="Datum bis:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Button layoutX="1401.0" layoutY="84.0" mnemonicParsing="false" onAction="#auskunftEintragen" text="eintragen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tabelle" layoutX="20.0" layoutY="151.0" prefHeight="846.0" prefWidth="1648.0">
+        <columns>
+          <TableColumn fx:id="aid" prefWidth="58.0" text="A_ID" />
+          <TableColumn fx:id="datumEintragung" editable="false" prefWidth="201.0" text="Datum der Eintragung" />
+            <TableColumn fx:id="eingetragenVon" prefWidth="187.0" text="eingetragen von" />
+            <TableColumn editable="false" prefWidth="201.0" text="Veranstaltung">
+               <columns>
+                  <TableColumn fx:id="plz" prefWidth="230.0" text="Postleitzahl" />
+                  <TableColumn fx:id="artVeranstaltung" prefWidth="144.0" text="Art" />
+                  <TableColumn fx:id="datumVeranstaltung" prefWidth="295.0" text="Datum" />
+                  <TableColumn fx:id="name" prefWidth="152.0" text="Name" />
+               </columns>
+            </TableColumn>
+            <TableColumn fx:id="anzahl" prefWidth="154.0" text="Anzahl der Busse" />
+            <TableColumn fx:id="rechnungsnummer" prefWidth="177.0" text="Rechnungsnummer" />
+            <TableColumn fx:id="distanzTable" prefWidth="177.0" text="Distanz" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button layoutX="1569.0" layoutY="84.0" mnemonicParsing="false" onAction="#auskunftAendern" text="ändern">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Separator layoutX="1360.0" layoutY="39.0" orientation="VERTICAL" prefHeight="108.0" prefWidth="13.0" />
+      <DatePicker fx:id="auskunftDatumVon" layoutX="607.0" layoutY="100.0" prefHeight="39.0" prefWidth="174.0" />
+      <DatePicker fx:id="auskunftDatumBis" layoutX="854.0" layoutY="100.0" prefHeight="39.0" prefWidth="174.0" />
+      <Label layoutX="207.0" layoutY="61.0" text="im Umkreis:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="umkreis" layoutX="203.0" layoutY="100.0" prefHeight="39.0" prefWidth="122.0" />
+      <CheckBox fx:id="umkreisAktiv" layoutX="347.0" layoutY="100.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="239.0" text="Umkreis aktivieren">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </CheckBox>
+      <Separator layoutX="1079.0" layoutY="39.0" orientation="VERTICAL" prefHeight="108.0" prefWidth="6.0" />
+      <Label layoutX="545.0" layoutY="15.0" text="Suchoptionen" underline="true">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="1129.0" layoutY="15.0" text="Suche ausführen" underline="true">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="1485.0" layoutY="15.0" text="Auskunft" underline="true">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>

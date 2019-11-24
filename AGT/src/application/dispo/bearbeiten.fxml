@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="900.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.dispo.hinzuController">
+   <children>
+      <Button fx:id="send" layoutX="14.0" layoutY="796.0" mnemonicParsing="false" onAction="#bearbeitungSenden" prefHeight="90.0" prefWidth="280.0" text="Absenden">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
+      <Button fx:id="close" layoutX="306.0" layoutY="796.0" mnemonicParsing="false" onAction="#closewindow" prefHeight="90.0" prefWidth="280.0" text="Abbrechen">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" prefHeight="30.0" prefWidth="577.0" text="Unternehmen bearbeiten" textAlignment="CENTER" textFill="#d0cbd0">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="55.0" prefHeight="50.0" prefWidth="155.0" text="PLZ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="125.0" prefHeight="50.0" prefWidth="155.0" text="Ort">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="190.0" prefHeight="50.0" prefWidth="155.0" text="Name">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="255.0" prefHeight="50.0" prefWidth="155.0" text="Mail">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="320.0" prefHeight="50.0" prefWidth="199.0" text="Telefon">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="385.0" prefHeight="50.0" prefWidth="199.0" text="Mobil">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="450.0" prefHeight="50.0" prefWidth="199.0" text="Dispoleiter/Chef">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="515.0" prefHeight="50.0" prefWidth="199.0" text="Fahrzeugegröße">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="580.0" prefHeight="50.0" prefWidth="199.0" text="Fahrzeugfarbe">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="645.0" prefHeight="50.0" prefWidth="199.0" text="Fahrzeugtyp">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="710.0" prefHeight="50.0" prefWidth="280.0" text="Besonderheiten">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="plz" layoutX="309.0" layoutY="65.0" prefHeight="30.0" prefWidth="280.0" />
+      <TextField fx:id="ort" layoutX="309.0" layoutY="135.0" prefHeight="30.0" prefWidth="280.0" />
+      <TextField fx:id="name" layoutX="309.0" layoutY="200.0" prefHeight="30.0" prefWidth="280.0" />
+      <TextField fx:id="mail" layoutX="309.0" layoutY="265.0" prefHeight="30.0" prefWidth="280.0" />
+      <TextField fx:id="telefon" layoutX="309.0" layoutY="330.0" prefHeight="30.0" prefWidth="280.0" />
+      <TextField fx:id="mobil" layoutX="309.0" layoutY="395.0" prefHeight="30.0" prefWidth="280.0" />
+      <TextField fx:id="chef" layoutX="309.0" layoutY="460.0" prefHeight="30.0" prefWidth="280.0" />
+      <TextField fx:id="groesse" layoutX="309.0" layoutY="525.0" prefHeight="30.0" prefWidth="280.0" />
+      <TextField fx:id="farbe" layoutX="306.0" layoutY="590.0" prefHeight="30.0" prefWidth="280.0" />
+      <TextField fx:id="typ" layoutX="309.0" layoutY="655.0" prefHeight="30.0" prefWidth="280.0" />
+      <TextField fx:id="besonderheiten" layoutX="309.0" layoutY="720.0" prefHeight="30.0" prefWidth="280.0" />
+   </children>
+</AnchorPane>

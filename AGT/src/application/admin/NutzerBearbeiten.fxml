@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="664.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.admin.AdminController">
+   <children>
+      <Button fx:id="send" layoutX="14.0" layoutY="596.0" mnemonicParsing="false" onAction="#bearbeitungSenden" prefHeight="39.0" prefWidth="280.0" text="Absenden">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="close" layoutX="304.0" layoutY="596.0" mnemonicParsing="false" onAction="#closewindow" prefHeight="30.0" prefWidth="280.0" text="Abbrechen">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="125.0" layoutY="14.0" prefHeight="45.0" prefWidth="301.0" text="Nutzer bearbeiten" textAlignment="CENTER">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="55.0" prefHeight="50.0" prefWidth="170.0" text="Username">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="125.0" prefHeight="50.0" prefWidth="273.0" text="Passwort">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="-40.0" layoutY="196.0" prefHeight="50.0" prefWidth="617.0" text="Rechte">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="260.0" prefHeight="50.0" prefWidth="199.0" text="Disposition">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ort" layoutX="178.0" layoutY="131.0" prefHeight="39.0" prefWidth="401.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="ort1" layoutX="178.0" layoutY="61.0" prefHeight="39.0" prefWidth="401.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Separator layoutX="2.0" layoutY="246.0" prefHeight="10.0" prefWidth="547.0" />
+      <CheckBox fx:id="dispo" layoutX="516.0" layoutY="256.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="19.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="auskunft" layoutX="516.0" layoutY="317.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="19.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <Label layoutX="14.0" layoutY="314.0" prefHeight="50.0" prefWidth="199.0" text="Auskunft">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="418.0" prefHeight="50.0" prefWidth="199.0" text="Bewertung">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="bewertung" layoutX="516.0" layoutY="421.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="19.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="marge" layoutX="516.0" layoutY="371.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="19.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <Label layoutX="14.0" layoutY="368.0" prefHeight="50.0" prefWidth="199.0" text="Marge">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="13.0" layoutY="477.0" prefHeight="50.0" prefWidth="199.0" text="Zubehör">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="zubehoer" layoutX="516.0" layoutY="480.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="19.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="admin" layoutX="516.0" layoutY="530.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="19.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <Label layoutX="13.0" layoutY="527.0" prefHeight="50.0" prefWidth="199.0" text="Admin">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

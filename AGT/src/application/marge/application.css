@@ -1,0 +1,72 @@
+.tab{
+	
+	-fx-legend-side: right;
+	
+	/*-fx-background-color:radial-gradient( focus-angle 0.0deg, focus-distance 0.0%, center 50.0% 50.0%, radius 100.0%, rgb(230,230,230) 0.0, rgb(51,77,179) 100.0 )
+	*/
+}
+.tab:disabled 
+{
+-fx-background-color: grey 
+}
+.tab:selected 
+{
+-fx-background-color: aquamarine  
+}
+
+.tab:hover
+{
+	-fx-background-color: lightblue
+}
+
+.tab:disabled:hover
+{
+	-fx-background-color: grey
+}
+
+.button:hover{
+	
+	-fx-background-color: rgb(171,183,214)
+}
+.button {
+	-fx-background-color: linear-gradient( from 0.0% 0.0% to 0.0% 100.0%, rgb(179,204,255) 0.0, rgb(179,179,179) 100.0);
+	
+}
+.table-view {
+    -fx-base: transparent;
+    -fx-background-color: transparent;
+}
+
+
+
+.root {
+	-fx-background-color:radial-gradient( focus-angle 0.0deg, focus-distance 0.0%, center 50.0% 50.0%, radius 100.0%, rgb(230,230,230) 0.0, rgb(51,77,179) 100.0 );
+	
+}
+
+.label {
+	 
+}
+.bast {
+   
+}
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-background-color:  gray; 
+}
+.table-view .column-header .label{
+   -fx-text-fill: white;
+   -fx-font-weight: bold; 
+   -fx-alignment: CENTER_LEFT;
+}
+.table-view .cell{
+   -fx-cell-size: 50;
+  -fx-alignment: center-left;
+  -fx-background-color: #29292D;
+  -fx-border-color: gray;
+  -fx-text-fill: lightgray;
+  -fx-alignment: CENTER_LEFT;
+}
+
+

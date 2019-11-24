@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.freimeldung.FreimeldungController">
+   <children>
+      <Label layoutX="157.0" layoutY="14.0" text="Freimelung eintragen" underline="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="120.0" text="R-Nummer:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="180.0" text="PLZ:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="240.0" text="Ort:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="300.0" text="Unternehmen:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="360.0" text="Datum von:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="420.0" text="Datum bis:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="480.0" text="Busmodel:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="r_nummer" layoutX="248.0" layoutY="117.0" prefHeight="39.0" prefWidth="200.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="plz" layoutX="248.0" layoutY="177.0" prefHeight="39.0" prefWidth="200.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="ort" layoutX="248.0" layoutY="237.0" prefHeight="39.0" prefWidth="200.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="unternehmen" layoutX="248.0" layoutY="297.0" prefHeight="39.0" prefWidth="200.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <Label layoutX="40.0" layoutY="540.0" text="Busplätze:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="busplaetze" layoutX="248.0" layoutY="537.0" prefHeight="39.0" prefWidth="122.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <ComboBox fx:id="busmodel" layoutX="248.0" layoutY="477.0" prefHeight="39.0" prefWidth="200.0" />
+      <Button layoutX="231.0" layoutY="618.0" mnemonicParsing="false" onAction="#eintragen" text="eintragen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <DatePicker fx:id="datum_von" layoutX="248.0" layoutY="357.0" prefHeight="39.0" prefWidth="200.0" />
+      <DatePicker fx:id="datum_bis" layoutX="248.0" layoutY="417.0" prefHeight="39.0" prefWidth="200.0" />
+   </children>
+</Pane>

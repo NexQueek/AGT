@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1020.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <left>
+      <ToolBar orientation="VERTICAL" prefHeight="1020.0" prefWidth="200.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="dispoButton" mnemonicParsing="false" onAction="#onBtnAClick" prefHeight="70.0" prefWidth="200.0" styleClass="bast" text="Disposition">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Separator prefWidth="200.0" />
+            <Button fx:id="freimeldung" mnemonicParsing="false" onAction="#freimelden" prefHeight="70.0" prefWidth="200.0" styleClass="bast" text="Freimeldung">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Separator prefWidth="200.0" />
+            <Button fx:id="bewertungButton" mnemonicParsing="false" onAction="#onBtnBClick" prefHeight="70.0" prefWidth="200.0" styleClass="bast" text="Bewertung">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Separator prefWidth="200.0" />
+            <Button fx:id="auskunftButton" mnemonicParsing="false" onAction="#AuskunftOeffnen" prefHeight="70.0" prefWidth="200.0" styleClass="bast" text="Auskunft">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Separator prefWidth="200.0" />
+            <Button fx:id="zubehoerButton" mnemonicParsing="false" onAction="#onBtnCClick" prefHeight="70.0" prefWidth="200.0" styleClass="bast" text="Zubehör">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Separator prefWidth="200.0" />
+            <Button fx:id="margeButton" mnemonicParsing="false" onAction="#margeOpen" prefHeight="70.0" prefWidth="200.0" styleClass="bast" text="Marge">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Separator prefWidth="200.0" />
+            <Button fx:id="adminButton" mnemonicParsing="false" onAction="#adminOeffnen" prefHeight="70.0" prefWidth="200.0" styleClass="bast" text="Admin">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Separator prefWidth="200.0" />
+            <Label prefHeight="395.0" prefWidth="200.0" />
+            <Label fx:id="eingeloggt" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="196.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+        </items>
+      </ToolBar>
+   </left>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="start" mnemonicParsing="false" text="Zur Startseite">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#zurStartseit" text="Ausführen" />
+               </items></Menu>
+          <Menu mnemonicParsing="false" text="Help" />
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightgrey;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="402.0" layoutY="64.0" text="Herzlich Willkommen">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <Label fx:id="username" layoutX="863.0" layoutY="64.0" prefHeight="70.0" prefWidth="771.0" text="Username">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="setLogo" fitHeight="307.0" fitWidth="449.0" layoutX="14.0" layoutY="660.0" pickOnBounds="true" />
+            <ImageView fx:id="agtLogo" fitHeight="310.0" fitWidth="1216.0" layoutX="480.0" layoutY="732.0" pickOnBounds="true" />
+         </children></Pane>
+   </center>
+</BorderPane>

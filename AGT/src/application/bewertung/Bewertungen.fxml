@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="995.0" prefWidth="1700.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="tabelle" layoutX="20.0" layoutY="61.0" prefHeight="497.0" prefWidth="1400.0">
+       <placeholder>
+        <Label text="" />
+    </placeholder>
+        <columns>
+          <TableColumn fx:id="bid" prefWidth="53.0" text="B_ID" />
+          <TableColumn fx:id="nameUnternehmen" prefWidth="234.0" text="Name des Unternehmens" />
+            <TableColumn fx:id="bewertetVon" prefWidth="131.0" text="Bewertet von" />
+            <TableColumn fx:id="bewertetAm" prefWidth="136.0" text="Bewertete am" />
+            <TableColumn fx:id="rechnungsnummer" prefWidth="203.0" text="Rechnungsnummer" />
+            <TableColumn fx:id="Thematik" prefWidth="105.0" text="Thematik" />
+            <TableColumn prefWidth="537.0" text="Bewertungskriterien">
+               <columns>
+                  <TableColumn fx:id="erreichbar" prefWidth="143.0" text="Erreichbarkeit" />
+                  <TableColumn fx:id="zuverlassig" prefWidth="176.0" text="Zuverlässigkeit" />
+                  <TableColumn fx:id="service" prefWidth="83.0" text="Service" />
+                  <TableColumn fx:id="sauber" prefWidth="135.0" text="Sauberkeit" />
+               </columns>
+            </TableColumn>
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Separator layoutX="20.0" layoutY="563.0" prefHeight="10.0" prefWidth="1400.0" style="-fx-background-color: lightgrey;" />
+      <Separator layoutX="1426.0" layoutY="22.0" orientation="VERTICAL" prefHeight="936.0" prefWidth="10.0" style="-fx-background-color: lightgrey;" />
+      <Label fx:id="beschr" alignment="TOP_LEFT" layoutX="20.0" layoutY="578.0" prefHeight="380.0" prefWidth="1400.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Separator layoutX="1440.0" layoutY="563.0" prefHeight="10.0" prefWidth="258.0" style="-fx-background-color: lightgrey;" />
+      <Label fx:id="zuverlassigG" alignment="CENTER" layoutX="1618.0" layoutY="852.0" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="serviceG" alignment="CENTER" layoutX="1618.0" layoutY="812.0" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="sauberG" alignment="CENTER" layoutX="1618.0" layoutY="772.0" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="erreichbarkeitGanz" alignment="CENTER" layoutX="1618.0" layoutY="732.0" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="anzahlBewertung" alignment="CENTER" layoutX="1525.0" layoutY="678.0" prefHeight="32.0" prefWidth="89.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="1448.0" layoutY="772.0" text="Sauberkeit">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="1448.0" layoutY="812.0" text="Service:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="1448.0" layoutY="852.0" text="Zuverlässigkeit:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="1448.0" layoutY="732.0" text="Erreichbarkeit:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="1448.0" layoutY="646.0" text="Anzahl der Bewertungen:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="1524.0" layoutY="593.0" text="Info-Block" underline="true">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Button layoutX="1452.0" layoutY="121.0" mnemonicParsing="false" onAction="#suchen" prefHeight="48.0" prefWidth="233.0" text="suchen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <TextField fx:id="uID" layoutX="1599.0" layoutY="61.0" prefHeight="39.0" prefWidth="89.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="1452.0" layoutY="185.0" mnemonicParsing="false" onAction="#bewertungeintragen" text="Bewertung eintragen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="1448.0" layoutY="61.0" text="U_ID eingeben:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1503.0" layoutY="15.0" prefHeight="17.0" prefWidth="140.0" text="Suche" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="616.0" layoutY="15.0" prefHeight="32.0" prefWidth="359.0" text="Berwertungs-Informationen" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>

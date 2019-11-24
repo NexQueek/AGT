@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.auskunft.AuskunftController">
+   <children>
+      <Label layoutX="328.0" layoutY="34.0" text="Bearbeiten" underline="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="auskunft_abbrechen" layoutX="404.0" layoutY="661.0" mnemonicParsing="false" onAction="#fensterSchliessenBearbeiten" text="abbrechen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="auskunft_eintragen" layoutX="247.0" layoutY="661.0" mnemonicParsing="false" onAction="#bearbeitenAbschliessen" text="eintragen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <TextField fx:id="rehnungsnr" layoutX="404.0" layoutY="481.0" prefHeight="40.0" prefWidth="219.0" />
+      <TextField fx:id="anzahl" layoutX="404.0" layoutY="556.0" prefHeight="40.0" prefWidth="219.0" />
+      <Label layoutX="54.0" layoutY="481.0" text="Rechnungsnummer:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="556.0" text="Anzahl der Busse:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="PLZ" layoutX="404.0" layoutY="406.0" prefHeight="40.0" prefWidth="219.0" />
+      <Label layoutX="54.0" layoutY="331.0" text="Datum der Veranstalltung:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="name" layoutX="404.0" layoutY="256.0" prefHeight="40.0" prefWidth="350.0" />
+      <ComboBox fx:id="artderVeranstalltung" layoutX="404.0" layoutY="181.0" prefHeight="40.0" prefWidth="350.0" />
+      <Label layoutX="54.0" layoutY="181.0" text="Art der Veranstalltung:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="406.0" text="Postleitzahl der Veranstalltung:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="256.0" text="Name der Veranstalltung:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="106.0" text="Bitte geben SIe die A_ID ein:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="A_IDeingabe" layoutX="404.0" layoutY="106.0" prefHeight="40.0" prefWidth="219.0" />
+      <Button fx:id="sucher" layoutX="659.0" layoutY="102.0" mnemonicParsing="false" onAction="#bearbeitenSuchen" text="suchen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <DatePicker fx:id="datumBearbeiten" layoutX="404.0" layoutY="327.0" prefHeight="40.0" prefWidth="350.0" />
+   </children>
+</Pane>
