@@ -192,7 +192,7 @@ public class Disposition extends AnchorPane{
 	                    	
 	                    	
 	                    	for (Unternehmen unter : unternehmen) {
-								email = email + unter.getMail() + trenner;
+	                    		email = email + unter.getMail().replaceAll("\\s+","") + trenner;
 							}
 	   			         	try {
 								Desktop.getDesktop().mail(new URI("mailto:?bcc=" + email));
@@ -367,7 +367,7 @@ public class Disposition extends AnchorPane{
 				+ " (SELECT plz,ROUND((6371 * acos(cos(radians(  "+lat+")) * cos(radians( lat)) *"
 						+ " cos(radians( lon) - radians( "+lon+" )) + sin(radians( "+lat+" )) *"
 								+ " sin(radians( lat)))),0) as Distanz from plz.koordinaten having Distanz <="+umkreis+")"
-										+ " As SQ on SQ.plz=unternehmen.plz where Distanz <="+umkreis+";");
+										+ " As SQ on SQ.plz=unternehmen.plz where Distanz <="+umkreis+" group by unternehmen.U_ID;");
 		
 		while(rs.next())  {
 			
