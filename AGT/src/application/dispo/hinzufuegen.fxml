@@ -17,7 +17,7 @@
          <font>
             <Font size="30.0" />
          </font></Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" prefHeight="30.0" prefWidth="577.0" text="Unternehmen hinzufügen" textAlignment="CENTER" textFill="#d0cbd0">
+      <Label fx:id="titleHinzu" alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" prefHeight="30.0" prefWidth="577.0" text="Unternehmen hinzufügen" textAlignment="CENTER" textFill="#d0cbd0">
          <effect>
             <InnerShadow />
          </effect>

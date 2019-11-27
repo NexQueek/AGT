@@ -54,6 +54,7 @@ public class hinzuController {
 	@FXML Button agree;
 	@FXML TextField uidBearbeitung;
 	@FXML Button suchen;
+	@FXML Label titleHinzu;
 
     @FXML
     void closewindow(ActionEvent event) {

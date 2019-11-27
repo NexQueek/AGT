@@ -5,24 +5,7 @@
 	/*-fx-background-color:radial-gradient( focus-angle 0.0deg, focus-distance 0.0%, center 50.0% 50.0%, radius 100.0%, rgb(230,230,230) 0.0, rgb(51,77,179) 100.0 )
 	*/
 }
-.tab:disabled 
-{
--fx-background-color: grey 
-}
-.tab:selected 
-{
--fx-background-color: aquamarine  
-}
 
-.tab:hover
-{
-	-fx-background-color: lightblue
-}
-
-.tab:disabled:hover
-{
-	-fx-background-color: grey
-}
 
 .button:hover{
 	
@@ -31,10 +14,6 @@
 .button {
 	-fx-background-color: linear-gradient( from 0.0% 0.0% to 0.0% 100.0%, rgb(179,204,255) 0.0, rgb(179,179,179) 100.0);
 	
-}
-.table-view {
-    -fx-base: transparent;
-    -fx-background-color: transparent;
 }
 
 
@@ -48,25 +27,74 @@
 	 
 }
 .bast {
-   
+	  -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+	-fx-font-family:  "Arial Black";
+	-fx-font-style: italic  ;
 }
+.bast:focused {
+	  -fx-background-color: 
+        #000000,
+        
+        
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: gray;
+    -fx-font-size: 20px;
+	-fx-font-family:  "Arial Black";
+	-fx-font-style: italic  ;
+}
+
 
 .table-view .column-header,
 .table-view .column-header-background .filler {
-    -fx-background-color:  gray; 
+   -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    	-fx-font-family:  "Arial Black";
 }
 .table-view .column-header .label{
-   -fx-text-fill: white;
+   -fx-text-fill: lightgray;
    -fx-font-weight: bold; 
-   -fx-alignment: CENTER_LEFT;
+   -fx-alignment: center;
+   
 }
+
 .table-view .cell{
-   -fx-cell-size: 50;
-  -fx-alignment: center-left;
-  -fx-background-color: #29292D;
-  -fx-border-color: gray;
-  -fx-text-fill: lightgray;
-  -fx-alignment: CENTER_LEFT;
+	-fx-alignment: center;
+	-fx-text-alignment: center ;
+	-fx-cell-size: 30pt;
+	-fx-font-size: 11pt;
+	-fx-text-fill: black;
+}
+.table-row-cell:focused,
+.table-row-cell:odd:focused{
+
+	-fx-background-color: white;
+	-fx-text-fill: black;
+}
+.table-row-cell{
+
+	-fx-background-color: lightgray;
+}
+.table-row-cell:odd{
+	
+	-fx-background-color: gray;
+	
+	
+   
 }
 
 

@@ -406,12 +406,13 @@ public class Disposition extends AnchorPane{
 
     @FXML
     void unternehmenHinzufuegen(ActionEvent event) throws IOException {
+    	UidObject.unternehmen=new Unternehmen("", "", "", "", "", "", "", "", "", "", "", "" ,"");
     	Stage primaryStage = new Stage();
     	Parent root = FXMLLoader.load(getClass().getResource("hinzufuegen.fxml"));  	
     	
     	root.getStylesheets().add(
 			    getClass().getResource("application.css").toExternalForm());
-    	UidObject.unternehmen=null;
+    	
 		primaryStage.setTitle("Unternehmen hinzufuegen"); 
 		primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));      
