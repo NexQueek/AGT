@@ -233,7 +233,7 @@ public class Disposition extends AnchorPane {
 	void suchen(ActionEvent event) throws SQLException {
 
 		ObservableList<Unternehmen> listeUnternehmen = null;
-		if(dropdownBedingung.equals("")){
+		if(dropdownBedingung.getText().equals("")|| dropdownBedingung.getText() == null){
 			listeUnternehmen = umkreisDaten(plzUmkreis.getText(), entfernungUmkreis.getText());	
 		}else {
 			listeUnternehmen = daten(dropdown.getSelectionModel().getSelectedItem(), dropdownBedingung.getText());
