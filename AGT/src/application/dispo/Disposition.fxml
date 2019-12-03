@@ -13,21 +13,14 @@
         <Label text="" />
     </placeholder>
         <columns>
-          <TableColumn fx:id="uid" prefWidth="75.0" text="U_ID" />
-          <TableColumn fx:id="plz" prefWidth="75.0" text="PLZ" />
+          <TableColumn fx:id="uid" prefWidth="103.0" text="U_ID" />
+          <TableColumn fx:id="plz" prefWidth="227.0" text="PLZ" />
             <TableColumn fx:id="ort" prefWidth="112.0" text="Ort" />
             <TableColumn fx:id="name" prefWidth="138.0" text="Name" />
             <TableColumn fx:id="mail" prefWidth="144.0" text="Mail" />
             <TableColumn fx:id="telefon" prefWidth="64.0" text="Telefon" />
             <TableColumn fx:id="mobil" prefWidth="114.0" text="Mobil" />
             <TableColumn fx:id="chef" prefWidth="151.0" text="Dispoleiter/Chef" />
-            <TableColumn fx:id="groesse1" prefWidth="181.0" text="Fahrzeuge">
-               <columns>
-                  <TableColumn fx:id="groesse" prefWidth="181.0" text="Größe" />
-                  <TableColumn fx:id="farbe" prefWidth="133.0" text="Farben" />
-                  <TableColumn fx:id="typ" prefWidth="165.0" text="Typ" />
-               </columns>
-            </TableColumn>
             <TableColumn fx:id="besonderheiten" prefWidth="180.0" text="Besonderheiten" />
             <TableColumn fx:id="bewertung" editable="false" prefWidth="122.0" text="Distanz in km" />
         </columns>
@@ -35,22 +28,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label layoutX="20.0" layoutY="61.0" prefHeight="17.0" prefWidth="140.0" text="Bedingung 1:">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label layoutX="20.0" layoutY="114.0" prefHeight="17.0" prefWidth="140.0" text="Bedingung 2:">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <TextField fx:id="ersteBedingung" layoutX="346.0" layoutY="61.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="zweiteBedingung" layoutX="346.0" layoutY="116.0">
+      <TextField fx:id="dropdownBedingung" layoutX="210.0" layoutY="81.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -60,7 +38,7 @@
             <Font size="22.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="110.0" layoutY="15.0" prefHeight="35.0" prefWidth="275.0" text="Suche nach Bedingung" underline="true">
+      <Label alignment="CENTER" layoutX="73.0" layoutY="15.0" prefHeight="35.0" prefWidth="275.0" text="Suche nach Bedingung" underline="true">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -70,27 +48,27 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="561.0" layoutY="116.0" prefHeight="32.0" prefWidth="157.0" text="Postleitzahl:">
+      <Label layoutX="20.0" layoutY="117.0" prefHeight="32.0" prefWidth="157.0" text="Postleitzahl:">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="plzUmkreis" layoutX="750.0" layoutY="116.0">
+      <TextField fx:id="plzUmkreis" layoutX="210.0" layoutY="117.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Label layoutX="561.0" layoutY="169.0" prefHeight="32.0" prefWidth="174.0" text="Entfernung in km:">
+      <Label layoutX="20.0" layoutY="151.0" prefHeight="32.0" prefWidth="174.0" text="Entfernung in km:">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="entfernungUmkreis" layoutX="750.0" layoutY="173.0">
+      <TextField fx:id="entfernungUmkreis" layoutX="210.0" layoutY="152.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Separator layoutX="521.0" layoutY="36.0" orientation="VERTICAL" prefHeight="180.0" prefWidth="54.0" />
+      <Separator layoutX="406.0" layoutY="42.0" orientation="VERTICAL" prefHeight="180.0" prefWidth="54.0" />
       <Separator layoutX="938.0" layoutY="36.0" orientation="VERTICAL" prefHeight="180.0" prefWidth="17.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1320.0" layoutY="15.0" prefHeight="35.0" prefWidth="275.0" text="Unternehmen" underline="true">
          <font>
@@ -103,22 +81,20 @@
             <Font size="22.0" />
          </font>
       </Button>
-      <ComboBox fx:id="suchwert" layoutX="174.0" layoutY="65.0" prefWidth="150.0" />
-      <ComboBox fx:id="suchwertZwei" layoutX="174.0" layoutY="119.0" prefWidth="150.0" promptText="optional" />
+      <ComboBox fx:id="dropdown" layoutX="20.0" layoutY="81.0" prefHeight="30.0" prefWidth="157.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="965.0" layoutY="15.0" prefHeight="35.0" prefWidth="275.0" text="Suche ausführen" underline="true">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <ComboBox fx:id="suchwertDrei" layoutX="174.0" layoutY="177.0" prefWidth="150.0" promptText="optional" />
-      <TextField fx:id="dritteBedingung" layoutX="346.0" layoutY="174.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Label layoutX="20.0" layoutY="172.0" prefHeight="17.0" prefWidth="140.0" text="Bedingung 3:">
+      <Label layoutX="20.0" layoutY="187.0" prefHeight="32.0" prefWidth="174.0" text="Ergebnisse">
          <font>
             <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="ergebnisse" alignment="CENTER" layoutX="211.0" layoutY="187.0" prefHeight="32.0" prefWidth="174.0" style="-fx-background-color: lightgrey;" textFill="#0a0a0a">
+         <font>
+            <Font size="18.0" />
          </font>
       </Label>
    </children>
