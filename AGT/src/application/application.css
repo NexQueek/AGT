@@ -19,8 +19,7 @@
 
 
 .root {
-	-fx-background-color:radial-gradient( focus-angle 0.0deg, focus-distance 0.0%, center 50.0% 50.0%, radius 100.0%, rgb(230,230,230) 0.0, rgb(51,77,179) 100.0 );
-	
+	-fx-background-color:rgb(113,135,177)
 }
 
 .label {
@@ -75,15 +74,15 @@
 .table-view .cell{
 	-fx-alignment: center;
 	-fx-text-alignment: center ;
-	-fx-cell-size: 30pt;
+	-fx-cell-size: 20pt;
 	-fx-font-size: 11pt;
 	-fx-text-fill: black;
 }
 .table-row-cell:focused,
 .table-row-cell:odd:focused{
 
-	-fx-background-color: white;
-	-fx-text-fill: black;
+	-fx-background-color:darkcyan ;
+	-fx-text-fill: white;
 }
 .table-row-cell{
 
@@ -91,7 +90,7 @@
 }
 .table-row-cell:odd{
 	
-	-fx-background-color: gray;
+	-fx-background-color: white;
 	
 	
    

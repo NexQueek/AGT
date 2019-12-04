@@ -18,7 +18,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Controller {
+public class Controller{
 
 	@FXML
     private Button bewertungButton;
