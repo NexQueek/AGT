@@ -243,7 +243,7 @@ public class Disposition extends AnchorPane {
 	 */
 	void datenSetzen() {
 		busFarbeTabelle.setCellValueFactory(new PropertyValueFactory<>("farbe"));
-		busPlatz.setCellValueFactory(new PropertyValueFactory<>("groesse"));
+		busPlatz.setCellValueFactory(new PropertyValueFactory<>("PlatzVonBis"));
 		busTyp.setCellValueFactory(new PropertyValueFactory<>("typ"));
 		// Otionen werden gesetzt
 		dropdownBus.setItems(optionsBusse);
@@ -445,10 +445,19 @@ public class Disposition extends AnchorPane {
 		String typ = dropdownBus.getSelectionModel().getSelectedItem();
 		String platz = vonPlatz.getText();
 		String farbe = busFarbe.getSelectionModel().getSelectedItem();
-
+		String regexZahl ="^([0-9]{1,2})$";
+		if(platz.matches(regexZahl)){
+			
+		}
 		Busse b = new Busse(null, null, typ, platz, farbe, null, null);
+		b.setPlatzBis(bisPlatz.getText());
 		listBusse.add(b);
 		busTabelle.setItems(listBusse);
+		
+		dropdownBus.getSelectionModel().clearSelection();
+		vonPlatz.setText("");
+		bisPlatz.setText("");
+		busFarbe.getSelectionModel().clearSelection();
 	}
 
 	@FXML
