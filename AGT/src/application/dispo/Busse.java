@@ -1,5 +1,7 @@
 package application.dispo;
 
+import javafx.scene.image.ImageView;
+
 public class Busse {
 
 	private String bid;
@@ -9,7 +11,33 @@ public class Busse {
 	private String farbe;
 	private String eigenschaft1;
 	private String eigenschaft2;
-	
+	private ImageView bild;
+	private String bildDatei;
+	public ImageView getBild() {
+		
+		if(bild == null){
+			
+		}else{
+			bild.setPreserveRatio(true);
+			bild.setFitWidth(120);
+			bild.setFitHeight(120);
+		}
+		
+		return bild;
+	}
+
+	public void setBild(ImageView bild) {
+		this.bild = bild;
+	}
+
+	public String getBildDatei() {
+		return bildDatei;
+	}
+
+	public void setBildDatei(String bildDatei) {
+		this.bildDatei = bildDatei;
+	}
+
 	private String sql;
 	private String platzBis;
 

@@ -19,10 +19,10 @@
           <TableColumn prefWidth="75.0" text="Buseigenschaften">
                <columns>
                   <TableColumn fx:id="typ" prefWidth="75.0" text="Typ" />
-                  <TableColumn fx:id="groesse" prefWidth="75.0" text="Größe" />
+                  <TableColumn fx:id="groesse" prefWidth="75.0" text="Plätze" />
+                  <TableColumn fx:id="e1" prefWidth="75.0" text="Reiseleiter" />
                   <TableColumn fx:id="farbe" prefWidth="75.0" text="Farbe" />
-                  <TableColumn fx:id="e1" prefWidth="75.0" text="Eigenschaft1" />
-                  <TableColumn fx:id="e2" prefWidth="75.0" text="Eigenschaft2" />
+                  <TableColumn fx:id="e2" prefWidth="75.0" text="Bild" />
                </columns>
             </TableColumn>
         </columns>

@@ -269,10 +269,10 @@ public class Disposition extends AnchorPane {
 		UidObject.unternehmen = e;
 		try {
 			root = FXMLLoader.load(getClass().getResource("Busse.fxml"));
-			root.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			root.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 
 			primaryStage.setTitle("Businformationen");
-			primaryStage.setResizable(false);
+			
 			primaryStage.setScene(new Scene(root));
 			primaryStage.show();
 		} catch (IOException e1) {
@@ -392,7 +392,7 @@ public class Disposition extends AnchorPane {
 		Parent root;
 		try {
 			root = FXMLLoader.load(getClass().getResource("bearbeiten.fxml"));
-			root.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			root.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			primaryStage.setTitle("Bearbeiten");
 			primaryStage.setScene(new Scene(root));
 			primaryStage.setResizable(false);
