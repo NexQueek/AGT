@@ -81,7 +81,7 @@
 .table-row-cell:focused,
 .table-row-cell:odd:focused{
 
-	-fx-background-color:darkcyan ;
+	-fx-background-color:steelblue ;
 	-fx-text-fill: white;
 }
 .table-row-cell{

@@ -270,9 +270,7 @@ public class Disposition extends AnchorPane {
 		try {
 			root = FXMLLoader.load(getClass().getResource("Busse.fxml"));
 			root.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-
 			primaryStage.setTitle("Businformationen");
-			
 			primaryStage.setScene(new Scene(root));
 			primaryStage.show();
 		} catch (IOException e1) {

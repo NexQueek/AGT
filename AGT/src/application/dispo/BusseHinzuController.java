@@ -56,10 +56,19 @@ public class BusseHinzuController {
 
 	@FXML
 	ImageView ViewMe;
-
+	/**
+	 * Zweck:<br>
+	 * Hier werden die Daten für den Bus hochgeladen<br>
+	 * <br>
+	 * Warum:<br>
+	 * Das PreparedStatment wird genutzt um das Bildhinzuzufügen und die Nummer 1-6 stehen für die Fragezeichen.<br>
+	 * Die Fragezeichen sind einfach nur Platzhalter.<br>
+	 * Sollte ein Fehler auftreten kommt über einen Alert ein Fenster mit der Fehlernachricht
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void einenHinzu(ActionEvent event) {
-		Image i = ViewMe.getImage();
 		ConnectMe c = new ConnectMe();
 		Connection con = c.getC();
 		System.out.println(imagePath);
@@ -74,9 +83,17 @@ public class BusseHinzuController {
 			pstmt.setBlob(6, in);
 			pstmt.execute();
 		} catch (SQLException | FileNotFoundException e) {
+			
+			 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		        alert.setTitle("Information Dialog");
+		        alert.setHeaderText("Fehler");
+		        alert.setContentText(e.getMessage()+"");
+		        alert.showAndWait();
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 	}
 
 	@FXML
@@ -91,12 +108,20 @@ public class BusseHinzuController {
 		farbe.setItems(optionsFarbe);
 
 	}
-
+	/**
+	 * Zweck:<br>
+	 * Button zum hochladen der beim event ein Dateibrowser öffnet und dort aus der File ein Image macht<br>
+	 * <br>
+	 * Warum:<br> 
+	 * Wir brauchen die Bild für das ImageView, damit der Nutzer sieht wie das Bild aussieht<br>
+	 * 
+	 * @param event
+	 */
 	@FXML
 	public void bildHoch(ActionEvent event) {
 		final FileChooser fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files",
+                new FileChooser.ExtensionFilter("Bilder",
                         "*.bmp", "*.png", "*.jpg", "*.gif"));
 		File file = fileChooser.showOpenDialog(new Stage());
 		if(file != null) {
