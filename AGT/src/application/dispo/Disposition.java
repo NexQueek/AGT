@@ -285,8 +285,36 @@ public class Disposition extends AnchorPane {
 
 		ObservableList<Unternehmen> listeUnternehmen = null;
 		if (dropdownBedingung.getText().equals("") || dropdownBedingung.getText() == null) {
-			listeUnternehmen = umkreisDaten(plzUmkreis.getText(), entfernungUmkreis.getText());
+			// Umkreis ohne Busse
+			switch (listBusse.size()) {
+			case 0:
+				listeUnternehmen = umkreisDaten(plzUmkreis.getText(), entfernungUmkreis.getText());
+				break;
+			case 1:
+				listeUnternehmen = umkreisMitEinemBus(plzUmkreis.getText(), entfernungUmkreis.getText());
+				System.out.println("1");
+				break;
+
+			case 2:
+				listeUnternehmen = umkreisMitZweiBus(plzUmkreis.getText(), entfernungUmkreis.getText());
+				System.out.println("2");
+
+				break;
+			case 3:
+				listeUnternehmen = umkreisMitDreiBus(plzUmkreis.getText(), entfernungUmkreis.getText());
+				System.out.println("3");
+				break;
+
+			default:
+				Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Information Dialog");
+				alert.setHeaderText("Bitte nur maximal drei Busse auswählen");
+				/* alert.setContentText("You didn't select a file!"); */
+				alert.showAndWait();
+			}
+
 		} else {
+
 			listeUnternehmen = daten(dropdown.getSelectionModel().getSelectedItem(), dropdownBedingung.getText());
 		}
 
@@ -370,7 +398,11 @@ public class Disposition extends AnchorPane {
 				+ " cos(radians( lon) - radians( " + lon + " )) + sin(radians( " + lat + " )) *"
 				+ " sin(radians( lat)))),0) as Distanz from plz.koordinaten having Distanz <=" + umkreis + ")"
 				+ " As SQ on SQ.plz=unternehmen.plz where Distanz <=" + umkreis + " group by unternehmen.U_ID;");
-
+		System.out.println(("Select Distinct unternehmen.*, Distanz From  Unternehmen Left Outer Join"
+				+ " (SELECT plz,ROUND((6371 * acos(cos(radians(  " + lat + ")) * cos(radians( lat)) *"
+				+ " cos(radians( lon) - radians( " + lon + " )) + sin(radians( " + lat + " )) *"
+				+ " sin(radians( lat)))),0) as Distanz from plz.koordinaten having Distanz <=" + umkreis + ")"
+				+ " As SQ on SQ.plz=unternehmen.plz where Distanz <=" + umkreis + " group by unternehmen.U_ID;"));
 		while (rs.next()) {
 
 			Unternehmen e = new Unternehmen(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
@@ -441,17 +473,21 @@ public class Disposition extends AnchorPane {
 	@FXML
 	void busHinzu(ActionEvent event) {
 		String typ = dropdownBus.getSelectionModel().getSelectedItem();
+		
 		String platz = vonPlatz.getText();
 		String farbe = busFarbe.getSelectionModel().getSelectedItem();
-		String regexZahl ="^([0-9]{1,2})$";
-		if(platz.matches(regexZahl)){
-			
+		if (farbe==null) {
+			farbe="";
+		}
+		String regexZahl = "^([0-9]{1,2})$";
+		if (platz.matches(regexZahl)) {
+
 		}
 		Busse b = new Busse(null, null, typ, platz, farbe, null, null);
 		b.setPlatzBis(bisPlatz.getText());
 		listBusse.add(b);
 		busTabelle.setItems(listBusse);
-		
+
 		dropdownBus.getSelectionModel().clearSelection();
 		vonPlatz.setText("");
 		bisPlatz.setText("");
@@ -462,6 +498,167 @@ public class Disposition extends AnchorPane {
 	void busReset(ActionEvent event) {
 		listBusse.clear();
 		busTabelle.setItems(listBusse);
+	}
+
+	/**
+	 * Zweck:<br>
+	 * Wenn ein bus gewählt wird soll ein Join gemacht werden.<br>
+	 * <br>
+	 * Warum:<br>
+	 * Mir ist bis jetzt keine bessere SQL Suche eingefallen die performant und
+	 * zordnung schafft und gleichzeitig autmatisiert werden kann.
+	 * 
+	 * @param plz
+	 * @param umkreis
+	 * @return
+	 * @throws SQLException
+	 */
+	public ObservableList<Unternehmen> umkreisMitEinemBus(String plz, String umkreis) throws SQLException {
+		double lat = 0.0;
+		double lon = 0.0;
+		ObservableList<Unternehmen> list = FXCollections.observableArrayList();
+		ConnectMe c = new ConnectMe();
+		Statement stmt = c.getStatement();
+		// 1. Schritt lon und lat
+		ResultSet rs1 = stmt.executeQuery("Select lat,lon from plz.koordinaten where plz =" + plz + "; ");
+
+		while (rs1.next()) {
+			lat = rs1.getDouble(1);
+			lon = rs1.getDouble(2);
+		}
+		Busse b = listBusse.get(0);
+		b.getTyp();
+		
+		ResultSet rs = stmt.executeQuery(
+				"SELECT  Da.* FROM ((SELECT DISTINCT unternehmen.*, "
+				+ "Distanz FROM Unternehmen LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS("+lat+")) *"
+				+ " COS(RADIANS(lat)) * COS(RADIANS(lon) - RADIANS("+lon+")) + SIN(RADIANS("+lat+")) * "
+				+ "SIN(RADIANS(lat)))), 0) AS Distanz FROM plz.koordinaten HAVING Distanz <= "+umkreis+") AS SQ ON SQ.plz"
+				+ " = unternehmen.plz WHERE Distanz <= "+umkreis+") AS Da inner join (Select * From busse"
+				+ " where typ ='"+b.getTyp()+"' and groesse between "+b.getGroesse()+" and "+b.getPlatzBis()+" and Farbe like '%"+b.getFarbe()+"') as T1 on Da.U_ID = T1.U_ID )group by Da.U_ID;");
+		System.out.println();
+		while (rs.next()) {
+
+			Unternehmen e = new Unternehmen(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+					rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
+					rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13));
+			e.setDistanz(rs.getString(14));
+			list.add(e);
+		}
+
+		return list;
+	}
+
+	/**
+	 * Zweck:<br>
+	 * Wenn 2 busse gewählt wird soll ein Join gemacht werden.<br>
+	 * <br>
+	 * Warum:<br>
+	 * Mir ist bis jetzt keine bessere SQL Suche eingefallen die performant und
+	 * zordnung schafft und gleichzeitig autmatisiert werden kann.
+	 * 
+	 * @param plz
+	 * @param umkreis
+	 * @return
+	 * @throws SQLException
+	 */
+	public ObservableList<Unternehmen> umkreisMitZweiBus(String plz, String umkreis) throws SQLException {
+		double lat = 0.0;
+		double lon = 0.0;
+		ObservableList<Unternehmen> list = FXCollections.observableArrayList();
+		ConnectMe c = new ConnectMe();
+		Statement stmt = c.getStatement();
+		// 1. Schritt lon und lat
+		ResultSet rs1 = stmt.executeQuery("Select lat,lon from plz.koordinaten where plz =" + plz + "; ");
+
+		while (rs1.next()) {
+			lat = rs1.getDouble(1);
+			lon = rs1.getDouble(2);
+		}
+		Busse bs1 = listBusse.get(0);
+		Busse bs2 = listBusse.get(1);
+
+		ResultSet rs = stmt.executeQuery("SELECT Da.* FROM ((SELECT DISTINCT unternehmen.*, Distanz FROM Unternehmen"
+				+ " LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS("+lat+")) * COS(RADIANS(lat))"
+				+ " * COS(RADIANS(lon) - RADIANS("+lon+")) + SIN(RADIANS("+lat+")) * SIN(RADIANS(lat)))), 0)"
+				+ " AS Distanz FROM plz.koordinaten HAVING Distanz <= "+umkreis+") AS SQ ON SQ.plz = unternehmen.plz WHERE Distanz <= "+umkreis+")"
+				+ " AS Da inner join (Select T1.U_ID From(Select * From busse where typ ='"+bs1.getTyp() +"' "
+				+ "and groesse between "+bs1.getPlatzVonBis()+" and "+bs1.getPlatzBis()+" and Farbe like '%"+bs1.getFarbe()+"') as T1 inner join (Select * From busse "
+				+ "where typ ='"+bs2.getTyp() +"' and groesse between "+bs2.getPlatzVonBis()+" and "+bs2.getPlatzBis()+" and Farbe like '%"+bs2.getFarbe()+"') as T2 on T1.U_ID = T2.U_ID )"
+				+ " as D1 on D1.U_ID = Da.U_ID) group by Da.U_ID;");
+		System.out.println("SELECT Da.* FROM ((SELECT DISTINCT unternehmen.*, Distanz FROM Unternehmen"
+				+ " LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS("+lat+")) * COS(RADIANS(lat))"
+				+ " * COS(RADIANS(lon) - RADIANS("+lon+")) + SIN(RADIANS("+lat+")) * SIN(RADIANS(lat)))), 0)"
+				+ " AS Distanz FROM plz.koordinaten HAVING Distanz <= "+umkreis+") AS SQ ON SQ.plz = unternehmen.plz WHERE Distanz <= "+umkreis+")"
+				+ " AS Da inner join (Select T1.U_ID From(Select * From busse where typ ='"+bs1.getTyp() +"' "
+				+ "and groesse between "+bs1.getGroesse()+" and "+bs1.getPlatzBis()+" and Farbe like '%"+bs1.getFarbe()+"') as T1 inner join (Select * From busse "
+				+ "where typ ='"+bs2.getTyp() +"' and groesse between "+bs2.getGroesse()+" and "+bs2.getPlatzBis()+" and Farbe like '%"+bs2.getFarbe()+"') as T2 on T1.U_ID = T2.U_ID )"
+				+ " as D1 on D1.U_ID = Da.U_ID) group by Da.U_ID;");
+		while (rs.next()) {
+
+			Unternehmen e = new Unternehmen(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+					rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
+					rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13));
+			e.setDistanz(rs.getString(14));
+			list.add(e);
+		}
+
+		return list;
+	}
+
+	/**
+	 * Zweck:<br>
+	 * Wenn ein bus gewählt wird soll ein Join gemacht werden.<br>
+	 * <br>
+	 * Warum:<br>
+	 * Mir ist bis jetzt keine bessere SQL Suche eingefallen die performant und
+	 * zordnung schafft und gleichzeitig autmatisiert werden kann.
+	 * 
+	 * @param plz
+	 * @param umkreis
+	 * @return
+	 * @throws SQLException
+	 */
+	public ObservableList<Unternehmen> umkreisMitDreiBus(String plz, String umkreis) throws SQLException {
+		double lat = 0.0;
+		double lon = 0.0;
+		ObservableList<Unternehmen> list = FXCollections.observableArrayList();
+		ConnectMe c = new ConnectMe();
+		Statement stmt = c.getStatement();
+		// 1. Schritt lon und lat
+		ResultSet rs1 = stmt.executeQuery("Select lat,lon from plz.koordinaten where plz =" + plz + "; ");
+		
+		while (rs1.next()) {
+			lat = rs1.getDouble(1);
+			lon = rs1.getDouble(2);
+		}
+		Busse b1 = listBusse.get(0);
+		Busse b2 = listBusse.get(1);
+		Busse b3 = listBusse.get(2);
+		ResultSet rs = stmt.executeQuery("SELECT Da.* FROM((SELECT DISTINCT unternehmen.*, Distanz FROM"
+				+ " Unternehmen LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS("+lat+"))"
+				+ " * COS(RADIANS(lat)) * COS(RADIANS(lon) - RADIANS("+lon+")) + SIN(RADIANS("+lat+"))"
+				+ " * SIN(RADIANS(lat)))), 0) AS Distanz FROM plz.koordinaten HAVING Distanz <= "+umkreis+")"
+				+ " AS SQ ON SQ.plz = unternehmen.plz WHERE Distanz <= "+umkreis+") AS Da inner join "
+				+ "(Select T1.U_ID From(Select * From busse where typ ='"+b1.getTyp()+"' and groesse between "
+						+ ""+b1.getGroesse()+" and "+b1.getPlatzBis()+" and Farbe like '%"+b1.getFarbe()+"' )"
+				+ " as T1 inner join(Select * From busse where typ ='"+b2.getTyp()+"' and groesse between "+b2.getGroesse()+""
+						+ " and "+b2.getPlatzBis()+" and Farbe like '%"+b2.getFarbe()+"')"
+				+ " as T2 on T1.U_ID = T2.U_ID inner join(Select * From busse where typ ='"+b3.getTyp()+"' and "
+				+ "groesse between "+b3.getGroesse()+" and "+b3.getPlatzBis()+" and farbe like '%"+b3.getFarbe()+"')"
+				+ " as T3 on T2.U_ID = T3.U_ID) as E1 ) group by E1.U_ID;");
+		
+
+		while (rs.next()) {
+
+			Unternehmen e = new Unternehmen(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+					rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
+					rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13));
+			e.setDistanz(rs.getString(14));
+			list.add(e);
+		}
+
+		return list;
 	}
 
 }

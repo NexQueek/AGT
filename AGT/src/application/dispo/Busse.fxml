@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.dispo.BusseController">
    <children>
-      <Button layoutX="840.0" layoutY="56.0" mnemonicParsing="false" onAction="#busHinzufuegen" prefHeight="34.0" prefWidth="142.0" text="Bus hinzufügen" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="56.0">
+      <Button layoutX="349.0" layoutY="56.0" mnemonicParsing="false" onAction="#busHinzufuegen" prefHeight="34.0" prefWidth="142.0" text="Bus hinzufügen" AnchorPane.leftAnchor="349.0" AnchorPane.topAnchor="56.0">
          <font>
             <Font size="15.0" />
          </font>
@@ -22,7 +22,8 @@
                   <TableColumn fx:id="groesse" prefWidth="75.0" text="Plätze" />
                   <TableColumn fx:id="e1" prefWidth="75.0" text="Reiseleiter" />
                   <TableColumn fx:id="farbe" prefWidth="75.0" text="Farbe" />
-                  <TableColumn fx:id="e2" prefWidth="75.0" text="Bild" />
+                  <TableColumn fx:id="branding" prefWidth="77.0" text="Branding" />
+                  <TableColumn fx:id="e2" prefWidth="198.0" text="Bild" />
                </columns>
             </TableColumn>
         </columns>
@@ -30,39 +31,27 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label alignment="CENTER" layoutX="510.0" layoutY="14.0" prefHeight="34.0" prefWidth="157.0" text="Unternehmen:" AnchorPane.rightAnchor="333.0" AnchorPane.topAnchor="14.0">
+      <Label alignment="CENTER" layoutX="19.0" layoutY="14.0" prefHeight="34.0" prefWidth="157.0" text="Unternehmen:" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label fx:id="unternehmenName" alignment="CENTER" layoutX="510.0" layoutY="56.0" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: lightgrey;" AnchorPane.rightAnchor="333.0" AnchorPane.topAnchor="56.0">
+      <Label fx:id="unternehmenName" alignment="CENTER" layoutX="19.0" layoutY="56.0" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: lightgrey;" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="56.0">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="19.0" layoutY="14.0" prefHeight="34.0" prefWidth="91.0" text="Typ:">
+      <Label fx:id="anzahl" alignment="CENTER" layoutX="184.0" layoutY="56.0" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: lightgrey;" AnchorPane.leftAnchor="184.0" AnchorPane.topAnchor="56.0">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="19.0" layoutY="56.0" prefHeight="34.0" prefWidth="91.0" text="Größe:">
+      <Label alignment="CENTER" layoutX="184.0" layoutY="14.0" prefHeight="34.0" prefWidth="157.0" text="Anzahl" AnchorPane.leftAnchor="184.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label fx:id="anzahl" alignment="CENTER" layoutX="675.0" layoutY="56.0" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: lightgrey;" AnchorPane.rightAnchor="168.0" AnchorPane.topAnchor="56.0">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="675.0" layoutY="14.0" prefHeight="34.0" prefWidth="157.0" text="Anzahl" AnchorPane.rightAnchor="168.0" AnchorPane.topAnchor="14.0">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
-      <TextField fx:id="typEingabe" layoutX="110.0" layoutY="14.0" prefHeight="34.0" prefWidth="149.0" />
-      <TextField fx:id="groesseEingabe" layoutX="110.0" layoutY="56.0" prefHeight="34.0" prefWidth="149.0" />
-      <Button layoutX="311.0" layoutY="56.0" mnemonicParsing="false" onAction="#filtern" prefHeight="34.0" prefWidth="142.0" text="filtern">
+      <Button layoutX="349.0" layoutY="14.0" mnemonicParsing="false" onAction="#filtern" prefHeight="34.0" prefWidth="142.0" text="refresh" AnchorPane.leftAnchor="349.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="15.0" />
          </font>

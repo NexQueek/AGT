@@ -14,6 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,6 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class BusseController {
@@ -64,6 +66,8 @@ public class BusseController {
 
 	private ObservableList<Busse> liste = FXCollections.observableArrayList();
 
+	@FXML TableColumn<?,?> branding;
+
 	@FXML
 	void initialize() {
 		liste = befuellen();
@@ -77,7 +81,43 @@ public class BusseController {
 		tabelle.setItems(liste);
 		unternehmenName.setText(UidObject.unternehmen.getName());
 		anzahl.setText(liste.size() + "");
+		doppelKlick();
 	}
+	
+	void doppelKlick(){
+		// Methode für den doppelklick
+				tabelle.setOnMousePressed(new EventHandler<MouseEvent>() {
+					@Override
+					public void handle(MouseEvent ee) {
+						if (ee.isPrimaryButtonDown() && ee.getClickCount() == 2) {
+							// Gives the uid to popUp so it opens a window with specific
+							// information
+							popUp(tabelle.getSelectionModel().getSelectedItem());
+						}
+
+					}
+				});
+	}
+	
+	void popUp(Busse busse){
+		Busse.setB(busse);
+		Parent root;
+		Stage primaryStage = new Stage();
+		try {
+			root = FXMLLoader.load(getClass().getResource("BusBild.fxml"));
+			root.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			
+			primaryStage.setTitle("Bild");
+			primaryStage.setResizable(false);
+			primaryStage.setScene(new Scene(root));
+			primaryStage.show();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+	}
+	 
 
 	@FXML
 	void busHinzufuegen(ActionEvent event) {
@@ -98,7 +138,7 @@ public class BusseController {
 
 	}
 
-	ObservableList<Busse> befuellen() {
+	 ObservableList<Busse> befuellen() {
 		ObservableList<Busse> li;
 		li = FXCollections.observableArrayList();
 		String sql = "Select * From busse where U_ID =" + UidObject.unternehmen.getUid() + ";";
@@ -110,11 +150,11 @@ public class BusseController {
 				Busse b = new Busse(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(6),
 						rs.getString(5), rs.getString(7));
 				java.sql.Blob blob = rs.getBlob(8);
-				System.out.println(blob);
+				
 				if (blob == null) {
-					System.out.println("Null");
+					
 				} else {
-					System.out.println("Yo");
+					
 					InputStream in = blob.getBinaryStream();
 					BufferedImage image;
 					image = ImageIO.read(in);
@@ -139,7 +179,9 @@ public class BusseController {
 
 	@FXML
 	void filtern(ActionEvent event) {
-
+		liste = befuellen();
+		tabelle.setItems(liste);
+		anzahl.setText(liste.size() + "");
 	}
 
 }

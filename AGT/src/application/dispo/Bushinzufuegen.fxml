@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="486.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.dispo.BusseHinzuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.dispo.BusseHinzuController">
    <children>
       <Label layoutX="185.0" layoutY="14.0" text="Bus hinzufügen" underline="true">
          <font>
@@ -35,7 +35,7 @@
          </font>
       </Label>
       <ComboBox fx:id="typ" layoutX="260.0" layoutY="70.0" prefHeight="30.0" prefWidth="175.0" />
-      <Label layoutX="60.0" layoutY="140.0" text="Reiseleiter">
+      <Label layoutX="60.0" layoutY="140.0" prefHeight="27.0" prefWidth="150.0" text="Reiseleiterplätze">
          <font>
             <Font size="18.0" />
          </font>
@@ -46,31 +46,32 @@
          </font>
       </Label>
       <ComboBox fx:id="farbe" layoutX="260.0" layoutY="175.0" prefHeight="30.0" prefWidth="175.0" />
-      <Button layoutX="60.0" layoutY="420.0" mnemonicParsing="false" onAction="#einenHinzu" prefHeight="30.0" prefWidth="175.0" text="nur diesen hinzufügen">
+      <Button layoutX="60.0" layoutY="467.0" mnemonicParsing="false" onAction="#einenHinzu" prefHeight="30.0" prefWidth="175.0" text="hinzufügen">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="60.0" layoutY="210.0" text="Unternehmen">
+      <Label layoutX="60.0" layoutY="245.0" text="Unternehmen">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="unternehmen" layoutX="260.0" layoutY="210.0" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: lightgray;">
+      <Label fx:id="unternehmen" layoutX="260.0" layoutY="245.0" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: lightgray;">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="260.0" layoutY="420.0" mnemonicParsing="false" onAction="#mehrHinzu" prefHeight="30.0" prefWidth="175.0" text="weiteren hinzufügen">
+      <ImageView fx:id="ViewMe" fitHeight="164.0" fitWidth="175.0" layoutX="260.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="60.0" layoutY="347.0" mnemonicParsing="false" onAction="#bildHoch" prefHeight="30.0" prefWidth="175.0" text="Bild hochladen">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <ImageView fx:id="ViewMe" fitHeight="164.0" fitWidth="175.0" layoutX="260.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="60.0" layoutY="310.0" mnemonicParsing="false" onAction="#bildHoch" prefHeight="30.0" prefWidth="175.0" text="Bild hochladen">
+      <Label layoutX="60.0" layoutY="210.0" text="Branding">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font>
-      </Button>
+      </Label>
+      <ComboBox fx:id="jaNein" layoutX="363.0" layoutY="209.0" prefHeight="30.0" prefWidth="72.0" />
    </children>
 </AnchorPane>

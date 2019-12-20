@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.dispo.BusBildController">
+   <children>
+      <ImageView fx:id="bild" fitHeight="575.0" fitWidth="776.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</Pane>

@@ -13,6 +13,9 @@ public class Busse {
 	private String eigenschaft2;
 	private ImageView bild;
 	private String bildDatei;
+	private static Busse b = null;
+	
+	
 	public ImageView getBild() {
 		
 		if(bild == null){
@@ -131,6 +134,14 @@ public class Busse {
 
 	public String getPlatzBis() {
 		return platzBis;
+	}
+
+	public static Busse getB() {
+		return b;
+	}
+
+	public static void setB(Busse b) {
+		Busse.b = b;
 	}
 
 }

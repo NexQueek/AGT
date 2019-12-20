@@ -15,6 +15,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -53,9 +54,11 @@ public class BusseHinzuController {
 
 	ObservableList<String> optionsFarbe = FXCollections.observableArrayList("", "Weiß", "Schwarz", "Blau", "Gelb",
 			"Grün");
+	ObservableList<String> jaNe = FXCollections.observableArrayList("Ja","Nein");
 
 	@FXML
 	ImageView ViewMe;
+	@FXML ComboBox<String> jaNein;
 	/**
 	 * Zweck:<br>
 	 * Hier werden die Daten für den Bus hochgeladen<br>
@@ -73,15 +76,28 @@ public class BusseHinzuController {
 		Connection con = c.getC();
 		System.out.println(imagePath);
 		try {
-			PreparedStatement pstmt =con.prepareStatement(("INSERT INTO busse (U_ID, typ, groesse, reiseleiter, farbe,  bild)  VALUES(?,?,?,?,?,?);"));
-			InputStream in = new FileInputStream(imagePath);
+			PreparedStatement pstmt =con.prepareStatement(("INSERT INTO busse (U_ID, typ, groesse, reiseleiter, farbe,  bild, branding)  VALUES(?,?,?,?,?,?,?);"));
+			if(imagePath.equals("")){
+				pstmt.setString(6, null);
+			}else{
+				InputStream in = new FileInputStream(imagePath);
+				pstmt.setBlob(6, in);
+			}
+			//Nullsetzen des Strings
+			imagePath="";
 			pstmt.setString(1, UidObject.unternehmen.getUid());
 			pstmt.setString(2, typ.getSelectionModel().getSelectedItem());
 			pstmt.setString(3, platz.getText());
 			pstmt.setString(4, reiseleite.getText());
-			pstmt.setString(5, farbe.getSelectionModel().getSelectedItem());		
-			pstmt.setBlob(6, in);
+			pstmt.setString(5, farbe.getSelectionModel().getSelectedItem());	
+			pstmt.setString(7, jaNein.getSelectionModel().getSelectedItem());
+			
+			
 			pstmt.execute();
+			final Node source = (Node) event.getSource();
+	        final Stage stage = (Stage) source.getScene().getWindow();
+	        stage.close();
+	        
 		} catch (SQLException | FileNotFoundException e) {
 			
 			 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -106,6 +122,7 @@ public class BusseHinzuController {
 		unternehmen.setText(UidObject.unternehmen.getName());
 		typ.setItems(optionsBusse);
 		farbe.setItems(optionsFarbe);
+		jaNein.setItems(jaNe);
 
 	}
 	/**
@@ -130,6 +147,8 @@ public class BusseHinzuController {
 	        System.out.println("file:"+imagepath);
 	        Image image = new Image(imagepath);
 	        ViewMe.setImage(image);
+	       
+	        		
 	    }
 	    else
 	    {
