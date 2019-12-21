@@ -1,9 +1,9 @@
 package application;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-
 
 import application.admin.Admin;
 import application.auskunft.Auskunft;
@@ -18,159 +18,172 @@ import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Controller{
+public class Controller {
 
 	@FXML
-    private Button bewertungButton;
+	private Button bewertungButton;
 
-    @FXML
-    private Button zubehoerButton;
+	@FXML
+	private Button zubehoerButton;
 
-    @FXML
-    private Button adminButton;
+	@FXML
+	private Button adminButton;
 
-    @FXML
-    private BorderPane mainPane;
+	@FXML
+	private BorderPane mainPane;
 
-    @FXML
-    private MenuItem hallo;
-    @FXML
-    private Button auskunftButton;
+	@FXML
+	private MenuItem hallo;
+	@FXML
+	private Button auskunftButton;
 
-    @FXML
-    private Button margeButton;
+	@FXML
+	private Button margeButton;
 
-    @FXML
-    private Button dispoButton;
-    @FXML
-    public void onBtnAClick(){
-        Disposition contentA = new Disposition();
-        mainPane.setCenter(contentA);
-    }
+	@FXML
+	private Button dispoButton;
 
+	@FXML
+	public void onBtnAClick() {
+		Disposition contentA = new Disposition();
+		mainPane.setCenter(contentA);
+	}
 
-
-	@FXML public void onBtnCClick() {
+	@FXML
+	public void onBtnCClick() {
 		Zubehoer z = new Zubehoer();
 		mainPane.setCenter(z);
 	}
 
-	@FXML public void AuskunftOeffnen(ActionEvent event) {
-		Auskunft auskunft = new Auskunft();
-		
-        mainPane.setCenter(auskunft);
-	}
-	
 	@FXML
-    private TextField auskunftDatumVon;
+	public void AuskunftOeffnen(ActionEvent event) {
+		Auskunft auskunft = new Auskunft();
 
-    @FXML
-    private TextField auskunftPLZ;
+		mainPane.setCenter(auskunft);
+	}
 
-    @FXML
-    private TextField auskunftDatumBis;
+	@FXML
+	private TextField auskunftDatumVon;
 
-	@FXML Label eingeloggt;
+	@FXML
+	private TextField auskunftPLZ;
 
-	@FXML Button freimeldung;
+	@FXML
+	private TextField auskunftDatumBis;
 
-	@FXML Label username;
+	@FXML
+	Label eingeloggt;
 
-	@FXML Menu start;
+	@FXML
+	Button freimeldung;
 
-	@FXML ImageView setLogo;
+	@FXML
+	Label username;
 
-	@FXML ImageView agtLogo;
+	@FXML
+	Menu start;
 
-    @FXML
-    void auskunft_suchen(ActionEvent event) {
-    	
-    }
-    
+	@FXML
+	ImageView setLogo;
 
-    @FXML
-    void auskunft_eintragen(ActionEvent event) {
+	@FXML
+	ImageView agtLogo;
 
-    }
-    @FXML
-    void initialize() {
-    	 try {
-    		 
-    		 Image logoEins = new Image(getClass().getResourceAsStream("logoSet.png"));
-    		 Image logoZwei = new Image(getClass().getResourceAsStream("LogoAgt.png"));
-    		 setLogo.setPreserveRatio(true);
-    		 setLogo.setImage(logoEins);
-    		 agtLogo.setPreserveRatio(true);
-    		 agtLogo.setImage(logoZwei);
-    		 
+	@FXML Menu helo;
+
+	@FXML
+	void auskunft_suchen(ActionEvent event) {
+
+	}
+
+	@FXML
+	void auskunft_eintragen(ActionEvent event) {
+
+	}
+
+	@FXML
+	void initialize() {
+		try {
+
+			Image logoEins = new Image(getClass().getResourceAsStream("logoSet.png"));
+			Image logoZwei = new Image(getClass().getResourceAsStream("LogoAgt.png"));
+			setLogo.setPreserveRatio(true);
+			setLogo.setImage(logoEins);
+			agtLogo.setPreserveRatio(true);
+			agtLogo.setImage(logoZwei);
+
 		} catch (Exception e) {
-				e.printStackTrace();
+			e.printStackTrace();
 		}
-    	
-    	Benutzer e = Benutzer.benutz.get(0);
-       eingeloggt.setText("eingeloggt als: "+ e.getName() );
-       bewertungButton.setDisable(true); 
-       adminButton.setDisable(true); 
-       auskunftButton.setDisable(true); 
-       dispoButton.setDisable(true); 
-       margeButton.setDisable(true);
-       zubehoerButton.setDisable(true); 
-       if(e.isAdmin()){
-    	   adminButton.setDisable(false);
-       }
-       if(e.isAuskunft()){
-    	   auskunftButton.setDisable(false);
-       }
-       if(e.isBewertung()){
-    	   bewertungButton.setDisable(false);
-       }
-       if(e.isDispo()){
-    	   dispoButton.setDisable(false);
-       }
-       if(e.isMarge()){
-    	   margeButton.setDisable(false);
-    	   
-       }
-       if(e.isZubehor()){
-    	   zubehoerButton.setDisable(false);
-       }
-       username.setText(e.getName());
-             
-    }
-    @FXML
-    void margeOpen(ActionEvent event) {
-    	Marge marge = new Marge();
-     	mainPane.setCenter(marge);
-    }
-    
-    @FXML
-    void halo(ActionEvent event) {
-    	System.out.println("Hallo");
-    }
+		start.setOnShown(event ->{
+			System.out.println(1);
+		});
+		helo.setOnAction(event ->{
+			System.out.println(2);
+		});
+		Benutzer e = Benutzer.benutz.get(0);
+		eingeloggt.setText("eingeloggt als: " + e.getName());
+		bewertungButton.setDisable(true);
+		adminButton.setDisable(true);
+		auskunftButton.setDisable(true);
+		dispoButton.setDisable(true);
+		margeButton.setDisable(true);
+		zubehoerButton.setDisable(true);
+		if (e.isAdmin()) {
+			adminButton.setDisable(false);
+		}
+		if (e.isAuskunft()) {
+			auskunftButton.setDisable(false);
+		}
+		if (e.isBewertung()) {
+			bewertungButton.setDisable(false);
+		}
+		if (e.isDispo()) {
+			dispoButton.setDisable(false);
+		}
+		if (e.isMarge()) {
+			margeButton.setDisable(false);
 
+		}
+		if (e.isZubehor()) {
+			zubehoerButton.setDisable(false);
+		}
+		username.setText(e.getName());
 
+	}
 
-	@FXML public void onBtnBClick() {
+	@FXML
+	void margeOpen(ActionEvent event) {
+		Marge marge = new Marge();
+		mainPane.setCenter(marge);
+	}
+
+	@FXML
+	void halo(ActionEvent event) {
+		System.out.println("Hallo");
+	}
+
+	@FXML
+	public void onBtnBClick() {
 		Bewertungen b = new Bewertungen();
 		mainPane.setCenter(b);
 	}
-	  @FXML
-	    void adminOeffnen(ActionEvent event) {
-		  Admin a = new Admin();
-		  mainPane.setCenter(a);
-	    }
-    
-	    @FXML
-	    void zurStartseit(ActionEvent event) {
-	    	mainPane.setCenter(username.getParent());
-	    }
 
+	@FXML
+	void adminOeffnen(ActionEvent event) {
+		Admin a = new Admin();
+		mainPane.setCenter(a);
+	}
 
-		@FXML public void freimelden(ActionEvent event) {
-			Freimeldung fr = new Freimeldung();
-			mainPane.setCenter(fr);
-		}
+	@FXML
+	void zurStartseit(ActionEvent event) {
+		mainPane.setCenter(username.getParent());
+	}
 
-
+	@FXML
+	public void freimelden(ActionEvent event) {
+		Freimeldung fr = new Freimeldung();
+		mainPane.setCenter(fr);
+	}
 
 }

@@ -67,7 +67,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#zurStartseit" text="Ausführen" />
                </items></Menu>
-          <Menu mnemonicParsing="false" text="Help" />
+          <Menu fx:id="helo" mnemonicParsing="false" text="Help" />
         </menus>
       </MenuBar>
    </top>

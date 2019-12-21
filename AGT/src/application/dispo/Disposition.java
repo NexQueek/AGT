@@ -21,6 +21,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
@@ -29,10 +31,9 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -157,6 +158,7 @@ public class Disposition extends AnchorPane {
 
 			}
 		});
+		
 		// Rechtsklick für Methode
 		ContextMenu cm = new ContextMenu();
 		MenuItem mi1 = new MenuItem("Unternehmen bearbeiten");
@@ -170,7 +172,8 @@ public class Disposition extends AnchorPane {
 		cm.getItems().add(mi3);
 		MenuItem mi4 = new MenuItem("Busse anzeigen");
 		cm.getItems().add(mi4);
-
+		MenuItem mi5= new MenuItem("E-Mail kopieren");
+		cm.getItems().add(mi5);
 		tableview.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
 			@Override
@@ -228,11 +231,41 @@ public class Disposition extends AnchorPane {
 					mi4.setOnAction(event -> {
 						busseAnzeigen(tableview.getSelectionModel().getSelectedItem());
 					});
+					mi5.setOnAction(new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent e) {
+							emailKopieren();
+						}
+					});
 				}
 			}
 		});
 	}
+	void emailKopieren(){
+		TableView<Unternehmen> tableview = getTabelle();
+		String trenner = ";";
+		String email = "";
+		ObservableList<Unternehmen> unternehmen = tableview.getSelectionModel().getSelectedItems();
 
+		for (Unternehmen unter : unternehmen) {
+			email = email + unter.getMail().replaceAll("\\s+", "") + trenner;
+		}
+		try {
+			final ClipboardContent content = new ClipboardContent();
+	        content.putString(email.toString());
+	        Clipboard.getSystemClipboard().setContent(content);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			Alert alert = new Alert(AlertType.ERROR);
+
+			alert.setHeaderText("Fehler!");
+			alert.setContentText("Fehlermeldung" + e1.getMessage());
+			alert.showAndWait();
+
+		} 
+		
+	
+	}
 	/**
 	 * Zweck:</br>
 	 * Entlastung der init Methode
