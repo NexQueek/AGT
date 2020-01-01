@@ -13,6 +13,24 @@ public class Busse {
 	private String eigenschaft2;
 	private ImageView bild;
 	private String bildDatei;
+	private String branding;
+	private String marke;
+	public String getBranding() {
+		return branding;
+	}
+
+	public void setBranding(String branding) {
+		this.branding = branding;
+	}
+
+	public String getMarke() {
+		return marke;
+	}
+
+	public void setMarke(String marke) {
+		this.marke = marke;
+	}
+
 	private static Busse b = null;
 	
 	

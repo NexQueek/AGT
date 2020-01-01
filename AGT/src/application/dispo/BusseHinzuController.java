@@ -3,12 +3,16 @@ package application.dispo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 
 import application.sql.ConnectMe;
 import javafx.collections.FXCollections;
@@ -26,7 +30,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class BusseHinzuController {
-	static String imagePath ="";
+	static String imagePath = "";
 	@FXML
 	private ResourceBundle resources;
 
@@ -54,19 +58,23 @@ public class BusseHinzuController {
 
 	ObservableList<String> optionsFarbe = FXCollections.observableArrayList("", "Weiß", "Schwarz", "Blau", "Gelb",
 			"Grün");
-	ObservableList<String> jaNe = FXCollections.observableArrayList("Ja","Nein");
+	ObservableList<String> jaNe = FXCollections.observableArrayList("Ja", "Nein");
 
 	@FXML
 	ImageView ViewMe;
-	@FXML ComboBox<String> jaNein;
+	@FXML
+	ComboBox<String> jaNein;
+
 	/**
 	 * Zweck:<br>
 	 * Hier werden die Daten für den Bus hochgeladen<br>
 	 * <br>
 	 * Warum:<br>
-	 * Das PreparedStatment wird genutzt um das Bildhinzuzufügen und die Nummer 1-6 stehen für die Fragezeichen.<br>
+	 * Das PreparedStatment wird genutzt um das Bildhinzuzufügen und die Nummer
+	 * 1-6 stehen für die Fragezeichen.<br>
 	 * Die Fragezeichen sind einfach nur Platzhalter.<br>
-	 * Sollte ein Fehler auftreten kommt über einen Alert ein Fenster mit der Fehlernachricht
+	 * Sollte ein Fehler auftreten kommt über einen Alert ein Fenster mit der
+	 * Fehlernachricht
 	 * 
 	 * @param event
 	 */
@@ -76,40 +84,39 @@ public class BusseHinzuController {
 		Connection con = c.getC();
 		System.out.println(imagePath);
 		try {
-			PreparedStatement pstmt =con.prepareStatement(("INSERT INTO busse (U_ID, typ, groesse, reiseleiter, farbe,  bild, branding)  VALUES(?,?,?,?,?,?,?);"));
-			if(imagePath.equals("")){
+			PreparedStatement pstmt = con.prepareStatement(
+					("INSERT INTO busse (U_ID, typ, groesse, reiseleiter, farbe,  bild, branding)  VALUES(?,?,?,?,?,?,?);"));
+			if (imagePath.equals("")) {
 				pstmt.setString(6, null);
-			}else{
+			} else {
 				InputStream in = new FileInputStream(imagePath);
 				pstmt.setBlob(6, in);
 			}
-			//Nullsetzen des Strings
-			imagePath="";
+			// Nullsetzen des Strings
+			imagePath = "";
 			pstmt.setString(1, UidObject.unternehmen.getUid());
 			pstmt.setString(2, typ.getSelectionModel().getSelectedItem());
 			pstmt.setString(3, platz.getText());
 			pstmt.setString(4, reiseleite.getText());
-			pstmt.setString(5, farbe.getSelectionModel().getSelectedItem());	
+			pstmt.setString(5, farbe.getSelectionModel().getSelectedItem());
 			pstmt.setString(7, jaNein.getSelectionModel().getSelectedItem());
-			
-			
+
 			pstmt.execute();
 			final Node source = (Node) event.getSource();
-	        final Stage stage = (Stage) source.getScene().getWindow();
-	        stage.close();
-	        
+			final Stage stage = (Stage) source.getScene().getWindow();
+			stage.close();
+
 		} catch (SQLException | FileNotFoundException e) {
-			
-			 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		        alert.setTitle("Information Dialog");
-		        alert.setHeaderText("Fehler");
-		        alert.setContentText(e.getMessage()+"");
-		        alert.showAndWait();
+
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setTitle("Information Dialog");
+			alert.setHeaderText("Fehler");
+			alert.setContentText(e.getMessage() + "");
+			alert.showAndWait();
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 
 	@FXML
@@ -123,43 +130,119 @@ public class BusseHinzuController {
 		typ.setItems(optionsBusse);
 		farbe.setItems(optionsFarbe);
 		jaNein.setItems(jaNe);
+		Busse b = Busse.getB();
+		if (b != null) {
+			typ.setValue(b.getTyp());
+			platz.setText(b.getGroesse());
+			reiseleite.setText(b.getEigenschaft1());
+			farbe.setValue(b.getFarbe());
+			jaNein.setValue(b.getBranding());
+			ViewMe.setImage(b.getBild().getImage());
+		}
 
 	}
+
 	/**
 	 * Zweck:<br>
-	 * Button zum hochladen der beim event ein Dateibrowser öffnet und dort aus der File ein Image macht<br>
+	 * Button zum hochladen der beim event ein Dateibrowser öffnet und dort aus
+	 * der File ein Image macht<br>
 	 * <br>
-	 * Warum:<br> 
-	 * Wir brauchen die Bild für das ImageView, damit der Nutzer sieht wie das Bild aussieht<br>
+	 * Warum:<br>
+	 * Wir brauchen die Bild für das ImageView, damit der Nutzer sieht wie das
+	 * Bild aussieht<br>
 	 * 
 	 * @param event
 	 */
 	@FXML
 	public void bildHoch(ActionEvent event) {
 		final FileChooser fileChooser = new FileChooser();
-		fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Bilder",
-                        "*.bmp", "*.png", "*.jpg", "*.gif"));
+		fileChooser.getExtensionFilters()
+				.addAll(new FileChooser.ExtensionFilter("Bilder", "*.bmp", "*.png", "*.jpg", "*.gif"));
 		File file = fileChooser.showOpenDialog(new Stage());
-		if(file != null) {
-	        String imagepath = "file:" + file.getPath();
-	        imagePath = file.getPath();
-	        System.out.println("file:"+imagepath);
-	        Image image = new Image(imagepath);
-	        ViewMe.setImage(image);
-	       
-	        		
-	    }
-	    else
-	    {
-	        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-	        alert.setTitle("Information Dialog");
-	        alert.setHeaderText("Bitte ein Bild auswählen");
-	        /*alert.setContentText("You didn't select a file!");*/
-	        alert.showAndWait();
-	    }
-		
-		
+		if (file != null) {
+			String imagepath = "file:" + file.getPath();
+			imagePath = file.getPath();
+			System.out.println("file:" + imagepath);
+			Image image = new Image(imagepath);
+			ViewMe.setImage(image);
+
+		} else {
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setTitle("Information Dialog");
+			alert.setHeaderText("Bitte ein Bild auswählen");
+			/* alert.setContentText("You didn't select a file!"); */
+			alert.showAndWait();
+		}
+
+	}
+	/**
+	 * Zweck:<br> Hier soll ein Bus bearbeitet werden -> Problem war das Bild
+	 * 
+	 * <br>
+	 * Warum<br> Das Bild fall ein neues hochgeladen werden soll musste erst null gesetzt werden doch dies konte
+	 * Probleme verursachen und dadurch wird er nun jetzt er null gesetzt und dann noch mal komplett bearbeitet.
+	 * @param event
+	 */
+	@FXML
+	public void bearbeiten(ActionEvent event) {
+		Busse bus = Busse.getB();
+		String s;
+		ConnectMe c = new ConnectMe();
+		Connection con = c.getC();
+		// Falls kein neues Bild hochgeladen wird soll das alte Bild uebernommen
+		// werden
+		if (imagePath.equals("")) {
+			s = "UPDATE `plz`.`busse` SET `U_ID` = ?, " + "`typ` = ?, `groesse` = ?, `reiseleiter` = ?,"
+					+ " `farbe` = ?," + " `branding` = ?  WHERE (`BUS_ID` = ?);";
+		} else {
+			s = "UPDATE `plz`.`busse` SET `U_ID` = ?, " + "`typ` = ?, `groesse` = ?, `reiseleiter` = ?,"
+					+ " `farbe` = ?," + " `branding` = ?,  `bild` = ? WHERE (`BUS_ID` = ?);";
+		}
+
+		try {
+
+			PreparedStatement pstmt = con.prepareStatement((s));
+
+			if (imagePath.equals("")) {
+
+				System.out.println(11);
+			} else {
+				pstmt.setString(8, null);
+			}
+
+			pstmt.setString(1, UidObject.unternehmen.getUid());
+			pstmt.setString(2, typ.getSelectionModel().getSelectedItem());
+			pstmt.setString(3, platz.getText());
+			pstmt.setString(4, reiseleite.getText());
+			pstmt.setString(5, farbe.getSelectionModel().getSelectedItem());
+			pstmt.setString(6, jaNein.getSelectionModel().getSelectedItem());
+			pstmt.setString(7, bus.getBid());
+
+			pstmt.execute();
+			if (!imagePath.equals("")) {
+				s = "UPDATE `plz`.`busse` SET  `bild` = ? WHERE (`BUS_ID` = ?);";
+				PreparedStatement pstmt1 = con.prepareStatement((s));
+				InputStream in = new FileInputStream(imagePath);
+				System.out.println(imagePath +"23");
+				pstmt1.setBlob(1, in);
+				pstmt1.setString(2, bus.getBid());
+				pstmt1.execute();
+			}
+			final Node source = (Node) event.getSource();
+			final Stage stage = (Stage) source.getScene().getWindow();
+			stage.close();
+			// Nullsetzen des Strings
+			imagePath = "";
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 }
