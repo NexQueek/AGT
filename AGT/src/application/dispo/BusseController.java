@@ -72,6 +72,8 @@ public class BusseController {
 	@FXML
 	TableColumn<?, ?> branding;
 
+	@FXML TableColumn<?, ?> marke;
+
 	@FXML
 	void initialize() {
 
@@ -81,9 +83,10 @@ public class BusseController {
 		e1.setCellValueFactory(new PropertyValueFactory<>("eigenschaft1"));
 		e2.setCellValueFactory(new PropertyValueFactory<>("Bild"));
 		BUS_ID.setCellValueFactory(new PropertyValueFactory<>("bid"));
-
+		branding.setCellValueFactory(new PropertyValueFactory<>("branding"));
 		groesse.setCellValueFactory(new PropertyValueFactory<>("groesse"));
 		farbe.setCellValueFactory(new PropertyValueFactory<>("farbe"));
+		marke.setCellValueFactory(new PropertyValueFactory<>("marke"));
 		tabelle.setItems(liste);
 		unternehmenName.setText(UidObject.unternehmen.getName());
 		anzahl.setText(liste.size() + "");
@@ -144,7 +147,14 @@ public class BusseController {
 	}
 
 	void busLoeschen(Busse bus) {
-
+		ConnectMe c = new ConnectMe();
+		Statement stmt = c.getStatement();
+		try {
+			stmt.executeUpdate("DELETE FROM `plz`.`busse` WHERE (`BUS_ID` = '"+bus.getBid()+"');");
+			filtern(null);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	void doppelKlick() {
@@ -215,7 +225,8 @@ public class BusseController {
 				Busse b = new Busse(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(6),
 						rs.getString(5), rs.getString(7));
 				java.sql.Blob blob = rs.getBlob(8);
-
+				b.setBranding(rs.getString(9));
+				b.setMarke(rs.getString(10));
 				if (blob == null) {
 
 				} else {

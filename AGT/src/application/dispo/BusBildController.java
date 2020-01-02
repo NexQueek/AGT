@@ -9,7 +9,12 @@ public class BusBildController {
 	
     @FXML
     void initialize() {
-    	bild.setImage(Busse.getB().getBild().getImage());
+    	if(Busse.getB().getBild()==null){
+    		
+    	}else{
+    		bild.setImage(Busse.getB().getBild().getImage());
+    	}
+    	
 
     }
 

@@ -55,6 +55,8 @@ public class BusseHinzuController {
 	ObservableList<String> optionsBusse = FXCollections.observableArrayList("Reisebus", "Midibus", "Kleinbus",
 			"Doppeldecker", "Linienbus", "Ueberlandbus/Kombibus", "MiniVan", "VIP Kleinbus", "VIP Reisebus",
 			"VIP Doppeldecker", "VIP MiniVan");
+	ObservableList<String> marken = FXCollections.observableArrayList("MAN","Mercedes","Neoplan","Setra",
+			"Bova"," van Hool","Volvo", "Temsa Bus & Coach","Irisbus (Iveco-Gruppe)", "Scania");
 
 	ObservableList<String> optionsFarbe = FXCollections.observableArrayList("", "Weiß", "Schwarz", "Blau", "Gelb",
 			"Grün");
@@ -64,6 +66,8 @@ public class BusseHinzuController {
 	ImageView ViewMe;
 	@FXML
 	ComboBox<String> jaNein;
+	@FXML
+	ComboBox<String> marke;
 
 	/**
 	 * Zweck:<br>
@@ -85,7 +89,7 @@ public class BusseHinzuController {
 		System.out.println(imagePath);
 		try {
 			PreparedStatement pstmt = con.prepareStatement(
-					("INSERT INTO busse (U_ID, typ, groesse, reiseleiter, farbe,  bild, branding)  VALUES(?,?,?,?,?,?,?);"));
+					("INSERT INTO busse (U_ID, typ, groesse, reiseleiter, farbe,  bild, branding, marke)  VALUES(?,?,?,?,?,?,?,?);"));
 			if (imagePath.equals("")) {
 				pstmt.setString(6, null);
 			} else {
@@ -100,6 +104,7 @@ public class BusseHinzuController {
 			pstmt.setString(4, reiseleite.getText());
 			pstmt.setString(5, farbe.getSelectionModel().getSelectedItem());
 			pstmt.setString(7, jaNein.getSelectionModel().getSelectedItem());
+			pstmt.setString(8, marke.getSelectionModel().getSelectedItem());
 
 			pstmt.execute();
 			final Node source = (Node) event.getSource();
@@ -115,6 +120,8 @@ public class BusseHinzuController {
 			alert.showAndWait();
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			c.closeConnection();
 		}
 
 	}
@@ -130,6 +137,7 @@ public class BusseHinzuController {
 		typ.setItems(optionsBusse);
 		farbe.setItems(optionsFarbe);
 		jaNein.setItems(jaNe);
+		marke.setItems(marken);
 		Busse b = Busse.getB();
 		if (b != null) {
 			typ.setValue(b.getTyp());
@@ -137,7 +145,13 @@ public class BusseHinzuController {
 			reiseleite.setText(b.getEigenschaft1());
 			farbe.setValue(b.getFarbe());
 			jaNein.setValue(b.getBranding());
-			ViewMe.setImage(b.getBild().getImage());
+			if (b.getBild()==null) {
+				
+			}else{
+				ViewMe.setImage(b.getBild().getImage());
+			}
+		
+			marke.setValue(b.getMarke());
 		}
 
 	}
@@ -175,12 +189,17 @@ public class BusseHinzuController {
 		}
 
 	}
+
 	/**
-	 * Zweck:<br> Hier soll ein Bus bearbeitet werden -> Problem war das Bild
+	 * Zweck:<br>
+	 * Hier soll ein Bus bearbeitet werden -> Problem war das Bild
 	 * 
 	 * <br>
-	 * Warum<br> Das Bild fall ein neues hochgeladen werden soll musste erst null gesetzt werden doch dies konte
-	 * Probleme verursachen und dadurch wird er nun jetzt er null gesetzt und dann noch mal komplett bearbeitet.
+	 * Warum<br>
+	 * Das Bild fall ein neues hochgeladen werden soll musste erst null gesetzt
+	 * werden doch dies konte Probleme verursachen und dadurch wird er nun jetzt
+	 * er null gesetzt und dann noch mal komplett bearbeitet.
+	 * 
 	 * @param event
 	 */
 	@FXML
@@ -191,24 +210,15 @@ public class BusseHinzuController {
 		Connection con = c.getC();
 		// Falls kein neues Bild hochgeladen wird soll das alte Bild uebernommen
 		// werden
-		if (imagePath.equals("")) {
-			s = "UPDATE `plz`.`busse` SET `U_ID` = ?, " + "`typ` = ?, `groesse` = ?, `reiseleiter` = ?,"
-					+ " `farbe` = ?," + " `branding` = ?  WHERE (`BUS_ID` = ?);";
-		} else {
-			s = "UPDATE `plz`.`busse` SET `U_ID` = ?, " + "`typ` = ?, `groesse` = ?, `reiseleiter` = ?,"
-					+ " `farbe` = ?," + " `branding` = ?,  `bild` = ? WHERE (`BUS_ID` = ?);";
-		}
+		s = "UPDATE `plz`.`busse` SET `U_ID` = ?, " + "`typ` = ?, `groesse` = ?, `reiseleiter` = ?,"
+				+ " `farbe` = ?," + " `branding` = ?,`marke` = ?  WHERE (`BUS_ID` = ?);";
+		
 
 		try {
 
 			PreparedStatement pstmt = con.prepareStatement((s));
 
-			if (imagePath.equals("")) {
-
-				System.out.println(11);
-			} else {
-				pstmt.setString(8, null);
-			}
+			
 
 			pstmt.setString(1, UidObject.unternehmen.getUid());
 			pstmt.setString(2, typ.getSelectionModel().getSelectedItem());
@@ -216,14 +226,18 @@ public class BusseHinzuController {
 			pstmt.setString(4, reiseleite.getText());
 			pstmt.setString(5, farbe.getSelectionModel().getSelectedItem());
 			pstmt.setString(6, jaNein.getSelectionModel().getSelectedItem());
-			pstmt.setString(7, bus.getBid());
+			pstmt.setString(7, marke.getSelectionModel().getSelectedItem());
+			pstmt.setString(8, bus.getBid());
 
 			pstmt.execute();
 			if (!imagePath.equals("")) {
 				s = "UPDATE `plz`.`busse` SET  `bild` = ? WHERE (`BUS_ID` = ?);";
 				PreparedStatement pstmt1 = con.prepareStatement((s));
 				InputStream in = new FileInputStream(imagePath);
-				System.out.println(imagePath +"23");
+				System.out.println(imagePath + "23");
+				pstmt1.setString(1, null);
+				pstmt1.setString(2, bus.getBid());
+				pstmt1.execute();
 				pstmt1.setBlob(1, in);
 				pstmt1.setString(2, bus.getBid());
 				pstmt1.execute();
@@ -236,9 +250,6 @@ public class BusseHinzuController {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

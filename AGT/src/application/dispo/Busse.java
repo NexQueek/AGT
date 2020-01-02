@@ -37,7 +37,7 @@ public class Busse {
 	public ImageView getBild() {
 		
 		if(bild == null){
-			
+			return null;
 		}else{
 			bild.setPreserveRatio(true);
 			bild.setFitWidth(120);

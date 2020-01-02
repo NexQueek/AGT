@@ -23,6 +23,7 @@
                   <TableColumn fx:id="e1" prefWidth="75.0" text="Reiseleiter" />
                   <TableColumn fx:id="farbe" prefWidth="75.0" text="Farbe" />
                   <TableColumn fx:id="branding" prefWidth="77.0" text="Branding" />
+                  <TableColumn fx:id="marke" prefWidth="77.0" text="Marke" />
                   <TableColumn fx:id="e2" prefWidth="198.0" text="Bild" />
                </columns>
             </TableColumn>
