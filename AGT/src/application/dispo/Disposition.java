@@ -8,9 +8,11 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import application.Benutzer;
+import org.controlsfx.control.textfield.TextFields;
+
 import application.sql.ConnectMe;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,6 +36,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -125,6 +128,7 @@ public class Disposition extends AnchorPane {
 
 	@FXML
 	private TextField vonPlatz;
+	 ArrayList<String> nameListe = new ArrayList<>();
 
 	@FXML
 	private ComboBox<String> dropdownBus;
@@ -136,12 +140,11 @@ public class Disposition extends AnchorPane {
 			"Doppeldecker", "Linienbus", "Ueberlandbus/Kombibus", "MiniVan", "VIP Kleinbus", "VIP Reisebus",
 			"VIP Doppeldecker", "VIP MiniVan");
 	ObservableList<String> optionsFarbe = FXCollections.observableArrayList("", "Weiß", "Schwarz", "Blau", "Gelb",
-			"Grün");
+			"Grün", "Rot", "Silber", "Grau");
 
 	public void initialize(URL location, ResourceBundle resources) {
-		Benutzer user = Benutzer.benutz.get(0);
-
-		// for copy of the value of email
+		
+		plzRunterladen();
 		datenSetzen();
 		TableView<Unternehmen> tableview = getTabelle();
 		tableview.getSelectionModel().setCellSelectionEnabled(true);
@@ -158,22 +161,22 @@ public class Disposition extends AnchorPane {
 
 			}
 		});
-		
+		enterSuchen();
 		// Rechtsklick für Methode
 		ContextMenu cm = new ContextMenu();
 		MenuItem mi1 = new MenuItem("Unternehmen bearbeiten");
-		// Unternehmen nur für Admin bearbeitbar
-		if (user.isAdmin()) {
-			cm.getItems().add(mi1);
-		}
+		
+		cm.getItems().add(mi1);
+
 		MenuItem mi2 = new MenuItem("Unternehmen anzeigen");
 		cm.getItems().add(mi2);
 		MenuItem mi3 = new MenuItem("E-Mail senden");
 		cm.getItems().add(mi3);
 		MenuItem mi4 = new MenuItem("Busse anzeigen");
 		cm.getItems().add(mi4);
-		MenuItem mi5= new MenuItem("E-Mail kopieren");
+		MenuItem mi5 = new MenuItem("E-Mail kopieren");
 		cm.getItems().add(mi5);
+		cm.setImpl_showRelativeToWindow(true);
 		tableview.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
 			@Override
@@ -241,7 +244,25 @@ public class Disposition extends AnchorPane {
 			}
 		});
 	}
-	void emailKopieren(){
+
+
+	void enterSuchen() {
+		Parent root = ergebnisse.getParent();
+		root.setOnKeyPressed(event -> {
+			if (event.getCode() == KeyCode.ENTER) {
+
+				try {
+					suchen(null);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		});
+	}
+
+	void emailKopieren() {
 		TableView<Unternehmen> tableview = getTabelle();
 		String trenner = ";";
 		String email = "";
@@ -252,8 +273,8 @@ public class Disposition extends AnchorPane {
 		}
 		try {
 			final ClipboardContent content = new ClipboardContent();
-	        content.putString(email.toString());
-	        Clipboard.getSystemClipboard().setContent(content);
+			content.putString(email.toString());
+			Clipboard.getSystemClipboard().setContent(content);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			Alert alert = new Alert(AlertType.ERROR);
@@ -262,10 +283,10 @@ public class Disposition extends AnchorPane {
 			alert.setContentText("Fehlermeldung" + e1.getMessage());
 			alert.showAndWait();
 
-		} 
-		
-	
+		}
+
 	}
+
 	/**
 	 * Zweck:</br>
 	 * Entlastung der init Methode
@@ -347,7 +368,7 @@ public class Disposition extends AnchorPane {
 			}
 
 		} else {
-
+			
 			listeUnternehmen = daten(dropdown.getSelectionModel().getSelectedItem(), dropdownBedingung.getText());
 		}
 
@@ -377,9 +398,16 @@ public class Disposition extends AnchorPane {
 
 			ConnectMe c = new ConnectMe();
 			Statement stmt = c.getStatement();
-
+			String sql;
+			//Bei Name soll Stickpunktsuche gemacht werden 
+			if (bedingung.equals("Name")) {
+				sql = "select * from plz.unternehmen where " + bedingung + " like '%" + wertEins + "%' ";
+			}else{
+				 sql = "select * from plz.unternehmen where " + bedingung + " like '" + wertEins + "%' ";
+			}
+			
 			ResultSet rs = stmt
-					.executeQuery("select * from plz.unternehmen where " + bedingung + " like '" + wertEins + "%' ");
+					.executeQuery(sql);
 			while (rs.next()) {
 
 				Unternehmen e = new Unternehmen(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
@@ -492,7 +520,7 @@ public class Disposition extends AnchorPane {
 		try {
 			primaryStage = new Stage();
 			root = FXMLLoader.load(getClass().getResource("Popup.fxml"));
-			root.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			root.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			primaryStage.setTitle("Informationen");
 			primaryStage.setResizable(false);
 			primaryStage.setScene(new Scene(root));
@@ -506,11 +534,11 @@ public class Disposition extends AnchorPane {
 	@FXML
 	void busHinzu(ActionEvent event) {
 		String typ = dropdownBus.getSelectionModel().getSelectedItem();
-		
+
 		String platz = vonPlatz.getText();
 		String farbe = busFarbe.getSelectionModel().getSelectedItem();
-		if (farbe==null) {
-			farbe="";
+		if (farbe == null) {
+			farbe = "";
 		}
 		String regexZahl = "^([0-9]{1,2})$";
 		if (platz.matches(regexZahl)) {
@@ -561,14 +589,15 @@ public class Disposition extends AnchorPane {
 		}
 		Busse b = listBusse.get(0);
 		b.getTyp();
-		
-		ResultSet rs = stmt.executeQuery(
-				"SELECT  Da.* FROM ((SELECT DISTINCT unternehmen.*, "
-				+ "Distanz FROM Unternehmen LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS("+lat+")) *"
-				+ " COS(RADIANS(lat)) * COS(RADIANS(lon) - RADIANS("+lon+")) + SIN(RADIANS("+lat+")) * "
-				+ "SIN(RADIANS(lat)))), 0) AS Distanz FROM plz.koordinaten HAVING Distanz <= "+umkreis+") AS SQ ON SQ.plz"
-				+ " = unternehmen.plz WHERE Distanz <= "+umkreis+") AS Da inner join (Select * From busse"
-				+ " where typ ='"+b.getTyp()+"' and groesse between "+b.getGroesse()+" and "+b.getPlatzBis()+" and Farbe like '%"+b.getFarbe()+"') as T1 on Da.U_ID = T1.U_ID )group by Da.U_ID;");
+
+		ResultSet rs = stmt.executeQuery("SELECT  Da.* FROM ((SELECT DISTINCT unternehmen.*, "
+				+ "Distanz FROM Unternehmen LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS(" + lat + ")) *"
+				+ " COS(RADIANS(lat)) * COS(RADIANS(lon) - RADIANS(" + lon + ")) + SIN(RADIANS(" + lat + ")) * "
+				+ "SIN(RADIANS(lat)))), 0) AS Distanz FROM plz.koordinaten HAVING Distanz <= " + umkreis
+				+ ") AS SQ ON SQ.plz" + " = unternehmen.plz WHERE Distanz <= " + umkreis
+				+ ") AS Da inner join (Select * From busse" + " where typ ='" + b.getTyp() + "' and groesse between "
+				+ b.getGroesse() + " and " + b.getPlatzBis() + " and Farbe like '%" + b.getFarbe()
+				+ "') as T1 on Da.U_ID = T1.U_ID )group by Da.U_ID;");
 		System.out.println();
 		while (rs.next()) {
 
@@ -612,20 +641,26 @@ public class Disposition extends AnchorPane {
 		Busse bs2 = listBusse.get(1);
 
 		ResultSet rs = stmt.executeQuery("SELECT Da.* FROM ((SELECT DISTINCT unternehmen.*, Distanz FROM Unternehmen"
-				+ " LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS("+lat+")) * COS(RADIANS(lat))"
-				+ " * COS(RADIANS(lon) - RADIANS("+lon+")) + SIN(RADIANS("+lat+")) * SIN(RADIANS(lat)))), 0)"
-				+ " AS Distanz FROM plz.koordinaten HAVING Distanz <= "+umkreis+") AS SQ ON SQ.plz = unternehmen.plz WHERE Distanz <= "+umkreis+")"
-				+ " AS Da inner join (Select T1.U_ID From(Select * From busse where typ ='"+bs1.getTyp() +"' "
-				+ "and groesse between "+bs1.getPlatzVonBis()+" and "+bs1.getPlatzBis()+" and Farbe like '%"+bs1.getFarbe()+"') as T1 inner join (Select * From busse "
-				+ "where typ ='"+bs2.getTyp() +"' and groesse between "+bs2.getPlatzVonBis()+" and "+bs2.getPlatzBis()+" and Farbe like '%"+bs2.getFarbe()+"') as T2 on T1.U_ID = T2.U_ID )"
+				+ " LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS(" + lat + ")) * COS(RADIANS(lat))"
+				+ " * COS(RADIANS(lon) - RADIANS(" + lon + ")) + SIN(RADIANS(" + lat + ")) * SIN(RADIANS(lat)))), 0)"
+				+ " AS Distanz FROM plz.koordinaten HAVING Distanz <= " + umkreis
+				+ ") AS SQ ON SQ.plz = unternehmen.plz WHERE Distanz <= " + umkreis + ")"
+				+ " AS Da inner join (Select T1.U_ID From(Select * From busse where typ ='" + bs1.getTyp() + "' "
+				+ "and groesse between " + bs1.getPlatzVonBis() + " and " + bs1.getPlatzBis() + " and Farbe like '%"
+				+ bs1.getFarbe() + "') as T1 inner join (Select * From busse " + "where typ ='" + bs2.getTyp()
+				+ "' and groesse between " + bs2.getPlatzVonBis() + " and " + bs2.getPlatzBis() + " and Farbe like '%"
+				+ bs2.getFarbe() + "') as T2 on T1.U_ID = T2.U_ID )"
 				+ " as D1 on D1.U_ID = Da.U_ID) group by Da.U_ID;");
 		System.out.println("SELECT Da.* FROM ((SELECT DISTINCT unternehmen.*, Distanz FROM Unternehmen"
-				+ " LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS("+lat+")) * COS(RADIANS(lat))"
-				+ " * COS(RADIANS(lon) - RADIANS("+lon+")) + SIN(RADIANS("+lat+")) * SIN(RADIANS(lat)))), 0)"
-				+ " AS Distanz FROM plz.koordinaten HAVING Distanz <= "+umkreis+") AS SQ ON SQ.plz = unternehmen.plz WHERE Distanz <= "+umkreis+")"
-				+ " AS Da inner join (Select T1.U_ID From(Select * From busse where typ ='"+bs1.getTyp() +"' "
-				+ "and groesse between "+bs1.getGroesse()+" and "+bs1.getPlatzBis()+" and Farbe like '%"+bs1.getFarbe()+"') as T1 inner join (Select * From busse "
-				+ "where typ ='"+bs2.getTyp() +"' and groesse between "+bs2.getGroesse()+" and "+bs2.getPlatzBis()+" and Farbe like '%"+bs2.getFarbe()+"') as T2 on T1.U_ID = T2.U_ID )"
+				+ " LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS(" + lat + ")) * COS(RADIANS(lat))"
+				+ " * COS(RADIANS(lon) - RADIANS(" + lon + ")) + SIN(RADIANS(" + lat + ")) * SIN(RADIANS(lat)))), 0)"
+				+ " AS Distanz FROM plz.koordinaten HAVING Distanz <= " + umkreis
+				+ ") AS SQ ON SQ.plz = unternehmen.plz WHERE Distanz <= " + umkreis + ")"
+				+ " AS Da inner join (Select T1.U_ID From(Select * From busse where typ ='" + bs1.getTyp() + "' "
+				+ "and groesse between " + bs1.getGroesse() + " and " + bs1.getPlatzBis() + " and Farbe like '%"
+				+ bs1.getFarbe() + "') as T1 inner join (Select * From busse " + "where typ ='" + bs2.getTyp()
+				+ "' and groesse between " + bs2.getGroesse() + " and " + bs2.getPlatzBis() + " and Farbe like '%"
+				+ bs2.getFarbe() + "') as T2 on T1.U_ID = T2.U_ID )"
 				+ " as D1 on D1.U_ID = Da.U_ID) group by Da.U_ID;");
 		while (rs.next()) {
 
@@ -660,7 +695,7 @@ public class Disposition extends AnchorPane {
 		Statement stmt = c.getStatement();
 		// 1. Schritt lon und lat
 		ResultSet rs1 = stmt.executeQuery("Select lat,lon from plz.koordinaten where plz =" + plz + "; ");
-		
+
 		while (rs1.next()) {
 			lat = rs1.getDouble(1);
 			lon = rs1.getDouble(2);
@@ -669,18 +704,17 @@ public class Disposition extends AnchorPane {
 		Busse b2 = listBusse.get(1);
 		Busse b3 = listBusse.get(2);
 		ResultSet rs = stmt.executeQuery("SELECT Da.* FROM((SELECT DISTINCT unternehmen.*, Distanz FROM"
-				+ " Unternehmen LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS("+lat+"))"
-				+ " * COS(RADIANS(lat)) * COS(RADIANS(lon) - RADIANS("+lon+")) + SIN(RADIANS("+lat+"))"
-				+ " * SIN(RADIANS(lat)))), 0) AS Distanz FROM plz.koordinaten HAVING Distanz <= "+umkreis+")"
-				+ " AS SQ ON SQ.plz = unternehmen.plz WHERE Distanz <= "+umkreis+") AS Da inner join "
-				+ "(Select T1.U_ID From(Select * From busse where typ ='"+b1.getTyp()+"' and groesse between "
-						+ ""+b1.getGroesse()+" and "+b1.getPlatzBis()+" and Farbe like '%"+b1.getFarbe()+"' )"
-				+ " as T1 inner join(Select * From busse where typ ='"+b2.getTyp()+"' and groesse between "+b2.getGroesse()+""
-						+ " and "+b2.getPlatzBis()+" and Farbe like '%"+b2.getFarbe()+"')"
-				+ " as T2 on T1.U_ID = T2.U_ID inner join(Select * From busse where typ ='"+b3.getTyp()+"' and "
-				+ "groesse between "+b3.getGroesse()+" and "+b3.getPlatzBis()+" and farbe like '%"+b3.getFarbe()+"')"
-				+ " as T3 on T2.U_ID = T3.U_ID) as E1 ) group by E1.U_ID;");
-		
+				+ " Unternehmen LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS(" + lat + "))"
+				+ " * COS(RADIANS(lat)) * COS(RADIANS(lon) - RADIANS(" + lon + ")) + SIN(RADIANS(" + lat + "))"
+				+ " * SIN(RADIANS(lat)))), 0) AS Distanz FROM plz.koordinaten HAVING Distanz <= " + umkreis + ")"
+				+ " AS SQ ON SQ.plz = unternehmen.plz WHERE Distanz <= " + umkreis + ") AS Da inner join "
+				+ "(Select T1.U_ID From(Select * From busse where typ ='" + b1.getTyp() + "' and groesse between " + ""
+				+ b1.getGroesse() + " and " + b1.getPlatzBis() + " and Farbe like '%" + b1.getFarbe() + "' )"
+				+ " as T1 inner join(Select * From busse where typ ='" + b2.getTyp() + "' and groesse between "
+				+ b2.getGroesse() + "" + " and " + b2.getPlatzBis() + " and Farbe like '%" + b2.getFarbe() + "')"
+				+ " as T2 on T1.U_ID = T2.U_ID inner join(Select * From busse where typ ='" + b3.getTyp() + "' and "
+				+ "groesse between " + b3.getGroesse() + " and " + b3.getPlatzBis() + " and farbe like '%"
+				+ b3.getFarbe() + "')" + " as T3 on T2.U_ID = T3.U_ID) as E1 ) group by E1.U_ID;");
 
 		while (rs.next()) {
 
@@ -693,5 +727,28 @@ public class Disposition extends AnchorPane {
 
 		return list;
 	}
+	void plzRunterladen(){
+    	String sql = "Select plz From plz.koordinaten";
+    	ConnectMe c = new ConnectMe();
+    	Statement stmt = c.getStatement();
+    	ArrayList<String> postalCode = new ArrayList<String>(); 
+    	try {
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				postalCode.add(rs.getString(1));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	c.closeConnection();
+    	TextFields.bindAutoCompletion(plzUmkreis, postalCode);
+    	
+    }
+
+	
+	
 
 }

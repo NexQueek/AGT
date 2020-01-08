@@ -8,7 +8,7 @@
 
 <fx:root prefHeight="1020.0" prefWidth="1700.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="tabelle" layoutX="20.0" layoutY="230.0" maxHeight="783.0" maxWidth="1656.0" prefHeight="783.0" prefWidth="1656.0" tableMenuButtonVisible="true">
+      <TableView fx:id="tabelle" layoutX="20.0" layoutY="230.0" maxHeight="783.0" maxWidth="1656.0" prefHeight="750.0" prefWidth="1656.0" tableMenuButtonVisible="true">
       <placeholder>
         <Label text="" />
     </placeholder>

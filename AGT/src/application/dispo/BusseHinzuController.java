@@ -3,16 +3,12 @@ package application.dispo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 
 import application.sql.ConnectMe;
 import javafx.collections.FXCollections;
@@ -56,10 +52,10 @@ public class BusseHinzuController {
 			"Doppeldecker", "Linienbus", "Ueberlandbus/Kombibus", "MiniVan", "VIP Kleinbus", "VIP Reisebus",
 			"VIP Doppeldecker", "VIP MiniVan");
 	ObservableList<String> marken = FXCollections.observableArrayList("MAN","Mercedes","Neoplan","Setra",
-			"Bova"," van Hool","Volvo", "Temsa Bus & Coach","Irisbus (Iveco-Gruppe)", "Scania");
+			"Bova"," van Hool","Volvo", "Temsa Bus & Coach","Irisbus (Iveco-Gruppe)", "Scania", "VW");
 
 	ObservableList<String> optionsFarbe = FXCollections.observableArrayList("", "Weiß", "Schwarz", "Blau", "Gelb",
-			"Grün");
+			"Grün", "Rot","Silber", "Grau");
 	ObservableList<String> jaNe = FXCollections.observableArrayList("Ja", "Nein");
 
 	@FXML

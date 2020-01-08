@@ -13,10 +13,10 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <TableView fx:id="tabelle" layoutX="19.0" layoutY="97.0" prefHeight="381.0" prefWidth="963.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="97.0">
+      <TableView fx:id="tabelle" layoutX="19.0" layoutY="97.0" prefHeight="381.0" prefWidth="963.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="97.0">
         <columns>
-          <TableColumn fx:id="BUS_ID" prefWidth="75.0" text="BUS_ID" />
-          <TableColumn prefWidth="75.0" text="Buseigenschaften">
+          <TableColumn fx:id="BUS_ID" prefWidth="99.0" text="BUS_ID" visible="false" />
+          <TableColumn prefWidth="862.0" text="Buseigenschaften">
                <columns>
                   <TableColumn fx:id="typ" prefWidth="75.0" text="Typ" />
                   <TableColumn fx:id="groesse" prefWidth="75.0" text="Plätze" />

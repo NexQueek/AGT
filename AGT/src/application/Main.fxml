@@ -86,75 +86,211 @@
             </Label>
             <ImageView fx:id="setLogo" fitHeight="307.0" fitWidth="449.0" layoutX="14.0" layoutY="660.0" pickOnBounds="true" />
             <ImageView fx:id="agtLogo" fitHeight="310.0" fitWidth="1216.0" layoutX="480.0" layoutY="732.0" pickOnBounds="true" />
-            <VBox layoutX="172.0" layoutY="195.0" prefHeight="465.0" prefWidth="461.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="27.0" prefWidth="463.0" text="Änderungen in  Version 1.10" underline="true">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="463.0" text="Neuheiten" wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="383.0" text="-&gt;Neues Dispo Interface" wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Suche nun nach Name, Email und Ort als Bedingung moeglich" wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Suche zeigt nun Ergebnisse an " wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="52.0" prefWidth="443.0" text="-&gt;Busse als Bedingungen hinzufügen (3maximal) mit Typ ( z.B Reisebus) Grösse ( zwischen x und y) und Farbe (optional)" wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="459.0" text="-&gt;Suche wird dann nur Unternehmen ausgeben, die die Busse in ihrem Fuhrpark haben" wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="459.0" text="-&gt;Busse können hinzugefügt werden ( rechtsklick auf das Unternehmen -&gt; Busse anzeigen -&gt; Bus hinzufügen)" wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;Ein Bild kann einem Bus hinzugefügt werden " wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="459.0" text="-&gt;Mit Doppelklick auf den Bus kann das Bild, falls vorhanden vergrößert werden " wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="459.0" text="-&gt;Die Bedingung der Busse kann resetet werden um normale Umkreissuche anzuzeigen" wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;diverse Farbänderung" wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;diverse Bugfixes" wrapText="true">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
+            <Accordion layoutX="80.0" layoutY="168.0" prefHeight="677.0" prefWidth="800.0">
+              <panes>
+                <TitledPane animated="false" prefHeight="206.0" prefWidth="0.0" text="Version 1.10">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="625.0" prefWidth="798.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="27.0" prefWidth="463.0" text="Änderungen in  Version 1.10" underline="true">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="26.0" prefWidth="463.0" text="Neuheiten" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="455.0" text="-&gt;Neues Dispo Interface" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Suche nun nach Name, Email und Ort als Bedingung moeglich" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Suche zeigt nun Ergebnisse an " wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="52.0" prefWidth="443.0" text="-&gt;Busse als Bedingungen hinzufügen (3maximal) mit Typ ( z.B Reisebus) Grösse ( zwischen x und y) und Farbe (optional)" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="459.0" text="-&gt;Suche wird dann nur Unternehmen ausgeben, die die Busse in ihrem Fuhrpark haben" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="459.0" text="-&gt;Busse können hinzugefügt werden ( rechtsklick auf das Unternehmen -&gt; Busse anzeigen -&gt; Bus hinzufügen)" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;Ein Bild kann einem Bus hinzugefügt werden " wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="459.0" text="-&gt;Mit Doppelklick auf den Bus kann das Bild, falls vorhanden vergrößert werden " wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="459.0" text="-&gt;Die Bedingung der Busse kann resetet werden um normale Umkreissuche anzuzeigen" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;diverse Farbänderung" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;diverse Bugfixes" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Version 1.11">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="625.0" prefWidth="798.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="27.0" prefWidth="463.0" text="Änderungen in  Version 1.11" underline="true">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="26.0" prefWidth="463.0" text="Neuheiten" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="455.0" text="-&gt;Bus ContextMenü (durch rechtsklick auf einen Bus)" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Busse bearbeiten " wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Bild anzeigen" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="460.0" text="-&gt;Bus löschen " wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="53.0" prefWidth="459.0" text="-&gt;E-Mail kopieren von Unternehmen (rechtsklick auf Unternehmen)" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+                  <TitledPane animated="false" text="Version 1.12">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="625.0" prefWidth="798.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="27.0" prefWidth="463.0" text="Änderungen in  Version 1.12" underline="true">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="26.0" prefWidth="463.0" text="Neuheiten" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="455.0" text="-&gt;ContextMenü verschwindet wenn man irgendwo wegklickt" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Dispo kann Unternehmen bearbeiten " wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Neue Busmarke: VW" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="460.0" text="-&gt;Neue Busfarbe: Rot Silber und Grau" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;Enter drücken zum Suchen" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;BU Tabelle verkleinert um alle BU darstellen zu können" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;Autovervollständigung für die PLZ in der Umkreissuche" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;Stickpunktsuche nun beim Namen möglich " wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="Beispiel: Eingabe = a. Ausgabe = Transpax" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;Änderung des Hintergrundes der spezifischen BU-Infos " wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;BU können vom Admin gelöscht werden  " wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+              </panes>
+            </Accordion>
          </children></Pane>
    </center>
 </BorderPane>

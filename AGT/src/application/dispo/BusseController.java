@@ -76,7 +76,7 @@ public class BusseController {
 
 	@FXML
 	void initialize() {
-
+		
 		eventSetzen();
 		liste = befuellen();
 		typ.setCellValueFactory(new PropertyValueFactory<>("Typ"));
@@ -102,6 +102,7 @@ public class BusseController {
 		cm.getItems().add(mi2);
 		MenuItem mi3 = new MenuItem("Bus löschen");
 		cm.getItems().add(mi3);
+		cm.setImpl_showRelativeToWindow(true);
 		tabelle.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
 			@Override
