@@ -278,7 +278,7 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;BU können vom Admin gelöscht werden  " wrapText="true">
+                                    <Label alignment="TOP_LEFT" prefHeight="50.0" prefWidth="459.0" text="-&gt;BUS_ID ist augeschaltet kann aber durch klicken auf das Plus wieder hergestellt werden " wrapText="true">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
