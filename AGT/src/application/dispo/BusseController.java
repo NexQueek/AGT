@@ -28,6 +28,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -73,6 +75,8 @@ public class BusseController {
 	TableColumn<?, ?> branding;
 
 	@FXML TableColumn<?, ?> marke;
+	
+	static int counter = 0;
 
 	@FXML
 	void initialize() {
@@ -231,11 +235,13 @@ public class BusseController {
 				if (blob == null) {
 
 				} else {
-
+					System.out.println(counter++);
 					InputStream in = blob.getBinaryStream();
 					BufferedImage image;
 					image = ImageIO.read(in);
-					Image im = SwingFXUtils.toFXImage(image, null);
+					Image im = null;
+					im = convertToFxImage(image);
+					//im =SwingFXUtils.toFXImage(image, null) ;			
 					ImageView i = new ImageView();
 					i.setImage(im);
 					b.setBild(i);
@@ -252,6 +258,20 @@ public class BusseController {
 			e.printStackTrace();
 		}
 		return li;
+	}
+	private static Image convertToFxImage(BufferedImage image) {
+	    WritableImage wr = null;
+	    if (image != null) {
+	        wr = new WritableImage(image.getWidth(), image.getHeight());
+	        PixelWriter pw = wr.getPixelWriter();
+	        for (int x = 0; x < image.getWidth(); x++) {
+	            for (int y = 0; y < image.getHeight(); y++) {
+	                pw.setArgb(x, y, image.getRGB(x, y));
+	            }
+	        }
+	    }
+
+	    return new ImageView(wr).getImage();
 	}
 
 	@FXML

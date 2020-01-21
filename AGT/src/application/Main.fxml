@@ -228,7 +228,7 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="455.0" text="-&gt;ContextMenü verschwindet wenn man irgendwo wegklickt" wrapText="true">
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="455.0" text="-&gt;//ContextMenü verschwindet wenn man irgendwo wegklickt " wrapText="true">
                                        <font>
                                           <Font size="16.0" />
                                        </font>

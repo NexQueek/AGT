@@ -139,8 +139,8 @@ public class Disposition extends AnchorPane {
 	ObservableList<String> optionsBusse = FXCollections.observableArrayList("Reisebus", "Midibus", "Kleinbus",
 			"Doppeldecker", "Linienbus", "Ueberlandbus/Kombibus", "MiniVan", "VIP Kleinbus", "VIP Reisebus",
 			"VIP Doppeldecker", "VIP MiniVan");
-	ObservableList<String> optionsFarbe = FXCollections.observableArrayList("", "Weiß", "Schwarz", "Blau", "Gelb",
-			"Grün", "Rot", "Silber", "Grau");
+	ObservableList<String> optionsFarbe = FXCollections.observableArrayList("", "Weiï¿½", "Schwarz", "Blau", "Gelb",
+			"Grï¿½n", "Rot", "Silber", "Grau");
 
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -149,7 +149,7 @@ public class Disposition extends AnchorPane {
 		TableView<Unternehmen> tableview = getTabelle();
 		tableview.getSelectionModel().setCellSelectionEnabled(true);
 		tableview.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		// Methode für den doppelklick
+		// Methode fï¿½r den doppelklick
 		tableview.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent ee) {
@@ -162,7 +162,7 @@ public class Disposition extends AnchorPane {
 			}
 		});
 		enterSuchen();
-		// Rechtsklick für Methode
+		// Rechtsklick fï¿½r Methode
 		ContextMenu cm = new ContextMenu();
 		MenuItem mi1 = new MenuItem("Unternehmen bearbeiten");
 		
@@ -292,7 +292,7 @@ public class Disposition extends AnchorPane {
 	 * Entlastung der init Methode
 	 * 
 	 * <p>
-	 * Mappt die Daten für die Tabellen
+	 * Mappt die Daten fï¿½r die Tabellen
 	 * </p>
 	 */
 	void datenSetzen() {
@@ -362,7 +362,7 @@ public class Disposition extends AnchorPane {
 			default:
 				Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Information Dialog");
-				alert.setHeaderText("Bitte nur maximal drei Busse auswählen");
+				alert.setHeaderText("Bitte nur maximal drei Busse auswï¿½hlen");
 				/* alert.setContentText("You didn't select a file!"); */
 				alert.showAndWait();
 			}
@@ -378,18 +378,18 @@ public class Disposition extends AnchorPane {
 	}
 
 	/**
-	 * Methode zum füllen der Unternehmen die für die bestimmten Bedingung zu
+	 * Methode zum fï¿½llen der Unternehmen die fï¿½r die bestimmten Bedingung zu
 	 * treffen
 	 * 
 	 * @param bedingung
 	 *            ->besteht aus der ersten Suchbedingung { plz, Name, etc}
 	 * @param wertEins
-	 *            -> folgender Wert für die erste Suchbedingung
+	 *            -> folgender Wert fï¿½r die erste Suchbedingung
 	 * @param bedingungZwei
 	 *            -> besteht aus zweiter Suchbedingung, kann optinal seinn
 	 * @param wertZwei
-	 *            -> Wert für die zweite Suchbedingung
-	 * @return gibt die Liste mit den Unternhmen für die Bedingungen wieder
+	 *            -> Wert fï¿½r die zweite Suchbedingung
+	 * @return gibt die Liste mit den Unternhmen fï¿½r die Bedingungen wieder
 	 */
 	public ObservableList<Unternehmen> daten(String bedingung, String wertEins) {
 		ObservableList<Unternehmen> list = FXCollections.observableArrayList();
@@ -428,14 +428,14 @@ public class Disposition extends AnchorPane {
 	}
 
 	/**
-	 * Mehtoder für die Umkreissuche im ersten schritt wird die lat und lon
+	 * Mehtoder fï¿½r die Umkreissuche im ersten schritt wird die lat und lon
 	 * einer gesuchten PLZ gegeben und dann anhand dieser Werte ein Inner join
 	 * bei den beiden Tabellen gemacht um die Unternehmensdaten zu bekommen
 	 * 
 	 * @param plz
-	 *            -> für den ersten schritt benötigt
+	 *            -> fï¿½r den ersten schritt benï¿½tigt
 	 * @param umkreis
-	 *            -> für den 2 Schritt zur berechnung der lat und lon
+	 *            -> fï¿½r den 2 Schritt zur berechnung der lat und lon
 	 * @return gibt eine Liste mit Unternehmen die im Umkreis sind
 	 * @throws SQLException
 	 *             unbehandelt
@@ -563,7 +563,7 @@ public class Disposition extends AnchorPane {
 
 	/**
 	 * Zweck:<br>
-	 * Wenn ein bus gewählt wird soll ein Join gemacht werden.<br>
+	 * Wenn ein bus gewï¿½hlt wird soll ein Join gemacht werden.<br>
 	 * <br>
 	 * Warum:<br>
 	 * Mir ist bis jetzt keine bessere SQL Suche eingefallen die performant und
@@ -613,7 +613,7 @@ public class Disposition extends AnchorPane {
 
 	/**
 	 * Zweck:<br>
-	 * Wenn 2 busse gewählt wird soll ein Join gemacht werden.<br>
+	 * Wenn 2 busse gewï¿½hlt wird soll ein Join gemacht werden.<br>
 	 * <br>
 	 * Warum:<br>
 	 * Mir ist bis jetzt keine bessere SQL Suche eingefallen die performant und
@@ -676,7 +676,7 @@ public class Disposition extends AnchorPane {
 
 	/**
 	 * Zweck:<br>
-	 * Wenn ein bus gewählt wird soll ein Join gemacht werden.<br>
+	 * Wenn ein bus gewï¿½hlt wird soll ein Join gemacht werden.<br>
 	 * <br>
 	 * Warum:<br>
 	 * Mir ist bis jetzt keine bessere SQL Suche eingefallen die performant und

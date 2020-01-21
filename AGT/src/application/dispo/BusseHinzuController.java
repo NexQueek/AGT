@@ -101,8 +101,9 @@ public class BusseHinzuController {
 			pstmt.setString(5, farbe.getSelectionModel().getSelectedItem());
 			pstmt.setString(7, jaNein.getSelectionModel().getSelectedItem());
 			pstmt.setString(8, marke.getSelectionModel().getSelectedItem());
-
 			pstmt.execute();
+			
+			
 			final Node source = (Node) event.getSource();
 			final Stage stage = (Stage) source.getScene().getWindow();
 			stage.close();
