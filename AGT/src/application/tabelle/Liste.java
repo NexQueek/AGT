@@ -1,7 +1,6 @@
 package application.tabelle;
 
 import java.sql.Date;
-import javafx.scene.control.TextField;
 
 public class Liste {
 	private String busNr;
@@ -23,21 +22,19 @@ public class Liste {
 	private String ek;
 	private String marge;
 	private String gesamt;
-	private TextField schichtText = new TextField();
-	
-	
-	
-	public TextField getSchichtText() {
-		if(schichtText == null){
-			return null;
-		}else{
-			
-			return schichtText;
-		}
-		
+	private int fahrtId;
+	private int nId; 
+	public int getFahrtId() {
+		return fahrtId;
 	}
-	public void setSchichtText(TextField schichtText) {
-		this.schichtText = schichtText;
+	public void setFahrtId(int fahrtId) {
+		this.fahrtId = fahrtId;
+	}
+	public int getnId() {
+		return nId;
+	}
+	public void setnId(int nId) {
+		this.nId = nId;
 	}
 	public String getBusNr() {
 		return busNr;
@@ -92,6 +89,7 @@ public class Liste {
 	}
 	public void setSchicht(String schicht) {
 		this.schicht = schicht;
+		
 	}
 	public String getTag() {
 		return tag;

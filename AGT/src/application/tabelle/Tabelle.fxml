@@ -15,7 +15,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1020.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.tabelle.Tabelle">
    <children>
-      <TableView fx:id="tabelleEx" layoutX="3.0" layoutY="65.0" prefHeight="931.0" prefWidth="1905.0">
+      <TableView fx:id="tabelleEx" editable="true" layoutX="3.0" layoutY="65.0" prefHeight="931.0" prefWidth="1905.0" tableMenuButtonVisible="true">
         <columns>
           <TableColumn fx:id="busNr" prefWidth="70.0" text="Bus Nr." />
           <TableColumn fx:id="bemerkungen" prefWidth="115.0" text="Bemerkung" />
@@ -50,11 +50,31 @@
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <Button layoutX="800.0" layoutY="14.0" mnemonicParsing="false" onAction="#suchen" text="ausfüren">
+      <Button layoutX="780.0" layoutY="14.0" mnemonicParsing="false" onAction="#suchen" text="suchen">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <ChoiceBox fx:id="dropdownWerk" layoutX="27.0" layoutY="19.0" prefHeight="39.0" prefWidth="235.0" />
+      <Button layoutX="913.0" layoutY="14.0" mnemonicParsing="false" onAction="#speichern" text="speichern">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="hinzu" layoutX="273.0" layoutY="19.0" mnemonicParsing="false" onAction="#neuesWerk" prefHeight="39.0" prefWidth="33.0" text="+">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="1165.0" layoutY="22.0" mnemonicParsing="false" onAction="#neueFahrt" prefHeight="39.0" prefWidth="164.0" text="neue Fahrt hinzufügen">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="dropdownWerk" layoutX="75.0" layoutY="19.0" prefHeight="39.0" prefWidth="198.0" />
+      <Button layoutX="1389.0" layoutY="14.0" mnemonicParsing="false" onAction="#masterMe" text="Mastertabelle aufrufen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

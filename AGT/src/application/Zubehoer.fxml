@@ -21,7 +21,7 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="226.0" layoutY="15.0" text="Allgemeine Informationen zu Fahrern" underline="true">
+      <Label layoutX="322.0" layoutY="15.0" text="Tabellen anzeigen" underline="true">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -110,5 +110,10 @@
       <TextField fx:id="stundenEndeStd" layoutX="1318.0" layoutY="690.0" prefHeight="25.0" prefWidth="36.0" />
       <Label layoutX="1354.0" layoutY="694.0" text=":" />
       <TextField fx:id="stundenEndeMin" layoutX="1357.0" layoutY="690.0" prefHeight="25.0" prefWidth="36.0" />
+      <Button layoutX="349.0" layoutY="203.0" mnemonicParsing="false" onAction="#anzeigenAma" text="anzeigen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
    </children>
 </fx:root>

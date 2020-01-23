@@ -144,7 +144,7 @@ public class Disposition extends AnchorPane {
 
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		plzRunterladen();
+		//plzRunterladen();
 		datenSetzen();
 		TableView<Unternehmen> tableview = getTabelle();
 		tableview.getSelectionModel().setCellSelectionEnabled(true);
@@ -176,7 +176,7 @@ public class Disposition extends AnchorPane {
 		cm.getItems().add(mi4);
 		MenuItem mi5 = new MenuItem("E-Mail kopieren");
 		cm.getItems().add(mi5);
-		cm.setImpl_showRelativeToWindow(true);
+		//cm.setImpl_showRelativeToWindow(true);
 		tableview.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
 			@Override

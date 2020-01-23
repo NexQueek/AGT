@@ -12,7 +12,6 @@ import javax.imageio.ImageIO;
 import application.sql.ConnectMe;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -106,7 +105,7 @@ public class BusseController {
 		cm.getItems().add(mi2);
 		MenuItem mi3 = new MenuItem("Bus löschen");
 		cm.getItems().add(mi3);
-		cm.setImpl_showRelativeToWindow(true);
+		//cm.setImpl_showRelativeToWindow(true);
 		tabelle.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
 			@Override

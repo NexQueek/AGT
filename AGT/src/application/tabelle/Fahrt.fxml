@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="868.0" prefWidth="726.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.tabelle.FahrtController">
+   <children>
+      <Label layoutX="281.0" layoutY="14.0" text="Fahrt hinzufügen" underline="true">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="werk" layoutX="446.0" layoutY="100.0" prefHeight="32.0" prefWidth="175.0" />
+      <Label layoutX="30.0" layoutY="100.0" prefHeight="27.0" prefWidth="178.0" text="Werk*:" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="135.0" prefHeight="27.0" prefWidth="178.0" text="Bus Nr:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="busnr" layoutX="446.0" layoutY="135.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="30.0" layoutY="170.0" prefHeight="27.0" prefWidth="178.0" text="Bemerkung:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="275.0" prefHeight="27.0" prefWidth="178.0" text="Kalenderwoche*" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="310.0" prefHeight="27.0" prefWidth="178.0" text="Datum:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="205.0" prefHeight="27.0" prefWidth="178.0" text="Ansprechpartner:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="240.0" prefHeight="27.0" prefWidth="178.0" text="Kürzel:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="345.0" prefHeight="27.0" prefWidth="178.0" text="Abfahrtort:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="380.0" prefHeight="27.0" prefWidth="277.0" text="Uhrzeit(mit doppeltpunkt):">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="415.0" prefHeight="27.0" prefWidth="178.0" text="Schicht:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="450.0" prefHeight="27.0" prefWidth="178.0" text="Tag:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="485.0" prefHeight="27.0" prefWidth="175.0" text="Fahrer:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="520.0" prefHeight="27.0" prefWidth="178.0" text="Handynummer/Tel:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="555.0" prefHeight="27.0" prefWidth="178.0" text="Soll-Busgröße:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="625.0" prefHeight="27.0" prefWidth="178.0" text="Preis Netto">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="590.0" prefHeight="27.0" prefWidth="178.0" text="Ist-Busgröße:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="660.0" prefHeight="27.0" prefWidth="178.0" text="Preis Brutto">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="730.0" prefHeight="27.0" prefWidth="178.0" text="Marge">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="765.0" prefHeight="27.0" prefWidth="178.0" text="Gesamt">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="695.0" prefHeight="27.0" prefWidth="178.0" text="EK">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="bemerkung" layoutX="446.0" layoutY="170.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="kurzel" layoutX="446.0" layoutY="240.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ansprechpartner" layoutX="446.0" layoutY="205.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="abfahrtort" layoutX="446.0" layoutY="345.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="uhrzeit" layoutX="446.0" layoutY="380.0" promptText="HH:MM">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="KW" layoutX="446.0" layoutY="275.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="sollBus" layoutX="447.0" layoutY="555.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="istbus" layoutX="447.0" layoutY="590.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="preisBrutto" layoutX="447.0" layoutY="660.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="preisNetto" layoutX="447.0" layoutY="625.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="fahrer" layoutX="447.0" layoutY="485.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="handy" layoutX="447.0" layoutY="520.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tag" layoutX="447.0" layoutY="450.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="schicht" layoutX="447.0" layoutY="415.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="gesamt" layoutX="446.0" layoutY="765.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="marge" layoutX="446.0" layoutY="730.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="EK" layoutX="446.0" layoutY="695.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="247.0" layoutY="46.0" prefHeight="27.0" prefWidth="232.0" text="Sternchenpfelder sind Pflicht">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datum" layoutX="446.0" layoutY="310.0" prefHeight="30.0" prefWidth="175.0" />
+      <Button layoutX="30.0" layoutY="807.0" mnemonicParsing="false" onAction="#sende" prefHeight="48.0" prefWidth="244.0" text="Abschicken">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

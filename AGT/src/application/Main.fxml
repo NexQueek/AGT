@@ -289,6 +289,88 @@
                         </AnchorPane>
                      </content>
                   </TitledPane>
+                  <TitledPane animated="false" text="Version 1.13">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="625.0" prefWidth="798.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="27.0" prefWidth="463.0" text="Änderungen in  Version 1.13" underline="true">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="26.0" prefWidth="463.0" text="Neuheiten" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="455.0" text="-&gt;Zubehör hat nun oben links eine Tabelle" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Bei der Tabelle kann der Admin Werke hinzufügen" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Suche von Fahrten in einem Werk und bestimmten KW" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="105.0" prefWidth="460.0" text="-&gt;Live Bearbeitung dieser Fahrten in der Tabelle ( einfach doppel klick auf die Zelle, den Wert ändern und Enter drücken, neuer Wert sollte nun angezeigt werden, dann wenn alle Werte geändert worden sind, auf Speichern drücken" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;Hinzufügen von Fahrten" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;Mastertabelle zeigt alle Fahrten für eine bestimmte Kalenderwoch" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="51.0" prefWidth="459.0" text="-&gt;!!!Wichtig!!! Der Admin muss unter Admin die Datenbank freischalten(einfach den Button unten drücken)" wrapText="true">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="80.0" prefWidth="459.0" text="-&gt;!!!Wichtig!!! Außerdem muss der Admin erstmal die Werke hinzufügen(rechts neben der Auswahlbox ist ein + Button" wrapText="true">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="483.0" text="---------------------------Kommende Features-----------------------" wrapText="true">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;Übernahme der Fahrten in die nächste KW" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;Bearbeitung des Datums" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="459.0" text="-&gt;Eigenständige Berechnung der Marge und anderer Preise" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
               </panes>
             </Accordion>
          </children></Pane>
