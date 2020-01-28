@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
@@ -337,6 +338,7 @@ public class Tabelle {
 		String kw = kalenderwoche.getText();
 		ConnectMe c = new ConnectMe();
 		Statement stmt = c.getStatement();
+		//Wichtig 
 		listListe.clear();
 		String nID = dropdownWerk.getSelectionModel().getSelectedItem();
 		try {
@@ -452,7 +454,11 @@ public class Tabelle {
 			primaryStage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Fehler");
+			alert.setHeaderText(e.getMessage());
+			/* alert.setContentText("You didn't select a file!"); */
+			alert.showAndWait();
 		}
     }
     /**

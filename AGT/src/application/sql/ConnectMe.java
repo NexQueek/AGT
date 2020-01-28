@@ -19,10 +19,10 @@ public class ConnectMe {
 	public ConnectMe(){
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://192.168.2.6/plz?useUnicode=true&useJDBCCompliantTim"
-					+ "ezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","agt","12345");
-			//con=DriverManager.getConnection("jdbc:mysql://localhost/plz?useUnicode=true&useJDBCCompliantTim"
-				//	+ "ezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","1234");
+			//con=DriverManager.getConnection("jdbc:mysql://192.168.2.6/plz?useUnicode=true&useJDBCCompliantTim"
+				//	+ "ezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","agt","12345");
+			con=DriverManager.getConnection("jdbc:mysql://localhost/plz?useUnicode=true&useJDBCCompliantTim"
+				+ "ezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","1234");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

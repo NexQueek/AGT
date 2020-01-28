@@ -362,6 +362,13 @@ public class Admin extends AnchorPane {
 				+ "`brutto` VARCHAR(45) NULL,               " + "`ek` VARCHAR(45) NULL,                   "
 				+ "`marge` VARCHAR(45) NULL,                " + "`gesamt` VARCHAR(45) NULL,               "
 				+ "PRIMARY KEY (`Fahrt_ID`));               ";
+		String sqlLinie = "CREATE TABLE `plz`.`linie` ( " + " `idLinie` INT NOT NULL AUTO_INCREMENT, "
+				+ " `N_ID` INT NULL,                       " + " `name` VARCHAR(45) NULL,               "
+				+ " `anzahlBusse` VARCHAR(45) NULL,        " + " `von` VARCHAR(45) NULL,                "
+				+ " `ueber` VARCHAR(45) NULL,              " + " `nach` VARCHAR(45) NULL,               "
+				+ " `wannBisWann` VARCHAR(45) NULL,  `farbe` VARCHAR(45) NULL,      " + " PRIMARY KEY (`idLinie`));              ";
+		String sqlBusse ="";
+		String sqlSchichten="";
 		ConnectMe c = new ConnectMe();
 
 		Statement stmt = c.getStatement();
@@ -401,6 +408,45 @@ public class Admin extends AnchorPane {
 			// Falls nicht vorhanden
 			else {
 				stmt.executeUpdate(sqlFahrt);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			tables = dbm.getTables(null, null, "linie", null);
+			if (tables.next()) {
+				System.out.println("Linie ist vorhanden");
+			}
+			// Falls nicht vorhanden
+			else {
+				stmt.executeUpdate(sqlLinie);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			tables = dbm.getTables(null, null, "werkBus", null);
+			if (tables.next()) {
+				System.out.println("Werk bus ist vorhanden");
+			}
+			// Falls nicht vorhanden
+			else {
+				stmt.executeUpdate(sqlBusse);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			tables = dbm.getTables(null, null, "schichten", null);
+			if (tables.next()) {
+				System.out.println("Schichtentabelle ist vorhanden");
+			}
+			// Falls nicht vorhanden
+			else {
+				stmt.executeUpdate(sqlSchichten);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -33,10 +33,43 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="19.0" layoutY="337.0" mnemonicParsing="false" onAction="#abschicken" prefHeight="60.0" prefWidth="160.0" text="Bestätigen">
+      <Button layoutX="141.0" layoutY="150.0" mnemonicParsing="false" onAction="#abschicken" prefHeight="30.0" prefWidth="136.0" text="Bestätigen">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
+      <Label layoutX="141.0" layoutY="199.0" text="Werk bearbeiten" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="307.0" prefHeight="21.0" prefWidth="122.0" text="Stadt:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="stadt1" layoutX="222.0" layoutY="308.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="name1" layoutX="222.0" layoutY="273.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="22.0" layoutY="272.0" prefHeight="21.0" prefWidth="122.0" text="Werkname:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="237.0" prefHeight="27.0" prefWidth="175.0" text="Bestehendes Werk">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="dropdownWerk" layoutX="222.0" layoutY="238.0" prefHeight="30.0" prefWidth="175.0" />
+      <Button disable="true" layoutX="22.0" layoutY="346.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="136.0" text="Änderung speichern" />
+      <Button layoutX="246.0" layoutY="346.0" mnemonicParsing="false" onAction="#werkAutomatisieren" prefHeight="42.0" prefWidth="132.0" text="Werk automatisieren " />
    </children>
 </AnchorPane>
