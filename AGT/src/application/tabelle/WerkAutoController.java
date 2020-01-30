@@ -166,6 +166,7 @@ public class WerkAutoController {
 			alert.setContentText("Fehler");
 			alert.showAndWait();
     	}else{
+    		
     		Werk.werk.getLinieListe().get(auswahlNummer).setAnzahlDerBusse(linieAnzahl.getText());
     		Werk.werk.getLinieListe().get(auswahlNummer).setFarbe(linieFarbe.getValue().toString().substring(2));
     		Werk.werk.getLinieListe().get(auswahlNummer).setColor(linieFarbe.getValue());
