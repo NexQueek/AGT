@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.temporal.IsoFields;
 
 import application.Benutzer;
 import application.sql.ConnectMe;
@@ -95,6 +96,7 @@ public class Tabelle {
 		ek.setCellValueFactory(new PropertyValueFactory<>("ek"));              
 		marge.setCellValueFactory(new PropertyValueFactory<>("marge"));           
 		gesamt.setCellValueFactory(new PropertyValueFactory<>("gesamt"));    
+		
 		gesamt.setEditable(true);
 		dropdownBefuellen();
 		Liste e = new Liste();
@@ -506,6 +508,30 @@ public class Tabelle {
 			e.printStackTrace();
 		}
 		tabelleEx.setItems(listListe);
+    	
+    }
+
+    @FXML
+    void autoWerk(ActionEvent event) {
+    	listListe.clear();
+    	Linie line = Werk.werk.getLinieListe().get(0);
+    	System.out.println(line.getSchicht().getListeAllerSchichten().size());
+    	LocalDate monday = LocalDate.now().minusDays(1);
+    	for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < line.getSchicht().getListeAllerSchichten().size(); j++) {
+				Liste list = new Liste();
+				list.setDatum(Date.valueOf(monday.plusDays(i)));
+				list.setAbfahrtort(line.getVon() + " über " + line.getUeber() + " nach " + line.getNach());
+				list.setUhrzeit(line.getSchicht().getListeAllerSchichten().get(j));
+				list.setFahrer(line.getBusListe().get(0).getFahrer());
+				
+				
+				list.setKW(monday.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR)+"" );
+				
+				
+				listListe.add(list);
+			}
+		}
     	
     }
 

@@ -21,7 +21,7 @@
                      <font>
                         <Font size="14.0" />
                      </font></TextField>
-                  <Button defaultButton="true" layoutX="74.0" layoutY="376.0" mnemonicParsing="false" onAction="#werkAbsenden" prefHeight="48.0" prefWidth="160.0" text="Absenden">
+                  <Button fx:id="werkAbsendenButton" defaultButton="true" layoutX="74.0" layoutY="376.0" mnemonicParsing="false" onAction="#werkAbsenden" prefHeight="48.0" prefWidth="160.0" text="Absenden">
                      <font>
                         <Font size="17.0" />
                      </font>

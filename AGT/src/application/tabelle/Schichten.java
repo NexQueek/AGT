@@ -1,5 +1,7 @@
 package application.tabelle;
 
+import java.util.ArrayList;
+
 public class Schichten {
 	private String idSchicht ;
 	private String idLinie;
@@ -12,8 +14,60 @@ public class Schichten {
 	private String nachtHin;
 	private String nachtTeil;
 	private String nachtZu;
+	private ArrayList<String> listeAllerSchichten;
 	
 	
+	public ArrayList<String> getListeAllerSchichten() {
+		listeAllerSchichten = new ArrayList<>();
+		if(getFruhHin()==null){
+			
+		}else{
+			listeAllerSchichten.add(getFruhHin());
+		}
+		if(getFruhTeil()==null){
+			
+		}else{
+			listeAllerSchichten.add(getFruhTeil());
+		}
+		if(getFruhZu()==null){
+			
+		}else{
+			listeAllerSchichten.add(getFruhZu());
+		}
+		if(getSpatHin()==null){
+			
+		}else{
+			listeAllerSchichten.add(getSpatHin());
+		}
+		if(getSpatTeil()==null){
+			
+		}else{
+			listeAllerSchichten.add(getSpatTeil());
+		}
+		if(getSpatZu()==null){
+			
+		}else{
+			listeAllerSchichten.add(getSpatZu());
+		}
+		if(getNachtHin()==null){
+			
+		}else{
+			listeAllerSchichten.add(getNachtHin());
+		}
+		if(getNachtTeil()==null){
+			
+		}else{
+			listeAllerSchichten.add(getNachtTeil());
+		}
+		if(getNachtZu()==null){
+			
+		}else{
+			listeAllerSchichten.add(getNachtZu());
+		}
+		
+		
+		return listeAllerSchichten;
+	}
 	public String getIdSchicht() {
 		return idSchicht;
 	}

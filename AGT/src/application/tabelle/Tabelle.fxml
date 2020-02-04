@@ -65,7 +65,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1165.0" layoutY="22.0" mnemonicParsing="false" onAction="#neueFahrt" prefHeight="39.0" prefWidth="164.0" text="neue Fahrt hinzufügen">
+      <Button layoutX="1167.0" layoutY="22.0" mnemonicParsing="false" onAction="#neueFahrt" prefHeight="39.0" prefWidth="162.0" text="neue Fahrt hinzufügen">
          <font>
             <Font size="14.0" />
          </font>
@@ -74,6 +74,11 @@
       <Button layoutX="1389.0" layoutY="14.0" mnemonicParsing="false" onAction="#masterMe" text="Mastertabelle aufrufen">
          <font>
             <Font size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="1669.0" layoutY="22.0" mnemonicParsing="false" onAction="#autoWerk" prefHeight="39.0" prefWidth="162.0" text="automatische Werke">
+         <font>
+            <Font size="14.0" />
          </font>
       </Button>
    </children>

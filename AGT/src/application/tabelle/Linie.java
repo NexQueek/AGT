@@ -1,11 +1,13 @@
 package application.tabelle;
 
+import java.util.ArrayList;
+
 import javafx.scene.paint.Color;
 
 public class Linie {
 	private String linieID;
-	private String N_ID; //Werk/niederlassungsid
-	private String name ;
+	private String N_ID; // Werk/niederlassungsid
+	private String name;
 	private String anzahlDerBusse;
 	private String von;
 	private String ueber;
@@ -13,10 +15,24 @@ public class Linie {
 	private String wannBisWann;
 	private String farbe;
 	private Color color;
-	//private Schichten schicht;
-	
+	private Busse bus;
+	private ArrayList<Busse> busListe = new ArrayList<Busse>();
+	private Schichten schicht;
+
+	public ArrayList<Busse> getBusListe() {
+		return busListe;
+	}
+
 	public Color getColor() {
 		return color;
+	}
+
+	public Busse getBus() {
+		return bus;
+	}
+
+	public void setBus(Busse bus) {
+		this.bus = bus;
 	}
 
 	public void setColor(Color color) {
@@ -98,5 +114,13 @@ public class Linie {
 	public void setFarbe(String farbe) {
 		this.farbe = farbe;
 	}
-	
+
+	public Schichten getSchicht() {
+		return schicht;
+	}
+
+	public void setSchicht(Schichten schicht) {
+		this.schicht = schicht;
+	}
+
 }
