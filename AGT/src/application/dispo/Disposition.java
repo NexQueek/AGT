@@ -651,6 +651,13 @@ public class Disposition extends AnchorPane {
 				+ "' and groesse between " + bs2.getPlatzVonBis() + " and " + bs2.getPlatzBis() + " and Farbe like '%"
 				+ bs2.getFarbe() + "') as T2 on T1.U_ID = T2.U_ID )"
 				+ " as D1 on D1.U_ID = Da.U_ID) group by Da.U_ID;");
+		
+		
+		
+		
+		
+		
+		
 		System.out.println("SELECT Da.* FROM ((SELECT DISTINCT unternehmen.*, Distanz FROM Unternehmen"
 				+ " LEFT OUTER JOIN (SELECT plz,ROUND((6371 * ACOS(COS(RADIANS(" + lat + ")) * COS(RADIANS(lat))"
 				+ " * COS(RADIANS(lon) - RADIANS(" + lon + ")) + SIN(RADIANS(" + lat + ")) * SIN(RADIANS(lat)))), 0)"

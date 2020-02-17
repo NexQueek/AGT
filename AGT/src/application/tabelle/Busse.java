@@ -1,6 +1,12 @@
 package application.tabelle;
 
-public class Busse {
+import java.io.Serializable;
+
+public class Busse implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4474263251945304012L;
 	private String name;
 	private String groesse;
 	private String art;
@@ -8,9 +14,15 @@ public class Busse {
 	private String fahrer;
 	private String unternehmer;
 	private String preisProTag;
-	//private Schichten schicht
+    private Schichten schicht;
 	
 	
+	public Schichten getSchicht() {
+		return schicht;
+	}
+	public void setSchicht(Schichten schicht) {
+		this.schicht = schicht;
+	}
 	public String getName() {
 		return name;
 	}

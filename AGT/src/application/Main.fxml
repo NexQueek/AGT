@@ -371,6 +371,48 @@
                         </AnchorPane>
                      </content>
                   </TitledPane>
+                  <TitledPane animated="false" text="Version 1.14">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="625.0" prefWidth="798.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="27.0" prefWidth="463.0" text="Änderungen in  Version 1.14" underline="true">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="26.0" prefWidth="463.0" text="Neuheiten für die Tabelle" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="455.0" text="-&gt;Werkautomatisierung" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Speicherung der Werke in Datei" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="26.0" prefWidth="459.0" text="-&gt;Bearbeitung der Werkautomatisierung" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="105.0" prefWidth="460.0" text="-&gt;Übernahme der Daten der Werksautomatisierung in die Datenbank" wrapText="true">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
               </panes>
             </Accordion>
          </children></Pane>

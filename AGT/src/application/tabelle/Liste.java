@@ -22,8 +22,55 @@ public class Liste {
 	private String ek;
 	private String marge;
 	private String gesamt;
+	private String farbe;
+	private String storno;
+	private String linienName;
+	private String werkBez;
+	private String farben;
+	private String unternehmen;
+	public String getUnternehmen() {
+		return unternehmen;
+	}
+	public void setUnternehmen(String unternehmen) {
+		this.unternehmen = unternehmen;
+	}
 	private int fahrtId;
 	private int nId; 
+	
+	
+	public String getStorno() {
+		return storno;
+	}
+	public void setStorno(String storno) {
+		this.storno = storno;
+	}
+	public String getLinienName() {
+		return linienName;
+	}
+	public void setLinienName(String linienName) {
+		this.linienName = linienName;
+	}
+	public String getWerkBez() {
+		return werkBez;
+	}
+	public void setWerkBez(String werkBez) {
+		this.werkBez = werkBez;
+	}
+	public String getFarben() {
+		return farben;
+	}
+	public void setFarben(String farben) {
+		this.farben = farben;
+	}
+	public String getFarbe() {
+		String farbe1 = "-fx-background-color: "+ farbe; 
+		return farbe1;
+	}
+	public void setFarbe(String farbe) {
+		this.farbe = farbe;
+	}
+	
+	
 	public int getFahrtId() {
 		return fahrtId;
 	}

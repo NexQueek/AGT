@@ -1,8 +1,13 @@
 package application.tabelle;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Werk {
+public class Werk implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8526896170910603703L;
 	private String nID;
 	private String werkBezeichnung;
 	private String stadt;
@@ -13,12 +18,15 @@ public class Werk {
 	static ArrayList<Werk> werkeList = new ArrayList<Werk>();
 	
 	public Werk() {
-		this.linieListe = new ArrayList<Linie>();
+		this.linieListe = new ArrayList<Linie>();;
 	}
 	
 	
 	
 	public ArrayList<Linie> getLinieListe() {
+		if(linieListe == null){
+			
+		}
 		return linieListe;
 	}
 

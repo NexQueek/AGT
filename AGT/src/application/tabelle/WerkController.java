@@ -112,7 +112,7 @@ public class WerkController {
 			root = FXMLLoader.load(getClass().getResource("WerkAuto.fxml"));
 			root.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 
-			primaryStage.setTitle("Werk automatisieren ");
+			primaryStage.setTitle("Werk automatisieren " + Werk.werk.getWerkBezeichnung());
 			primaryStage.setResizable(false);
 			primaryStage.setScene(new Scene(root));
 			primaryStage.show();

@@ -1,10 +1,14 @@
 package application.tabelle;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-import javafx.scene.paint.Color;
-
-public class Linie {
+public class Linie implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1653525545523482748L;
 	private String linieID;
 	private String N_ID; // Werk/niederlassungsid
 	private String name;
@@ -14,18 +18,47 @@ public class Linie {
 	private String nach;
 	private String wannBisWann;
 	private String farbe;
-	private Color color;
 	private Busse bus;
 	private ArrayList<Busse> busListe = new ArrayList<Busse>();
 	private Schichten schicht;
+	
+
+	public String getFarbeAlsHex() {
+		switch (getFarbe()) {
+		case "Cyan":
+			return "ccffffff";
+		case "Hellblau":
+			return "cce6ffff";
+		case "Rosa":
+			return "e6ccffff";
+		case "Orange":
+			return "ffccb3ff";
+		case "Gelb":
+			return "ffffb3ff";
+				
+		default:
+			return "";
+		}
+		
+	}
+
+
+
+	
+
+
+
+	public void setBusListe(ArrayList<Busse> busListe) {
+		this.busListe = busListe;
+	}
+
+
 
 	public ArrayList<Busse> getBusListe() {
 		return busListe;
 	}
 
-	public Color getColor() {
-		return color;
-	}
+	
 
 	public Busse getBus() {
 		return bus;
@@ -35,9 +68,7 @@ public class Linie {
 		this.bus = bus;
 	}
 
-	public void setColor(Color color) {
-		this.color = color;
-	}
+	
 
 	public Linie() {
 		// TODO Auto-generated constructor stub
