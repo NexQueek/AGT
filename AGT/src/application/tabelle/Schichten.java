@@ -20,6 +20,13 @@ public class Schichten implements Serializable{
 	private String nachtHin;
 	private String nachtTeil;
 	private String nachtZu;
+	private String fruhTeilHin;
+	private String spatTeilHin;
+	private String nachtTeilHin;
+
+
+
+
 	private boolean montag;
 	private boolean dienstag;
 	private boolean mittwoch;
@@ -27,6 +34,9 @@ public class Schichten implements Serializable{
 	private boolean freitag;
 	private boolean samstag;
 	private boolean sonntag;
+	
+	private boolean nachtschichtHinVortag;
+	private boolean nachtschichtTZVortag;
 	private LocalDate anfangsdatum;
 
 	private ArrayList<String> listeAllerSchichten;
@@ -46,7 +56,13 @@ public class Schichten implements Serializable{
 
 		} else {
 			listeAllerSchichten.add(getFruhTeil());
-			listeSchichtenName.add("FrühTZ zurück");
+			listeSchichtenName.add("Früh TZ zurück");
+		}
+		if (getFruhTeilHin().equals("")) {
+
+		} else {
+			listeAllerSchichten.add(getFruhTeilHin());
+			listeSchichtenName.add("Früh TZ Hin");
 		}
 		if (getFruhZu().equals("")) {
 
@@ -59,6 +75,12 @@ public class Schichten implements Serializable{
 		} else {
 			listeAllerSchichten.add(getSpatHin());
 			listeSchichtenName.add("SpaetHin");
+		}
+		if (getSpatTeilHin().equals("")) {
+
+		} else {
+			listeAllerSchichten.add(getSpatTeilHin());
+			listeSchichtenName.add("Spät TZ Hin");
 		}
 		if (getSpatTeil().equals("")) {
 
@@ -78,6 +100,12 @@ public class Schichten implements Serializable{
 			listeAllerSchichten.add(getNachtHin());
 			listeSchichtenName.add("NachtHin");
 		}
+		if (getNachtTeilHin().equals("")) {
+
+		} else {
+			listeAllerSchichten.add(getNachtTeilHin());
+			listeSchichtenName.add("Nacht TZ Hin");
+		}
 		if (getNachtTeil().equals("")) {
 
 		} else {
@@ -94,6 +122,27 @@ public class Schichten implements Serializable{
 		return listeAllerSchichten;
 	}
 
+
+	public boolean isNachtschichtHinVortag() {
+		return nachtschichtHinVortag;
+	}
+
+
+	public void setNachtschichtHinVortag(boolean nachtschichtHinVortag) {
+		this.nachtschichtHinVortag = nachtschichtHinVortag;
+	}
+
+
+	public boolean isNachtschichtTZVortag() {
+		return nachtschichtTZVortag;
+	}
+
+
+	public void setNachtschichtTZVortag(boolean nachtschichtTZVortag) {
+		this.nachtschichtTZVortag = nachtschichtTZVortag;
+	}
+
+
 	public ArrayList<String> getListeSchichtenName() {
 		return listeSchichtenName;
 	}
@@ -104,6 +153,34 @@ public class Schichten implements Serializable{
 
 	public void setAnfangsdatum(LocalDate anfangsdatum) {
 		this.anfangsdatum = anfangsdatum;
+	}
+	public String getFruhTeilHin() {
+		return fruhTeilHin;
+	}
+
+
+	public void setFruhTeilHin(String fruhTeilHin) {
+		this.fruhTeilHin = fruhTeilHin;
+	}
+
+
+	public String getSpatTeilHin() {
+		return spatTeilHin;
+	}
+
+
+	public void setSpatTeilHin(String spatTeilHin) {
+		this.spatTeilHin = spatTeilHin;
+	}
+
+
+	public String getNachtTeilHin() {
+		return nachtTeilHin;
+	}
+
+
+	public void setNachtTeilHin(String nachtTeilHin) {
+		this.nachtTeilHin = nachtTeilHin;
 	}
 
 	// wegen der size

@@ -525,7 +525,17 @@ public class Tabelle {
 								.size(); schichten++) {
 
 							Liste list = new Liste();
-							list.setDatum(Date.valueOf(monday.plusDays(tage)));
+							boolean bedingungEins = false;
+							boolean bedingungZwei = false;
+							
+							bedingungEins = (busse.getSchicht().getListeSchichtenName().get(schichten).equals("NachtHin") && busse.getSchicht().isNachtschichtHinVortag());
+							bedingungZwei = (busse.getSchicht().getListeSchichtenName().get(schichten).equals("Nacht TZ Hin") && busse.getSchicht().isNachtschichtTZVortag());
+							if(bedingungEins||bedingungZwei){
+								list.setDatum(Date.valueOf(monday.plusDays(tage-1)));
+							}else{
+								list.setDatum(Date.valueOf(monday.plusDays(tage)));
+							}
+							
 							list.setAbfahrtort(line.getVon() + " über " + line.getUeber() + " nach " + line.getNach());
 							list.setUhrzeit(busse.getSchicht().getListeAllerSchichten().get(schichten));
 							list.setSchicht(busse.getSchicht().getListeSchichtenName().get(schichten));

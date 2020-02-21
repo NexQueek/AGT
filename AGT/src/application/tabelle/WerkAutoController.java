@@ -168,6 +168,16 @@ public class WerkAutoController implements Serializable {
 	DatePicker schichtenWoche;
 	ObservableList<String> farbenLinie = FXCollections.observableArrayList("Cyan","Hellblau", "Rosa", "Orange", "Gelb");
 
+	@FXML TextField schichtenNachtTzHin;
+
+	@FXML TextField schichtenSpaetTZHin;
+
+	@FXML TextField schichtenFruehTzHin;
+
+	@FXML CheckBox schichtenVortagHin;
+
+	@FXML CheckBox schichtenVortagTZ;
+
 	@FXML
 	void initialize() {
 		linieFarbe.setItems(farbenLinie);
@@ -624,13 +634,17 @@ public class WerkAutoController implements Serializable {
 		schichtenSo.setSelected(schicht.isSonntag());
 
 		schichtenFruehHin.setText(schicht.getFruhHin());
+		schichtenFruehTzHin.setText(schicht.getFruhTeilHin());
 		schichtenFruehTz.setText(schicht.getFruhTeil());
 		schichtenFruehZu.setText(schicht.getFruhZu());
 		schichtenSpaetHin.setText(schicht.getSpatHin());
 		schichtenSpaetTz.setText(schicht.getSpatTeil());
+		schichtenSpaetTZHin.setText(schicht.getSpatTeilHin());
 		schichtenSpaetZu.setText(schicht.getSpatZu());
+		
 		schichtenNachtHin.setText(schicht.getNachtHin());
 		schichtenNachtZu.setText(schicht.getNachtZu());
+		schichtenNachtTzHin.setText(schicht.getNachtTeilHin());
 		schichtenNachtTz.setText(schicht.getNachtTeil());
 		schichtenWoche.setValue(schicht.getAnfangsdatum());
 
@@ -644,12 +658,17 @@ public class WerkAutoController implements Serializable {
 		schicht.setFruhHin(schichtenFruehHin.getText());
 		schicht.setFruhTeil(schichtenFruehTz.getText());
 		schicht.setFruhZu(schichtenFruehZu.getText());
+		schicht.setFruhTeilHin(schichtenFruehTzHin.getText());
+		
 		schicht.setNachtHin(schichtenNachtHin.getText());
 		schicht.setNachtTeil(schichtenNachtTz.getText());
+		schicht.setNachtTeilHin(schichtenNachtTzHin.getText());
 		schicht.setNachtZu(schichtenNachtZu.getText());
+		
 		schicht.setSpatHin(schichtenSpaetHin.getText());
 		schicht.setSpatTeil(schichtenSpaetTz.getText());
 		schicht.setSpatZu(schichtenSpaetZu.getText());
+		schicht.setSpatTeilHin(schichtenSpaetTZHin.getText());
 		setDays(linie, bus, schicht);
 		Werk.werk.getLinieListe().get(linie).getBusListe().get(bus).setSchicht(schicht);
 
@@ -687,6 +706,8 @@ public class WerkAutoController implements Serializable {
 		schicht.setFreitag(schichtenFr.isSelected());
 		schicht.setSamstag(schichtenSa.isSelected());
 		schicht.setSonntag(schichtenSo.isSelected());
+		schicht.setNachtschichtHinVortag(schichtenVortagHin.isSelected());
+		schicht.setNachtschichtTZVortag(schichtenVortagTZ.isSelected());
 		if (schichtenWoche.getValue() != null) {
 			schicht.setAnfangsdatum(schichtenWoche.getValue());
 		}

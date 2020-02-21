@@ -312,6 +312,38 @@
                         <Font size="11.0" />
                      </font>
                   </Label>
+                  <Label layoutX="29.0" layoutY="180.0" prefHeight="27.0" prefWidth="135.0" text="Früh TZ hin">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="schichtenFruehTzHin" layoutX="168.0" layoutY="178.0" prefHeight="30.0" prefWidth="100.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="schichtenSpaetTZHin" layoutX="167.0" layoutY="260.0" prefHeight="30.0" prefWidth="100.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="28.0" layoutY="262.0" prefHeight="27.0" prefWidth="135.0" text="Spät TZ hin">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="schichtenNachtTzHin" layoutX="167.0" layoutY="344.0" prefHeight="30.0" prefWidth="100.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="28.0" layoutY="346.0" prefHeight="27.0" prefWidth="135.0" text="Nacht TZ hin">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="schichtenVortagHin" layoutX="269.0" layoutY="314.0" mnemonicParsing="false" text="Vortag" />
+                  <CheckBox fx:id="schichtenVortagTZ" layoutX="269.0" layoutY="351.0" mnemonicParsing="false" text="Vortag" />
                </children>
             </AnchorPane>
          </content>
