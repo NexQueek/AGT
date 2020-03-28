@@ -42,71 +42,70 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label layoutX="460.0" layoutY="5.0" prefHeight="30.0" prefWidth="100.0" text="Kalenderwoche">
+      <Label layoutX="221.0" layoutY="5.0" prefHeight="30.0" prefWidth="100.0" text="Kalenderwoche">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="kalenderwoche" layoutX="490.0" layoutY="35.0" prefHeight="30.0" prefWidth="40.0">
+      <TextField fx:id="kalenderwoche" layoutX="251.0" layoutY="35.0" prefHeight="30.0" prefWidth="40.0">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <Button layoutX="570.0" layoutY="35.0" mnemonicParsing="false" onAction="#suchen" prefHeight="30.0" prefWidth="160.0" text="anzeigen">
+      <Button layoutX="331.0" layoutY="35.0" mnemonicParsing="false" onAction="#suchen" prefHeight="30.0" prefWidth="160.0" text="anzeigen">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="780.0" layoutY="35.0" mnemonicParsing="false" onAction="#speichern" prefHeight="30.0" prefWidth="160.0" text="Änderungen speichern">
+      <Button layoutX="541.0" layoutY="35.0" mnemonicParsing="false" onAction="#speichern" prefHeight="30.0" prefWidth="160.0" text="Änderungen speichern">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="980.0" layoutY="35.0" mnemonicParsing="false" onAction="#neueFahrt" prefHeight="30.0" prefWidth="160.0" text="neue Fahrt hinzufügen">
+      <Button layoutX="741.0" layoutY="35.0" mnemonicParsing="false" onAction="#neueFahrt" prefHeight="30.0" prefWidth="160.0" text="neue Fahrt hinzufügen">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <ComboBox fx:id="dropdownAuftraggeber" layoutX="10.0" layoutY="35.0" prefHeight="30.0" prefWidth="200.0" />
-      <Button layoutX="1739.0" layoutY="28.0" mnemonicParsing="false" onAction="#masterMe" prefHeight="30.0" prefWidth="167.0" text="Mastertabelle">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="1190.0" layoutY="35.0" mnemonicParsing="false" onAction="#autoWerk" prefHeight="30.0" prefWidth="160.0" text="automatisch erstellen">
+      <Button layoutX="1739.0" layoutY="35.0" mnemonicParsing="false" onAction="#masterMe" prefHeight="30.0" prefWidth="167.0" text="Mastertabelle">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Separator layoutX="730.0" layoutY="10.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="50.0" />
-      <Label layoutX="930.0" layoutY="5.0" prefHeight="36.0" prefWidth="74.0" text="Fahrten" underline="true">
+      <Button layoutX="951.0" layoutY="35.0" mnemonicParsing="false" onAction="#autoWerk" prefHeight="30.0" prefWidth="160.0" text="automatisch erstellen">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Separator layoutX="491.0" layoutY="10.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="50.0" />
+      <Label layoutX="691.0" layoutY="5.0" prefHeight="36.0" prefWidth="74.0" text="Fahrten" underline="true">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="1406.0" layoutY="5.0" prefHeight="36.0" prefWidth="40.0" text="Werke" underline="true">
+      <Label alignment="CENTER" layoutX="951.0" layoutY="5.0" prefHeight="36.0" prefWidth="699.0" text="Werke" underline="true">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Separator layoutX="1120.0" layoutY="10.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="92.0" />
-      <Button fx:id="hinzu" layoutX="1366.0" layoutY="35.0" mnemonicParsing="false" onAction="#neuesWerk" prefHeight="30.0" prefWidth="160.0" text="anlegen/bearbeiten">
+      <Separator layoutX="881.0" layoutY="10.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="92.0" />
+      <Button fx:id="hinzu" layoutX="1127.0" layoutY="35.0" mnemonicParsing="false" onAction="#neuesWerk" prefHeight="30.0" prefWidth="160.0" text="anlegen/bearbeiten">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Separator layoutX="1668.0" layoutY="10.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="92.0" />
-      <ComboBox fx:id="dropdownWerk" layoutX="250.0" layoutY="35.0" prefHeight="30.0" prefWidth="200.0" />
-      <Label layoutX="69.0" layoutY="5.0" prefHeight="30.0" prefWidth="83.0" text="Auftraggeber">
+      <Separator layoutX="1629.0" layoutY="10.0" orientation="VERTICAL" prefHeight="70.0" prefWidth="92.0" />
+      <ComboBox fx:id="dropdownWerk" layoutX="11.0" layoutY="35.0" prefHeight="30.0" prefWidth="200.0" />
+      <Label layoutX="91.0" layoutY="5.0" prefHeight="30.0" prefWidth="40.0" text="Werk">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="330.0" layoutY="5.0" prefHeight="30.0" prefWidth="40.0" text="Werk">
+      <Button layoutX="1301.0" layoutY="35.0" mnemonicParsing="false" onAction="#datenUbernehmen" prefHeight="30.0" prefWidth="160.0" text="Daten übernehmen">
          <font>
             <Font size="14.0" />
          </font>
-      </Label>
-      <Button layoutX="1540.0" layoutY="35.0" mnemonicParsing="false" onAction="#datenUbernehmen" prefHeight="30.0" prefWidth="160.0" text="Daten übernehmen">
+      </Button>
+      <Button layoutX="1482.0" layoutY="35.0" mnemonicParsing="false" onAction="#kwUbernahme" prefHeight="30.0" prefWidth="167.0" text="für KW übernehmen">
          <font>
             <Font size="14.0" />
          </font>

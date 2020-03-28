@@ -557,7 +557,7 @@ public class WerkAutoController implements Serializable {
 	}
 
 	int getBusseBusNummer() {
-		String busNummerAlsString = "5";
+		String busNummerAlsString = "0";
 		busNummerAlsString = busseBus.getSelectionModel().getSelectedItem();
 		if (busNummerAlsString == null) {
 
@@ -585,8 +585,13 @@ public class WerkAutoController implements Serializable {
 
 	int getSchichtenBusNummer() {
 		String busNummerAlsString = "5";
-		busNummerAlsString = schichtenBus.getSelectionModel().getSelectedItem();
-		busNummerAlsString = busNummerAlsString.replaceAll("[a-zA-Z ]{1,}", "");
+		if(schichtenBus.getSelectionModel().getSelectedItem()==null){
+			
+		}else{
+			busNummerAlsString = schichtenBus.getSelectionModel().getSelectedItem();
+			busNummerAlsString = busNummerAlsString.replaceAll("[a-zA-Z ]{1,}", "");
+		}
+		
 		int busNummer = Integer.parseInt(busNummerAlsString);
 		busNummer--;
 		return busNummer;
@@ -695,7 +700,40 @@ public class WerkAutoController implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		fensterSchichtenNull();
 
+	}
+	void fensterSchichtenNull(){
+		schichtenMo.setSelected(false);
+		schichtenDi.setSelected(false);
+		schichtenMi.setSelected(false);
+		schichtenDo.setSelected(false);
+		schichtenFr.setSelected(false);
+		schichtenSa.setSelected(false);
+		schichtenSo.setSelected(false);
+		
+		schichtenFruehHin.setText("");
+		schichtenFruehTz.setText("");
+		schichtenFruehTzHin.setText("");
+		schichtenFruehZu.setText("");
+		
+		schichtenSpaetHin.setText("");
+		schichtenSpaetTz.setText("");
+		schichtenSpaetTZHin.setText("");
+		schichtenSpaetZu.setText("");
+		
+		schichtenNachtHin.setText("");
+		schichtenNachtTz.setText("");
+		schichtenNachtTzHin.setText("");
+		schichtenNachtZu.setText("");
+		
+		schichtenVortagHin.setSelected(false);
+		schichtenVortagTZ.setSelected(false);
+		
+		schichtenLinie.setValue("");
+		schichtenBus.setValue("");
+		
+		schichtenWoche.setValue(null);
 	}
 
 	private void setDays(int linie, int bus, Schichten schicht) {

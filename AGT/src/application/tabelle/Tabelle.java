@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.temporal.IsoFields;
+import java.util.ArrayList;
 
 import application.Benutzer;
 import application.sql.ConnectMe;
@@ -187,15 +188,26 @@ public class Tabelle {
 	}
 
 	private void dropdownBefuellen() {
-		ObservableList<String> Werke = FXCollections.observableArrayList();
+		ObservableList<String> werkeListe = FXCollections.observableArrayList();
+		
 		ConnectMe c = new ConnectMe();
 		Statement stmt = c.getStatement();
+		ArrayList<Werk> list = new ArrayList<>();
 		try {
-			ResultSet rs = stmt.executeQuery("Select werkBezeichnung from plz.werke");
+			ResultSet rs = stmt.executeQuery("Select * from plz.werke");
 			while (rs.next()) {
-				Werke.add(rs.getString(1));
+				
+				werkeListe.add(rs.getString(2));
+				Werk werk = new Werk();
+				werk.setnID(rs.getString(1));
+				werk.setWerkBezeichnung(rs.getString(2));
+				list.add(werk);
 			}
-			dropdownWerk.setItems(Werke);
+			dropdownWerk.setItems(werkeListe);
+			Daten.listeDerWerk = null;
+			Daten.listeDerWerk = list;
+			System.out.println(list.size());
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -428,6 +440,7 @@ public class Tabelle {
 	void neueFahrt(ActionEvent event) {
 		Stage primaryStage = new Stage();
 		Parent root;
+		
 		try {
 			root = FXMLLoader.load(getClass().getResource("Fahrt.fxml"));
 			root.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
@@ -617,6 +630,29 @@ public class Tabelle {
 			stmt.executeUpdate(sqlUpdate);
 		}
 
+	}
+
+	@FXML public void kwUbernahme(ActionEvent event) {
+		
+		Stage primaryStage = new Stage();
+		Parent root;
+		Daten.listeListe = null;
+		Daten.listeListe = tabelleEx.getItems();
+		try {
+			root = FXMLLoader.load(getClass().getResource("Kalenderwoche.fxml"));
+			root.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+
+			primaryStage.setTitle("Kalenderwoche übernehmen");
+			primaryStage.setResizable(false);
+			primaryStage.setScene(new Scene(root));
+			primaryStage.show();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
 	}
 
 }
