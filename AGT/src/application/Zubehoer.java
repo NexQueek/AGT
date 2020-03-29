@@ -177,7 +177,7 @@ public Zubehoer(){
 		try {
 			
 			
-			root = FXMLLoader.load(getClass().getResource("/application/tabelle/Tabelle.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/application/tabelle/Table.fxml"));
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(new Scene(root));
 			root.getStylesheets().add(

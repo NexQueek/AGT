@@ -82,6 +82,7 @@ public class Tabelle {
 	@FXML
 	ComboBox<String> dropdownAuftraggeber;
 	@FXML TableColumn<Liste, String> linie;
+	@FXML ComboBox<String> auftraggeber;
 
 	@FXML
 	void initialize() {
@@ -101,15 +102,12 @@ public class Tabelle {
 		// PropertyValueFactory<>("eingetragen"));
 		// methodenImplementieren();
 
-		hinzu.setDisable(true);
-		if (Benutzer.benutz.get(0).isAdmin()) {
-			hinzu.setDisable(false);
-		}
+		
 		busNr.setCellValueFactory(new PropertyValueFactory<>("busNr"));
 		linie.setCellValueFactory(new PropertyValueFactory<>("LinienName"));
 		bemerkungen.setCellValueFactory(new PropertyValueFactory<>("bemerkungen"));
 		ansprechpartner.setCellValueFactory(new PropertyValueFactory<>("ansprechpartner"));
-		kurzel.setCellValueFactory(new PropertyValueFactory<>("kurzel"));
+		//kurzel.setCellValueFactory(new PropertyValueFactory<>("kurzel"));
 		KW.setCellValueFactory(new PropertyValueFactory<>("KW"));
 		datum.setCellValueFactory(new PropertyValueFactory<>("datum"));
 		abfahrtort.setCellValueFactory(new PropertyValueFactory<>("abfahrtort"));
@@ -126,9 +124,9 @@ public class Tabelle {
 		brutto.setCellValueFactory(new PropertyValueFactory<>("brutto"));
 		ek.setCellValueFactory(new PropertyValueFactory<>("ek"));
 		marge.setCellValueFactory(new PropertyValueFactory<>("marge"));
-		gesamt.setCellValueFactory(new PropertyValueFactory<>("gesamt"));
+		//gesamt.setCellValueFactory(new PropertyValueFactory<>("gesamt"));
 
-		gesamt.setEditable(true);
+		//gesamt.setEditable(true);
 		dropdownBefuellen();
 		Liste e = new Liste();
 		e.setBusNr("busNr");
@@ -654,5 +652,17 @@ public class Tabelle {
 
 		
 	}
+
+	@FXML public void werkBearbeiten(ActionEvent event) {}
+
+	@FXML public void werkUebersicht(ActionEvent event) {}
+
+	@FXML public void alleGI(ActionEvent event) {}
+
+	@FXML public void alleAdecco(ActionEvent event) {}
+
+	@FXML public void alleAmazon(ActionEvent event) {}
+
+	@FXML public void kwInformationen(ActionEvent event) {}
 
 }

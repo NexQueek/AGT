@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="336.0" layoutY="14.0" text="BU-Anlegen" underline="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="95.0" text="Ansprechpartner">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="200.0" layoutY="95.0" text="BU Name">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="373.0" layoutY="95.0" text="Handynummer">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="550.0" layoutY="95.0" text="Festnetz">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="725.0" layoutY="95.0" text="Mail">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Ansprechpartner1" layoutX="13.0" layoutY="137.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="BuName1" layoutX="198.0" layoutY="137.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Handynummer1" layoutX="373.0" layoutY="137.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Festnetz1" layoutX="550.0" layoutY="137.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Mail1" layoutX="725.0" layoutY="137.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Mail2" layoutX="725.0" layoutY="185.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Festnetz2" layoutX="550.0" layoutY="185.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Handynummer2" layoutX="373.0" layoutY="185.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="BuName2" layoutX="198.0" layoutY="185.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Ansprechpartner2" layoutX="13.0" layoutY="185.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Ansprechpartner4" layoutX="13.0" layoutY="283.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="BuName4" layoutX="198.0" layoutY="283.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Handynummer4" layoutX="373.0" layoutY="283.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Festnetz4" layoutX="550.0" layoutY="283.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Mail4" layoutX="725.0" layoutY="283.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Mail3" layoutX="725.0" layoutY="235.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Festnetz3" layoutX="550.0" layoutY="235.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Handynummer3" layoutX="373.0" layoutY="235.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="BuName3" layoutX="198.0" layoutY="235.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Ansprechpartner3" layoutX="13.0" layoutY="235.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Mail5" layoutX="725.0" layoutY="335.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Festnetz5" layoutX="550.0" layoutY="335.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Handynummer5" layoutX="373.0" layoutY="335.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="BuName5" layoutX="198.0" layoutY="335.0" prefHeight="39.0" prefWidth="162.0" />
+      <TextField fx:id="Ansprechpartner5" layoutX="13.0" layoutY="335.0" prefHeight="39.0" prefWidth="162.0" />
+      <Button layoutX="383.0" layoutY="395.0" mnemonicParsing="false" text="speichern">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

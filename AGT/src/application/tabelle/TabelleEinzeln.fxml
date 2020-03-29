@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="3.0" layoutY="104.0" prefHeight="893.0" prefWidth="1694.0">
+        <columns>
+          <TableColumn prefWidth="70.0" text="Bus Nr." />
+          <TableColumn prefWidth="115.0" text="Bemerkung" />
+            <TableColumn prefWidth="149.0" text="Ansprechpartner" />
+            <TableColumn minWidth="0.0" prefWidth="67.0" text="Kürzel" />
+            <TableColumn prefWidth="48.0" text="KW" />
+            <TableColumn prefWidth="75.0" text="Datum" />
+            <TableColumn prefWidth="211.0" text="Abfahrtsort" />
+            <TableColumn prefWidth="68.0" text="Uhrzeit" />
+            <TableColumn prefWidth="78.0" text="Schicht" />
+            <TableColumn prefWidth="257.0" text="Busunternehmen" />
+            <TableColumn prefWidth="176.0" text="Fahrer" />
+            <TableColumn prefWidth="135.0" text="Handy Nr." />
+            <TableColumn prefWidth="116.0" text="(Soll) Bus Gr." />
+            <TableColumn prefWidth="128.0" text="(Ist) Bus Gr." />
+        </columns>
+      </TableView>
+      <Label layoutY="55.0" text="Kalenderwoche:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Kalenderwoche" layoutX="174.0" layoutY="52.0" prefHeight="39.0" prefWidth="89.0" />
+      <Button layoutX="294.0" layoutY="47.0" mnemonicParsing="false" onAction="#suchen" text="ausführen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
