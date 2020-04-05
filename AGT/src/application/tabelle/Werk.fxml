@@ -6,49 +6,43 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.tabelle.WerkController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="239.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.tabelle.WerkController">
    <children>
       <Label layoutX="141.0" layoutY="14.0" text="Werk hinzufügen" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="19.0" layoutY="60.0" prefHeight="21.0" prefWidth="122.0" text="Werkname:">
+      <Label layoutX="19.0" layoutY="103.0" prefHeight="21.0" prefWidth="122.0" text="Werkname:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="name" layoutX="219.0" layoutY="61.0">
+      <TextField fx:id="name" layoutX="219.0" layoutY="104.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="stadt" layoutX="219.0" layoutY="96.0">
+      <TextField fx:id="stadt" layoutX="219.0" layoutY="139.0">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Label layoutX="19.0" layoutY="95.0" prefHeight="21.0" prefWidth="122.0" text="Stadt:">
+      <Label layoutX="19.0" layoutY="138.0" prefHeight="21.0" prefWidth="122.0" text="Stadt:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="141.0" layoutY="150.0" mnemonicParsing="false" onAction="#abschicken" prefHeight="30.0" prefWidth="136.0" text="Bestätigen">
+      <Button layoutX="141.0" layoutY="182.0" mnemonicParsing="false" onAction="#abschicken" prefHeight="30.0" prefWidth="136.0" text="Bestätigen">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Label layoutX="141.0" layoutY="199.0" text="Werk bearbeiten" underline="true">
+      <Label layoutX="19.0" layoutY="68.0" prefHeight="21.0" prefWidth="122.0" text="Auftraggeber:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="237.0" prefHeight="27.0" prefWidth="175.0" text="Bestehendes Werk">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="dropdownWerk" layoutX="222.0" layoutY="238.0" prefHeight="30.0" prefWidth="175.0" />
-      <Button layoutX="131.0" layoutY="283.0" mnemonicParsing="false" onAction="#werkAutomatisieren" prefHeight="42.0" prefWidth="132.0" text="Werk automatisieren " />
+      <ComboBox fx:id="auftraggeber" layoutX="219.0" layoutY="69.0" prefHeight="30.0" prefWidth="175.0" />
    </children>
 </AnchorPane>

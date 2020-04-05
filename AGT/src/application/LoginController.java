@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -112,7 +113,8 @@ public class LoginController {
 			primaryStage.setScene(new Scene(root));
 			root.getStylesheets().add(
 				    getClass().getResource("application.css").toExternalForm());
-			
+			Image image = new Image(getClass().getResourceAsStream("12.png"));
+			primaryStage.getIcons().add(image);
 			primaryStage.setTitle("Software Engineering Team - SET");
 			primaryStage.show();
 		} catch (IOException e) {

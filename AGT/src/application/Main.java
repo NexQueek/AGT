@@ -18,12 +18,12 @@ public class Main extends Application {
 				    getClass().getResource("application.css").toExternalForm());
             Stage stage = primaryStage;
             stage.setTitle("Software Engineering Team - SET");
-            Image image = new Image(getClass().getResourceAsStream("15.jpg"));
             
             
             
             
             Scene scene = new Scene(root);
+            Image image = new Image(getClass().getResourceAsStream("12.png"));
             stage.getIcons().add(image);
             stage.setScene(scene);
             

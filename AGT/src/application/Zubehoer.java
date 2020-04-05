@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -182,7 +183,8 @@ public Zubehoer(){
 			primaryStage.setScene(new Scene(root));
 			root.getStylesheets().add(
 				    getClass().getResource("application.css").toExternalForm());
-			
+			Image image = new Image(getClass().getResourceAsStream("12.png"));
+            primaryStage.getIcons().add(image);
 			primaryStage.setTitle("Software Engineering Team - SET");
 			primaryStage.show();
 		} catch (IOException e) {

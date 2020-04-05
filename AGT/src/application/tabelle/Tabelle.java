@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.temporal.IsoFields;
 import java.util.ArrayList;
 
-import application.Benutzer;
+import application.StageMe;
 import application.sql.ConnectMe;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -101,10 +101,11 @@ public class Tabelle {
 		// eingetragenvon.setCellValueFactory(new
 		// PropertyValueFactory<>("eingetragen"));
 		// methodenImplementieren();
-
-		
-		busNr.setCellValueFactory(new PropertyValueFactory<>("busNr"));
-		linie.setCellValueFactory(new PropertyValueFactory<>("LinienName"));
+    	auftraggeber.getItems().add("Adeco");
+    	auftraggeber.getItems().add("GI");
+    	auftraggeber.getItems().add("Amazon");
+    	busNr.setCellValueFactory(new PropertyValueFactory<>("busNr"));
+    	linie.setCellValueFactory(new PropertyValueFactory<>("LinienName"));
 		bemerkungen.setCellValueFactory(new PropertyValueFactory<>("bemerkungen"));
 		ansprechpartner.setCellValueFactory(new PropertyValueFactory<>("ansprechpartner"));
 		//kurzel.setCellValueFactory(new PropertyValueFactory<>("kurzel"));
@@ -126,8 +127,10 @@ public class Tabelle {
 		marge.setCellValueFactory(new PropertyValueFactory<>("marge"));
 		//gesamt.setCellValueFactory(new PropertyValueFactory<>("gesamt"));
 
+
 		//gesamt.setEditable(true);
-		dropdownBefuellen();
+
+
 		Liste e = new Liste();
 		e.setBusNr("busNr");
 		e.setBemerkungen("bemerkungen");
@@ -185,6 +188,7 @@ public class Tabelle {
 
 	}
 
+
 	private void dropdownBefuellen() {
 		ObservableList<String> werkeListe = FXCollections.observableArrayList();
 		
@@ -192,7 +196,7 @@ public class Tabelle {
 		Statement stmt = c.getStatement();
 		ArrayList<Werk> list = new ArrayList<>();
 		try {
-			ResultSet rs = stmt.executeQuery("Select * from plz.werke");
+			ResultSet rs = stmt.executeQuery("Select * from plz.werke where auftraggeber='"+auftraggeber.getSelectionModel().getSelectedItem()+"'");
 			while (rs.next()) {
 				
 				werkeListe.add(rs.getString(2));
@@ -204,7 +208,8 @@ public class Tabelle {
 			dropdownWerk.setItems(werkeListe);
 			Daten.listeDerWerk = null;
 			Daten.listeDerWerk = list;
-			System.out.println(list.size());
+			
+
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -233,11 +238,11 @@ public class Tabelle {
 				.get(t.getTablePosition().getRow())).setAnsprechpartner(t.getNewValue())
 
 		);
-		kurzel.setCellFactory(TextFieldTableCell.forTableColumn());
-		kurzel.setOnEditCommit((TableColumn.CellEditEvent<Liste, String> t) -> (t.getTableView().getItems()
-				.get(t.getTablePosition().getRow())).setKurzel(t.getNewValue())
-
-		);
+		//kurzel.setCellFactory(TextFieldTableCell.forTableColumn());
+		//kurzel.setOnEditCommit((TableColumn.CellEditEvent<Liste, String> t) -> (t.getTableView().getItems()
+		//		.get(t.getTablePosition().getRow())).setKurzel(t.getNewValue())
+        //
+		//);
 		KW.setCellFactory(TextFieldTableCell.forTableColumn());
 		KW.setOnEditCommit((TableColumn.CellEditEvent<Liste, String> t) -> (t.getTableView().getItems()
 				.get(t.getTablePosition().getRow())).setKW(t.getNewValue())
@@ -306,11 +311,11 @@ public class Tabelle {
 				.get(t.getTablePosition().getRow())).setMarge(t.getNewValue())
 
 		);
-		gesamt.setCellFactory(TextFieldTableCell.forTableColumn());
-		gesamt.setOnEditCommit((TableColumn.CellEditEvent<Liste, String> t) -> (t.getTableView().getItems()
-				.get(t.getTablePosition().getRow())).setGesamt(t.getNewValue())
-
-		);
+		//gesamt.setCellFactory(TextFieldTableCell.forTableColumn());
+		//gesamt.setOnEditCommit((TableColumn.CellEditEvent<Liste, String> t) -> (t.getTableView().getItems()
+		//		.get(t.getTablePosition().getRow())).setGesamt(t.getNewValue())
+        //
+		//);
 
 	}
 
@@ -652,17 +657,95 @@ public class Tabelle {
 
 		
 	}
+	
+	@FXML public void werkBearbeiten(ActionEvent event) {
+		Stage primaryStage = new Stage();
+		Parent root;
+		
+		ArrayList<Werk> werke = Daten.listeDerWerk;
+		Werk.werk = null;
+		
+		//Foreach to get the chosen werk
+		for (Werk werk : werke) {
+			if(werk.getWerkBezeichnung().equals(dropdownWerk.getSelectionModel().getSelectedItem())){
+				Werk.werk = werk;
+				System.out.println(werk.getWerkBezeichnung());
+			}
+		}
+		
+		
+		try {
+			root = FXMLLoader.load(getClass().getResource("WerkAuto.fxml"));
+			root.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			primaryStage.setTitle("Werk bearbeiten übernehmen");
+			primaryStage.setResizable(false);
+			primaryStage.setScene(new Scene(root));
+			
+			primaryStage.showAndWait();
+			updateGui();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
-	@FXML public void werkBearbeiten(ActionEvent event) {}
+	private void updateGui() {
+		// TODO Auto-generated method stub
+		autoWerk(null);
+	}
 
 	@FXML public void werkUebersicht(ActionEvent event) {}
 
-	@FXML public void alleGI(ActionEvent event) {}
+	@FXML public void alleGI(ActionEvent event) {
+		try {
+			ClientOpen("GI");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 
-	@FXML public void alleAdecco(ActionEvent event) {}
 
-	@FXML public void alleAmazon(ActionEvent event) {}
+	@FXML public void alleAdecco(ActionEvent event) {
+		try {
+			ClientOpen("Adeco");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 
-	@FXML public void kwInformationen(ActionEvent event) {}
+	@FXML public void alleAmazon(ActionEvent event) {
+		try {
+			ClientOpen("Amazon");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	void ClientOpen(String client) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TabelleEinzeln.fxml"));
+        
+        Parent root = loader.load();
+        root.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+        //Get controller of scene2
+        ClientController scene2Controller = loader.getController();
+        //Pass whatever data you want. You can have multiple method calls here
+        scene2Controller.client.setText(client);;
+
+        //Show scene 2 in new window            
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setTitle(client);
+        stage.show();
+	}
+	@FXML public void kwInformationen(ActionEvent event) {
+		StageMe s = new StageMe();
+		Stage primaryStage = s.getStage("/application/tabelle/Weekoverview.fxml","Kalenderuebersicht");
+		primaryStage.show();
+		
+	}
+
+	@FXML public void refreshWerk(ActionEvent event) {
+		dropdownBefuellen();
+	}
 
 }

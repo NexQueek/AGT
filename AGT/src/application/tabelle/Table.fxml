@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.ComboBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.tabelle.Tabelle">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1020.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.tabelle.Tabelle">
    <children>
       <Label layoutX="878.0" layoutY="14.0" text="Amazon-Werke" underline="true">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tabelleEx" layoutX="52.0" layoutY="165.0" prefHeight="901.0" prefWidth="1914.0">
+      <TableView fx:id="tabelleEx" layoutX="3.0" layoutY="176.0" prefHeight="835.0" prefWidth="1914.0">
         <columns>
           <TableColumn fx:id="busNr" prefWidth="75.0" text="BusNr." />
           <TableColumn fx:id="linie" prefWidth="75.0" text="Linie" />
@@ -37,7 +37,7 @@
             <TableColumn fx:id="marge" prefWidth="72.0" text="Marge" />
         </columns>
       </TableView>
-      <ComboBox fx:id="auftraggeber" layoutX="155.0" layoutY="30.0" prefHeight="29.0" prefWidth="198.0" />
+      <ComboBox fx:id="auftraggeber" layoutX="155.0" layoutY="30.0" onAction="#refreshWerk" prefHeight="29.0" prefWidth="198.0" />
       <ComboBox fx:id="dropdownWerk" layoutX="155.0" layoutY="76.0" prefHeight="29.0" prefWidth="198.0" />
       <Label layoutX="14.0" layoutY="34.0" text="Auftraggeber:">
          <font>
@@ -85,5 +85,6 @@
       <Button layoutX="1369.0" layoutY="119.0" mnemonicParsing="false" onAction="#alleAmazon" prefHeight="39.0" prefWidth="261.0" text="Alle Amazon Fahrten anzeigen" />
       <Button layoutX="1645.0" layoutY="119.0" mnemonicParsing="false" onAction="#masterMe" prefHeight="39.0" prefWidth="261.0" text="Alle Fahrten anzeigen" textFill="RED" />
       <Button layoutX="878.0" layoutY="119.0" mnemonicParsing="false" onAction="#kwInformationen" prefHeight="39.0" prefWidth="214.0" text="KW Informationen" />
+      <Button layoutX="694.0" layoutY="77.0" mnemonicParsing="false" onAction="#datenUbernehmen" prefHeight="39.0" prefWidth="134.0" text="speichern" />
    </children>
 </Pane>
