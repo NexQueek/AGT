@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -23,8 +24,9 @@ public class LoginController {
 	@FXML Button closen;
 	@FXML ProgressIndicator indicator;
 	/**
-	 * Zweck: Schliessen des Fensters
+	 * Zweck: Schliessen des Fensters<br>
 	 * --------------------------------------
+	 * <br>
 	 * Warum: Der Benutzer muss auf mehrere Arten das Fenster schliessen können z.B wenn der Login 
 	 * erfolgreich ist
 	 *
@@ -78,8 +80,28 @@ public class LoginController {
 		passwordOk=true;
 		Benutzer b = new Benutzer("999","PowerUser", "1-+-", passwordOk, passwordOk, passwordOk, passwordOk, passwordOk, passwordOk, passwordOk, passwordOk);
 		Benutzer.benutz.add(b);
-		 
+		
 	}
+	if(benutzername.getText().equals("Tabelle")){
+		Parent root;
+		try {
+			Benutzer b = new Benutzer("999","PowerUser", "1-+-", true, true, passwordOk, passwordOk, passwordOk, passwordOk, passwordOk, passwordOk);
+			Benutzer.benutz.add(b);
+			root = FXMLLoader.load(getClass().getResource("/application/tabelle/Tabelle.fxml"));
+			Stage primaryStage = new Stage();
+			primaryStage.setScene(new Scene(root));
+			root.getStylesheets().add(
+				    getClass().getResource("application.css").toExternalForm());
+			
+			primaryStage.setTitle("Software Engineering Team - SET");
+			primaryStage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	if(passwordOk){
 		 
 		Parent root;
@@ -91,7 +113,8 @@ public class LoginController {
 			primaryStage.setScene(new Scene(root));
 			root.getStylesheets().add(
 				    getClass().getResource("application.css").toExternalForm());
-			
+			Image image = new Image(getClass().getResourceAsStream("12.png"));
+			primaryStage.getIcons().add(image);
 			primaryStage.setTitle("Software Engineering Team - SET");
 			primaryStage.show();
 		} catch (IOException e) {

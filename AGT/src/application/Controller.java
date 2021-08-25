@@ -17,6 +17,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 public class Controller {
 
@@ -91,6 +92,8 @@ public class Controller {
 
 	@FXML Menu helo;
 
+	@FXML Pane fadeMe;
+
 	@FXML
 	void auskunft_suchen(ActionEvent event) {
 
@@ -103,6 +106,7 @@ public class Controller {
 
 	@FXML
 	void initialize() {
+		
 		try {
 
 			Image logoEins = new Image(getClass().getResourceAsStream("logoSet.png"));
@@ -149,7 +153,7 @@ public class Controller {
 			zubehoerButton.setDisable(false);
 		}
 		username.setText(e.getName());
-
+		
 	}
 
 	@FXML

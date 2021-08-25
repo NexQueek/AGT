@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.tabelle.WeekController">
+   <children>
+      <Label layoutX="502.0" layoutY="7.0" text="KW-Übersicht" underline="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="59.0" text="Name des Werkes: ">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="103.0" text="Getartet am:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TableView layoutX="4.0" layoutY="179.0" prefHeight="179.0" prefWidth="791.0">
+        <columns>
+          <TableColumn fx:id="ExAnsprechpartner" prefWidth="150.0" text="Ansprechpartner" />
+          <TableColumn fx:id="ExPosition" minWidth="0.0" prefWidth="120.0" text="Position/Info" />
+            <TableColumn fx:id="ExHandynr" prefWidth="156.0" text="Handynummer" />
+            <TableColumn fx:id="ExArbeitszeiten" prefWidth="121.0" text="Arbeitszeiten" />
+            <TableColumn fx:id="ExMail" prefWidth="241.0" text="Mail" />
+        </columns>
+      </TableView>
+      <Label layoutX="292.0" layoutY="147.0" text="Externe Informationen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TableView layoutX="4.0" layoutY="414.0" prefHeight="179.0" prefWidth="791.0">
+         <columns>
+            <TableColumn fx:id="BuAnsprechpartner" prefWidth="150.0" text="Ansprechpartner" />
+            <TableColumn fx:id="BuName" minWidth="0.0" prefWidth="120.0" text="BU-Name" />
+            <TableColumn fx:id="BuHandynr" prefWidth="156.0" text="Handynummer" />
+            <TableColumn fx:id="BuFestnetz" prefWidth="121.0" text="Festnetz" />
+            <TableColumn fx:id="BuMail" prefWidth="241.0" text="Mail" />
+         </columns>
+      </TableView>
+      <Label layoutX="247.0" layoutY="384.0" text="Busunternehmer Informationen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="298.0" layoutY="616.0" text="Intern Informationen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TableView layoutX="4.0" layoutY="648.0" prefHeight="179.0" prefWidth="791.0">
+         <columns>
+            <TableColumn fx:id="InAGTBuero" prefWidth="150.0" text="AGT Büro" />
+            <TableColumn fx:id="InPosition" minWidth="0.0" prefWidth="120.0" text="Position" />
+            <TableColumn fx:id="InHandynummer" prefWidth="156.0" text="Handynummer" />
+            <TableColumn fx:id="InFestnetz" prefWidth="121.0" text="Festnetz" />
+            <TableColumn fx:id="InMail" prefWidth="241.0" text="Mail" />
+         </columns>
+      </TableView>
+      <Button layoutX="538.0" layoutY="838.0" mnemonicParsing="false" onAction="#speichern" text="speichern">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Label fx:id="NameDesWerkes" layoutX="198.0" layoutY="59.0" prefHeight="32.0" prefWidth="161.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="GestartetAm" layoutX="198.0" layoutY="103.0" prefHeight="32.0" prefWidth="161.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="NettoUmsatz" layoutX="1001.0" layoutY="109.0" prefHeight="32.0" prefWidth="161.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="BruttoUmsatz" layoutX="1001.0" layoutY="65.0" prefHeight="32.0" prefWidth="161.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="817.0" layoutY="109.0" text="Netto Umsatz:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="817.0" layoutY="65.0" text="Brutto Umsatz:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="817.0" layoutY="155.0" text="Brutto Marge:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="817.0" layoutY="199.0" text="Netto Marge:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="BruttoMarge" layoutX="1001.0" layoutY="155.0" prefHeight="32.0" prefWidth="161.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="NettoMarge" layoutX="1001.0" layoutY="199.0" prefHeight="32.0" prefWidth="161.0" style="-fx-background-color: lightgrey;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

@@ -6,10 +6,14 @@ import java.text.DecimalFormat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 
 
 public class Zubehoer extends AnchorPane{
@@ -168,6 +172,26 @@ public Zubehoer(){
         e.printStackTrace();
     }
 }
+	@FXML
+	void anzeigenAma(ActionEvent event) {
+		Parent root;
+		try {
+			
+			
+			root = FXMLLoader.load(getClass().getResource("/application/tabelle/Table.fxml"));
+			Stage primaryStage = new Stage();
+			primaryStage.setScene(new Scene(root));
+			root.getStylesheets().add(
+				    getClass().getResource("application.css").toExternalForm());
+			Image image = new Image(getClass().getResourceAsStream("12.png"));
+            primaryStage.getIcons().add(image);
+			primaryStage.setTitle("Software Engineering Team - SET");
+			primaryStage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }
 

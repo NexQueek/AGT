@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="239.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.tabelle.WerkController">
+   <children>
+      <Label layoutX="141.0" layoutY="14.0" text="Werk hinzufügen" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="103.0" prefHeight="21.0" prefWidth="122.0" text="Werkname:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="name" layoutX="219.0" layoutY="104.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="stadt" layoutX="219.0" layoutY="139.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="19.0" layoutY="138.0" prefHeight="21.0" prefWidth="122.0" text="Stadt:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="141.0" layoutY="182.0" mnemonicParsing="false" onAction="#abschicken" prefHeight="30.0" prefWidth="136.0" text="Bestätigen">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Label layoutX="19.0" layoutY="68.0" prefHeight="21.0" prefWidth="122.0" text="Auftraggeber:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="auftraggeber" layoutX="219.0" layoutY="69.0" prefHeight="30.0" prefWidth="175.0" />
+   </children>
+</AnchorPane>

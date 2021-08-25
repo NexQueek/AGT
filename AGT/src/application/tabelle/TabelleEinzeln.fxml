@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.tabelle.ClientController">
+   <children>
+      <TableView fx:id="tableEx" layoutX="3.0" layoutY="104.0" prefHeight="893.0" prefWidth="1694.0">
+        <columns>
+          <TableColumn fx:id="busNr" prefWidth="70.0" text="Bus Nr." />
+          <TableColumn fx:id="bemerkungen" prefWidth="115.0" text="Bemerkung" />
+            <TableColumn fx:id="ansprechpartner" prefWidth="149.0" text="Ansprechpartner" />
+            <TableColumn fx:id="kurzel" minWidth="0.0" prefWidth="67.0" text="Kürzel" />
+            <TableColumn fx:id="KW" prefWidth="48.0" text="KW" />
+            <TableColumn fx:id="datum" prefWidth="75.0" text="Datum" />
+            <TableColumn fx:id="abfahrtort" prefWidth="211.0" text="Abfahrtsort" />
+            <TableColumn fx:id="uhrzeit" prefWidth="68.0" text="Uhrzeit" />
+            <TableColumn fx:id="schichtplaner" prefWidth="78.0" text="Schicht" />
+            <TableColumn fx:id="tag" prefWidth="257.0" text="Busunternehmen" />
+            <TableColumn prefWidth="176.0" text="Fahrer" />
+            <TableColumn prefWidth="135.0" text="Handy Nr." />
+            <TableColumn prefWidth="116.0" text="(Soll) Bus Gr." />
+            <TableColumn prefWidth="128.0" text="(Ist) Bus Gr." />
+        </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="56.0" text="Kalenderwoche:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Kalenderwoche" layoutX="174.0" layoutY="52.0" prefHeight="39.0" prefWidth="89.0" />
+      <Button layoutX="294.0" layoutY="47.0" mnemonicParsing="false" onAction="#suchen" text="ausführen">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Label fx:id="client" alignment="CENTER" layoutX="682.0" layoutY="14.0" prefHeight="32.0" prefWidth="336.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

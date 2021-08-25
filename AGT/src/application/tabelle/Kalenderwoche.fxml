@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="252.0" prefWidth="396.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.tabelle.KalenderController">
+   <children>
+      <Label layoutX="43.0" layoutY="55.0" prefHeight="30.0" prefWidth="196.0" text="Kalenderwoche:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="kalender" layoutX="305.0" layoutY="55.0" prefHeight="30.0" prefWidth="72.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="werk" layoutX="230.0" layoutY="101.0" prefHeight="30.0" prefWidth="150.0" />
+      <Label layoutX="43.0" layoutY="101.0" prefHeight="30.0" prefWidth="196.0" text="Werk">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="43.0" layoutY="198.0" mnemonicParsing="false" onAction="#submit" text="Bestätigen">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="244.0" layoutY="198.0" mnemonicParsing="false" onAction="#abbruch" text="Abbrechen">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

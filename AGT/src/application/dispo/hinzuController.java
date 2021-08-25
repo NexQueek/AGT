@@ -57,22 +57,22 @@ public class hinzuController {
 	@FXML Label titleHinzu;
 
     @FXML
+	void initialize() {
+		try {
+			datenBefuellen();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		plzRunterladen();
+		
+	}
+	@FXML
     void closewindow(ActionEvent event) {
     	final Node source = (Node) event.getSource();
         final Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
-    }
-    @FXML
-    void initialize() {
-    	try {
-    		datenBefuellen();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-    	
-    	
-    	plzRunterladen();
-    	
     }
     void plzRunterladen(){
     	String sql = "Select plz From plz.koordinaten";
